@@ -17,6 +17,9 @@ body {
 .clickable {
     cursor: pointer;
 }
+.notification {
+    padding: 15px;
+}
 .layout-boxed html,
 .layout-boxed body {
   height: 100%;

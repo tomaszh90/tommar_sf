@@ -2,6 +2,7 @@
 //php app/console doctrine:generate:entities TomSiteBundle:Seo
 //php app/console doctrine:schema:create 
 //php app/console doctrine:schema:update --force
+
 namespace Tom\SiteBundle\Entity;
 
 use Doctrine\ORM\Mapping as ORM;
@@ -14,7 +15,6 @@ use Symfony\Component\Validator\Constraints as Assert;
  */
 class Seo {
 
-    
     /**
      * @ORM\Column(type="integer")
      * @ORM\Id
@@ -24,16 +24,19 @@ class Seo {
     
    /**
     * @ORM\Column(type="text")
+    * @Assert\NotBlank()
     */
     private $descriptions;
 
    /**
     * @ORM\Column(type="text")
+    * @Assert\NotBlank()
     */
     private $keywords;
     
    /**
-    * @ORM\Column(type="text")
+    * @ORM\Column(type="string", length=250)
+    * @Assert\NotBlank()
     */
     private $h1_index;
     
