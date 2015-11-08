@@ -1,0 +1,4 @@
+tom_site_index:
+    resource: "@TomSiteBundle/Controller/IndexController.php"
+    type: annotation
+    prefix: /

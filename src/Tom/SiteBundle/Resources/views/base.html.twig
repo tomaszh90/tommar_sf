@@ -1,0 +1,31 @@
+<!DOCTYPE html>
+<html lang="pl">
+<head>
+<title>{% spaceless %}{% block pageTitle %}Timeto.pl{% endblock %}{% endspaceless %}</title>
+
+<meta http-equiv="X-UA-Compatible" content="IE=edge">
+<meta http-equiv="Content-Type" content="text/html; charset=utf-8" />
+{#UWAGA#}<meta NAME="ROBOTS" CONTENT="noindex, nofollow" />
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
+<meta property="og:locale" content="pl_PL" />
+
+<meta property="og:title" content="{% spaceless %}{% block ogTitle %}Timeto.pl{% endblock %}{% endspaceless %}" />
+<meta property="og:site_name" content="Timeto.pl"/>
+<meta property="og:image" content="{% block ogImage %}{% endblock %}" />
+<meta name="Description" content="{% spaceless %}{% block metaDescription %}Timeto.pl{% endblock %}{% endspaceless %}">
+<meta property="og:description" content="{% spaceless %}{% block ogDescription %}Timeto.pl{% endblock %}{% endspaceless %}" />
+<meta name="keywords" content="{% spaceless %}{% block metaKeywords %}Timeto{% endblock %}{% endspaceless %}" />
+
+{% block stylesheets %}
+
+{% endblock %}
+</head>
+<body>
+
+{% block pageContainer %}{% endblock %}
+
+{% block javascripts %}
+
+{% endblock %}
+</body>
+</html>

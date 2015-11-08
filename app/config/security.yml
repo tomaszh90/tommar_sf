@@ -1,0 +1,38 @@
+security:
+    encoders:
+        Common\UserBundle\Entity\User:
+            algorithm: bcrypt
+            
+    providers:
+        tom_users:
+            entity:
+                class: CommonUserBundle:User
+                property: username
+
+    firewalls:
+        dev:
+            pattern: ^/(_(profiler|wdt)|css|images|js)/
+            security: false
+
+        tom_security:
+            pattern: ^/
+            anonymous: ~
+            form_login:
+                check_path: _check_path
+                login_path: site_login
+                default_target_path: tom_site_homepage
+            logout:
+                path: _logout
+                target: tom_site_homepage
+                
+            remember_me:
+                key:      "%secret%"
+                lifetime: 31536000 # 365 dni w sekundach
+                path:     /
+                domain:   ~
+                remember_me_parameter: login[remember_me]
+                
+    access_control:
+        #- { path: ^/login, roles: IS_AUTHENTICATED_ANONYMOUSLY, requires_channel: https }
+#        - { path: ^/account-settings, roles: ROLE_USER }
+        - { path: ^/panel, roles: ROLE_ADMIN }

@@ -1,0 +1,11 @@
+common_user:
+    resource: "@CommonUserBundle/Resources/config/routing.yml"
+    prefix:   /
+
+tom_admin:
+    resource: "@TomAdminBundle/Resources/config/routing.yml"
+    prefix:   /panel
+
+tom_site:
+    resource: "@TomSiteBundle/Resources/config/routing.yml"
+    prefix:   /

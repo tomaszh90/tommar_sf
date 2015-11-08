@@ -1,0 +1,4 @@
+services:
+#    tom_site.example:
+#        class: Tom\SiteBundle\Example
+#        arguments: [@service_id, "plain_value", %parameter%]
