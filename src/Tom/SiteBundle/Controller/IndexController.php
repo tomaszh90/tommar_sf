@@ -2,6 +2,7 @@
 
 namespace Tom\SiteBundle\Controller;
 
+use Tom\SiteBundle\Entity\Seo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
@@ -23,7 +24,14 @@ class IndexController extends Controller
     */
     public function indexAction()
     {
+        $id=1;
+        $em = $this->getDoctrine() ->getManager();
+        $seo = $em->getRepository('TomSiteBundle:Seo')->find($id);
         
-       return array();
+        return array (
+            'seo' => $seo
+         );
+        
+       //return array();
     }
 }
