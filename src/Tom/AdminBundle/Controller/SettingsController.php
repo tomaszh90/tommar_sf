@@ -38,11 +38,11 @@ class SettingsController extends Controller
     * 
     * @Template("TomAdminBundle:Settings/Seo:Seo.html.twig")
     */
-    public function SeoAction(Request $request)
+    public function SeoAction(Request $request) //Kompatybilność Symfony 3
     {
-        $id=1;
-       $seo = new Seo();
-        //$request = $this->get('request');
+       $id=1; // brak tworzenia tylko edycja istniejącego wpisu id1
+      // $seo = new Seo();  // Entity Seo
+        //$request = $this->get('request');  // nie potrzebny request
 
     if (is_null($id)) {
         $postData = $request->get('Seo');
@@ -54,13 +54,13 @@ class SettingsController extends Controller
     $form = $this->createForm(new SeoType(), $seo);
 
     if ($request->getMethod() == 'POST') {
-        //$form->handleRequest($request);
+        //$form->handleRequest($request);  // vs $form->bind($request); ?
         $form->bind($request);
         if ($form->isValid()) {
             // perform some action, such as save the object to the database
                         $em->persist($seo);
                         $em->flush();
-                 //$this->addFlash('mykyy_form_notice','Artykuł został przesłany poprawnie!');
+                 $this->addFlash('TomAdminBundle_form_notice','Zmiany zostały zapisane poprawnie!');
             return $this->redirect($this->generateUrl('tom_admin_settings'));
         }
     }
@@ -70,8 +70,5 @@ class SettingsController extends Controller
         'pageTitle' => 'SEO <small>ustawienia witryny</small>',
         'form' => $form->createView()
     ));
-//        return array(
-//            'pageTitle' => 'SEO <small>ustawienia witryny</small>'
-//        );
     }
 }

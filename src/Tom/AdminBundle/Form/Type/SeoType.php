@@ -11,7 +11,7 @@ class SeoType extends AbstractType
                     {
         $builder->add('descriptions', 'text');
         $builder->add('keywords', 'text');
-        //$builder->add('keywords','text');
+        $builder->add('h1_index','text');
         //$builder->add('created', 'date');
         //$builder->add('body','textarea');
         
