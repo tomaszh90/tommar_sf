@@ -22,7 +22,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
 class User implements AdvancedUserInterface, \Serializable {
 
     const DEFAULT_AVATAR = 'default-avatar.jpg';
-    const UPLOAD_DIR = 'uploads/avatars/';
+    const UPLOAD_DIR = 'uploads/user/avatar/';
     
     /**
      * @ORM\Column(type="integer")

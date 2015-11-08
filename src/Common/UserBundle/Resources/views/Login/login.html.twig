@@ -29,13 +29,7 @@
       </div><!-- /.login-logo -->
       <div class="login-box-body">
         <div class="login-box-msg">
-          {% if loginError is defined and loginError is not null %}
-            <div class="alert alert-danger" role="alert">
-                <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-                <span class="sr-only">Error:</span>
-                {{ loginError.message|trans }}
-            </div>
-          {% endif %}
+          {% include 'TomSiteBundle:Template:flashMsg.html.twig' %}
         </div>
 
         {{ form_start(loginForm, {'action': path('_check_path'),'attr': {'novalidate': 'true'} }) }}
@@ -62,8 +56,12 @@
           <a href="#" class="btn btn-block btn-social btn-facebook btn-flat"><i class="fa fa-facebook"></i> Zaloguj przez Facebook</a>
         </div>
 
-        <a href="#">Zapomniałem hasła</a><br>
-        <a href="register.html" class="text-center">Zarejestruj się</a>
+        <a data-form="rememberPasswdForm" class="selectOptionalForm clickable">Zapomniałem hasła</a><br>
+        <a data-form="registerForm" class="selectOptionalForm clickable">Zarejestruj się</a>
+        
+        <div id="rememberPasswdForm" class="optionalForm" style="margin-top: 30px; {% if rememberPasswdForm.email.vars.errors|length %}display: block;{% else %}display: none;{% endif %}">
+            {{ form(rememberPasswdForm, {'attr': {'novalidate': 'true'}}) }}
+        </div>
       </div>
     </div>
 
@@ -78,7 +76,15 @@
       radioClass: 'iradio_square-blue',
       increaseArea: '20%' // optional
     });
+    
     $('#rememberMe').parent().addClass('icheck');
+    
+    $('.selectOptionalForm').on('click', function() {
+        var form = $(this).attr('data-form');
+        
+        $('.optionaForm').hide();
+        $('#' + form).show();
+    });
   });
 </script>
 </body>

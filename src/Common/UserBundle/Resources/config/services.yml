@@ -1,4 +1,8 @@
 services:
-#    common_user.example:
-#        class: Common\UserBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    user_mailer:
+        class: Common\UserBundle\Mailer\UserMailer
+        arguments: [@mailer, "mailer@marcinkuklinski.pl", "Timeto.pl"]
+
+    user_manager:
+        class: Common\UserBundle\Manager\UserManager
+        arguments: [@doctrine, @router, @templating, @security.encoder_factory, @user_mailer]

@@ -17,14 +17,14 @@ class LoginType extends AbstractType{
                 ->add('username', 'text', array(
                     'label' => false,
                     'attr' => array(
-                        'placeholder' => 'Użytkownik',
+                        'placeholder' => 'Nazwa użytkownika',
                         'autocomplete' => 'off'
                     )
                 ))
                 ->add('password', 'password', array(
                     'label' => false,
                     'attr' => array(
-                        'placeholder' => 'Hasło',
+                        'placeholder' => 'Hasło użytkownika',
                         'autocomplete' => 'off'
                     )
                 ))
