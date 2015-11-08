@@ -21,6 +21,8 @@ security:
                 check_path: _check_path
                 login_path: site_login
                 default_target_path: tom_site_homepage
+                username_parameter: login[username]
+                password_parameter: login[password]
             logout:
                 path: _logout
                 target: tom_site_homepage

@@ -17,20 +17,28 @@ class LoginType extends AbstractType{
                 ->add('username', 'text', array(
                     'label' => false,
                     'attr' => array(
-                        'placeholder' => 'Użytkownik'
+                        'placeholder' => 'Użytkownik',
+                        'autocomplete' => 'off'
                     )
                 ))
                 ->add('password', 'password', array(
                     'label' => false,
                     'attr' => array(
-                        'placeholder' => 'Hasło'
+                        'placeholder' => 'Hasło',
+                        'autocomplete' => 'off'
                     )
                 ))
                 ->add('remember_me', 'checkbox', array(
                     'label' => 'Zapamiętaj mnie',
+                    'label_attr' => array(
+                        'id' => 'rememberMe'
+                    )
                 ))
                 ->add('save', 'submit', array(
-                    'label' => 'Zaloguj'
+                    'label' => 'Zaloguj',
+                    'attr' => array(
+                        'class' => 'btn btn-primary btn-block btn-flat'
+                    )
                 ));
     }
     
