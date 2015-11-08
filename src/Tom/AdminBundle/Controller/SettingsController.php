@@ -41,7 +41,8 @@ class SettingsController extends Controller
     public function SeoAction(Request $request)
     {
         $id=1;
-        $request = $this->get('request');
+       $seo = new Seo();
+        //$request = $this->get('request');
 
     if (is_null($id)) {
         $postData = $request->get('Seo');
@@ -53,8 +54,8 @@ class SettingsController extends Controller
     $form = $this->createForm(new SeoType(), $seo);
 
     if ($request->getMethod() == 'POST') {
-        $form->bindRequest($request);
-
+        //$form->handleRequest($request);
+        $form->bind($request);
         if ($form->isValid()) {
             // perform some action, such as save the object to the database
                         $em->persist($seo);
