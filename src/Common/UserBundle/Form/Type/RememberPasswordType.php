@@ -21,7 +21,8 @@ class RememberPasswordType extends AbstractType {
                         new Assert\NotBlank(),
                     ),
                     'attr' => array(
-                        'placeholder' => 'Twój adres e-mail'
+                        'placeholder' => 'Twój adres e-mail',
+                        'autocomplete' => 'off'
                     )
                 ))
                 ->add('submit', 'submit', array(

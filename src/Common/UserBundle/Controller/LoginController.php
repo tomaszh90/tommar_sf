@@ -11,6 +11,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Common\UserBundle\Form\Type\LoginType;
 use Common\UserBundle\Form\Type\RememberPasswordType;
+use Common\UserBundle\Form\Type\RegisterUserType;
+use Common\UserBundle\Entity\User;
 
 /**
  * @Route("/")
@@ -69,11 +71,37 @@ class LoginController extends Controller
 
            }
        }
+       
+
+        $User = new User();
+        $registerUserForm = $this->createForm(new RegisterUserType(), $User);
+        
+        if($Request->isMethod('POST')){
+            $registerUserForm->handleRequest($Request);
+            
+            if($registerUserForm->isValid()){
+                
+                try{
+                    
+                    $userManager = $this->get('user_manager');
+                    $userManager->registerUser($User);
+                    
+                    $this->get('session')->getFlashBag()->add('success', 'Konto zostało utworzone. Na Twoją skrzynkę pocztową została wysłana wiadomość aktywacyjna.');
+                    
+                    return $this->redirect($this->generateUrl('site_login'));
+                    
+                } catch (UserException $exc) {
+                    $this->get('session')->getFlashBag()->add('error', $exc->getMessage());
+                }
+                
+            }
+        }
         
         return array(
             'pageTitle'            => '<strong>Timeto</strong> Panel',
             'loginForm'            => $loginForm->createView(),
-            'rememberPasswdForm'   => $rememberPasswdForm->createView()
+            'rememberPasswdForm'   => $rememberPasswdForm->createView(),
+            'registerUserForm'     => $registerUserForm->createView()
         );
     }
     
@@ -93,7 +121,32 @@ class LoginController extends Controller
             
             $this->get('session')->getFlashBag()->add('success', 'Nowe hasło zostało wysłane na Twój adres e-mail.');
             
-        } catch (Exception $exc) {
+        } catch (UserException $exc) {
+            
+            $this->get('session')->getFlashBag()->add('error', $exc->getMessage());
+            
+        }
+        
+        return $this->redirect($this->generateUrl('site_login'));
+    }
+
+   /**
+    * @Route(
+    *       "/account-activation/{actionToken}",
+    *       name="user_activateAccount"
+    * )
+    * 
+    */
+    public function activateAccountAction($actionToken)
+    {
+        try {
+            
+            $userManager = $this->get('user_manager');
+            $userManager->activateAccount($actionToken);
+            
+            $this->get('session')->getFlashBag()->add('success', 'Twoj konto zostało aktywowane.');
+            
+        } catch (UserException $exc) {
             
             $this->get('session')->getFlashBag()->add('error', $exc->getMessage());
             

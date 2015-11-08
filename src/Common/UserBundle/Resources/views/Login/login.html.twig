@@ -15,6 +15,7 @@
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
 <link rel="stylesheet" href="{{ asset('bundles/tomadmin/admin/css/AdminLTE.css') }}">
+<link rel="stylesheet" href="{{ asset('bundles/tomadmin/admin/css/animate.css') }}">
 <link rel="stylesheet" href="{{ asset('bundles/tomadmin/plugins/iCheck/square/blue.css') }}">
 
 <!--[if lt IE 9]>
@@ -27,7 +28,8 @@
       <div class="login-logo">
         <a href="{{ path('tom_site_homepage') }}">{{ pageTitle|raw }}</a>
       </div><!-- /.login-logo -->
-      <div class="login-box-body">
+
+      <div class="login-box-body animated">
         <div class="login-box-msg">
           {% include 'TomSiteBundle:Template:flashMsg.html.twig' %}
         </div>
@@ -57,10 +59,16 @@
         </div>
 
         <a data-form="rememberPasswdForm" class="selectOptionalForm clickable">Zapomniałem hasła</a><br>
-        <a data-form="registerForm" class="selectOptionalForm clickable">Zarejestruj się</a>
+        <a data-form="registerUserForm" class="selectOptionalForm clickable">Zarejestruj się</a>
         
-        <div id="rememberPasswdForm" class="optionalForm" style="margin-top: 30px; {% if rememberPasswdForm.email.vars.errors|length %}display: block;{% else %}display: none;{% endif %}">
+        <div id="rememberPasswdForm" class="optionalForm" style="margin-top: 30px; display: none;">
+            <h4>Przypomnij hasło</h4>
             {{ form(rememberPasswdForm, {'attr': {'novalidate': 'true'}}) }}
+        </div>
+
+        <div id="registerUserForm" class="optionalForm" style="margin-top: 30px; display: none;">
+            <h4>Rejestracja</h4>
+            {{ form(registerUserForm, {'attr': {'novalidate': 'true'}}) }}
         </div>
       </div>
     </div>
@@ -82,9 +90,23 @@
     $('.selectOptionalForm').on('click', function() {
         var form = $(this).attr('data-form');
         
-        $('.optionaForm').hide();
+        $('.optionalForm').hide();
         $('#' + form).show();
     });
+    
+    $('.optionalForm .form-group').each(function() {
+        if($(this).hasClass('has-error')) {
+            $(this).parent().parent().parent().show();
+{#            $('.login-box-body').addClass('wobble');#}
+            return false;
+        }
+    });
+
+
+    if($('.alert-danger').length > 0) {
+        $('.login-box-body').addClass('wobble');
+    }
+    
   });
 </script>
 </body>
