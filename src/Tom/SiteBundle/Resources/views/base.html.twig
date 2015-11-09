@@ -386,7 +386,12 @@
 {% block pageContainer %}{% endblock %}
 
 {% block javascripts %}
-
+    <script src="{{ asset('bundles/tomadmin/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
+        <!-- Bootstrap 3.3.5 -->
+    <script src="{{ asset('bundles/tomadmin/bootstrap/js/bootstrap.min.js') }}"></script>
+    <script src="{{ asset('bundles/tomsite/js/theme.js') }}"></script>
+    <script src="{{ asset('bundles/tomsite/js/WCircleMenu-min.js') }}"></script>
+    <script src="{{ asset('bundles/tomsite/js/scrolline.js') }}"></script>
 {% endblock %}
 </body>
 </html>
