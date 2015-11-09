@@ -2,3 +2,7 @@ tom_site_index:
     resource: "@TomSiteBundle/Controller/IndexController.php"
     type: annotation
     prefix: /
+tom_site_article:
+    resource: "@TomSiteBundle/Controller/ArticleController.php"
+    type: annotation
+    prefix: /
