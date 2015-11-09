@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Article {
     
-    const DEFAULT_AVATAR = 'default-thumbnail.jpg';
+    const DEFAULT_IMAGE = 'default-thumbnail.jpg';
     const UPLOAD_DIR = 'uploads/article/';
     
     /**
@@ -58,7 +58,7 @@ class Article {
     /**
      * @ORM\Column(type="string", length=80, nullable=true)
      */
-    private $thumbnail = null;
+    private $image = null;
     
     /**
      * @Assert\Image(
@@ -69,9 +69,9 @@ class Article {
      *      maxSize = "1M"
      * )
      */
-    private $thumbnailFile;
+    private $imageFile;
     
-    private $thumbnailTemp;
+    private $imageTemp;
     
     /**
      * @ORM\ManyToOne(
@@ -232,39 +232,39 @@ class Article {
     }
 
     /**
-     * Set thumbnail
+     * Set image
      *
-     * @param string $thumbnail
+     * @param string $image
      * @return Article
      */
-    public function setThumbnail($thumbnail)
+    public function setImage($image)
     {
-        $this->thumbnail = $thumbnail;
+        $this->image = $image;
 
         return $this;
     }
 
     /**
-     * Get thumbnail
+     * Get image
      *
      * @return string 
      */
-    public function getThumbnail()
+    public function getImage()
     {
-        if(null == $this->thumbnail){
-            return Article::UPLOAD_DIR.Article::DEFAULT_AVATAR;
+        if(null == $this->image){
+            return Article::UPLOAD_DIR.Article::DEFAULT_IMAGE;
         }
         
-        return Article::UPLOAD_DIR.$this->thumbnail;
+        return Article::UPLOAD_DIR.$this->image;
     }
     
     
-    public function getThumbnailFile() {
-        return $this->thumbnailFile;
+    public function getImageFile() {
+        return $this->imageFile;
     }
 
-    public function setThumbnailFile(UploadedFile $thumbnailFile) {
-        $this->thumbnailFile = $thumbnailFile;
+    public function setImageFile(UploadedFile $imageFile) {
+        $this->imageFile = $imageFile;
         $this->updateDate = new \DateTime();
         return $this;
     }
@@ -438,14 +438,14 @@ class Article {
             $this->setSlug($this->getTitle());
         }
         
-        if(null !== $this->getThumbnailFile()){
+        if(null !== $this->getImageFile()){
             
-            if(null !== $this->thumbnail){
-                $this->thumbnailTemp = $this->thumbnail;
+            if(null !== $this->image){
+                $this->imageTemp = $this->image;
             }
             
             $fileName = sha1(uniqid(null, true));
-            $this->thumbnail = $fileName.'.'.$this->getThumbnailFile()->guessExtension();
+            $this->image = $fileName.'.'.$this->getImageFile()->guessExtension();
         }
         
         if(null == $this->createDate){
@@ -458,13 +458,13 @@ class Article {
      * @ORM\PostUpdate
      */
     public function postSave(){
-        if(NULL !== $this->getThumbnailFile()){
-            $this->getThumbnailFile()->move($this->getUploadRootDir(), $this->thumbnail);
-            unset($this->thumbnailFile);
+        if(NULL !== $this->getImageFile()){
+            $this->getImagFile()->move($this->getUploadRootDir(), $this->image);
+            unset($this->imageFile);
             
-            if(isset($this->thumbnailTemp)){
-                unlink($this->getUploadRootDir().'/'.$this->thumbnailTemp);
-                unset($this->thumbnailTemp);
+            if(isset($this->imageTemp)){
+                unlink($this->getUploadRootDir().'/'.$this->imageTemp);
+                unset($this->imageTemp);
             }
         }
     }
@@ -473,8 +473,8 @@ class Article {
      * @ORM\PostRemove
      */
     public function postRemove() {
-        if(null !== $this->thumbnail){
-            unlink($this->getUploadRootDir().'/'.$this->thumbnail);
+        if(null !== $this->image){
+            unlink($this->getUploadRootDir().'/'.$this->image);
         }
     }
     
@@ -482,4 +482,28 @@ class Article {
         return __DIR__.'/../../../../web/'.self::UPLOAD_DIR;
     }
     
+
+    /**
+     * Set updateDate
+     *
+     * @param \DateTime $updateDate
+     *
+     * @return Article
+     */
+    public function setUpdateDate($updateDate)
+    {
+        $this->updateDate = $updateDate;
+
+        return $this;
+    }
+
+    /**
+     * Get updateDate
+     *
+     * @return \DateTime
+     */
+    public function getUpdateDate()
+    {
+        return $this->updateDate;
+    }
 }
