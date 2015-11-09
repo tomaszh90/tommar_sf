@@ -76,7 +76,7 @@ class Article {
     /**
      * @ORM\ManyToOne(
      *      targetEntity = "ArticleCategory",
-     *      inversedBy = "article"
+     *      inversedBy = "articles"
      * )
      * 
      * @ORM\JoinColumn(
@@ -132,6 +132,10 @@ class Article {
      */
     private $updateDate = null;
 
+    /**
+     * @ORM\Column(name="published", type="boolean")
+     */
+    private $published;
 
     /**
      * @ORM\OneToMany(
@@ -505,5 +509,29 @@ class Article {
     public function getUpdateDate()
     {
         return $this->updateDate;
+    }
+
+    /**
+     * Set published
+     *
+     * @param boolean $published
+     *
+     * @return Article
+     */
+    public function setPublished($published)
+    {
+        $this->published = $published;
+
+        return $this;
+    }
+
+    /**
+     * Get published
+     *
+     * @return boolean
+     */
+    public function getPublished()
+    {
+        return $this->published;
     }
 }

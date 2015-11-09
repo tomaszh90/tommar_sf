@@ -1,12 +1,11 @@
 <?php
 
 namespace Tom\AdminBundle\Controller;
-use Tom\SiteBundle\Entity\Seo;
+
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 //use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
-use Tom\AdminBundle\Form\Type\SeoType;
 use Symfony\Component\HttpFoundation\Request;
 
 /**

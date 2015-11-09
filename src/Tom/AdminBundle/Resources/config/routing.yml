@@ -2,6 +2,11 @@ tom_admin_dashboard:
     resource: "@TomAdminBundle/Controller/DashboardController.php"
     type: annotation
     prefix: /
+
+tom_admin_articles:
+    resource: "@TomAdminBundle/Controller/ArticlesController.php"
+    type: annotation
+    prefix: /
     
 tom_admin_settings:
     resource: "@TomAdminBundle/Controller/SettingsController.php"

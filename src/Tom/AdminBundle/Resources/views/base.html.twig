@@ -220,9 +220,20 @@
           <!-- Sidebar Menu -->
 {#          {{dump(app.request)}}#}
           <ul class="sidebar-menu">
+            <li class="header">Menu</li>
+            <li class="treeview">
+              <a href="#">
+                <i class="fa fa-newspaper-o"></i>
+                <span>Artykuły</span>
+                <i class="fa fa-angle-left pull-right"></i>
+              </a>
+              <ul class="treeview-menu">
+                <li class="{% if app.request.get('_route') == 'tom_admin_articles' %}active{% endif %}"><a href="{{ path('tom_admin_articles') }}"><i class="fa fa-circle-o"></i> Lista wpisów</a></li>
+              </ul>
+            </li>
+            
             <li class="header">Ustawienia</li>
-            <!-- Optionally, you can add icons to the links -->
-            <li class="treeview active">
+            <li class="treeview">
               <a href="#">
                 <i class="fa fa-laptop"></i>
                 <span>Konfiguracja witryny</span>
