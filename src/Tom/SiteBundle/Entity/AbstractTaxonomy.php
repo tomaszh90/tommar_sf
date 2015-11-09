@@ -38,14 +38,14 @@ abstract class AbstractTaxonomy {
     {
         $this->articles = new \Doctrine\Common\Collections\ArrayCollection();
     }
-
+    
     /**
      * Add articles
      *
      * @param \Tom\SiteBundle\Entity\Article $articles
-     * @return Category
+     * @return ArticleCategory
      */
-    public function addArticle(\Tom\SiteBundle\Entity\Articles $articles)
+    public function addArticle(\Tom\SiteBundle\Entity\Article $articles)
     {
         $this->articles[] = $articles;
 
