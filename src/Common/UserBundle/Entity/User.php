@@ -125,10 +125,6 @@ class User implements AdvancedUserInterface, \Serializable {
      * @var UploadedFile
      * 
      * @Assert\Image(
-     *      minWidth = 50,
-     *      maxWidth = 150,
-     *      minHeight = 50,
-     *      maxHeight = 150,
      *      maxSize = "1M",
      *      groups = {"ChangeDetails"}
      * )
@@ -487,6 +483,8 @@ class User implements AdvancedUserInterface, \Serializable {
         if(null !== $this->getAvatarFile()){
             
             $this->getAvatarFile()->move($this->getUploadRootDir(), $this->avatar);
+            $this->imageResize($this->getUploadRootDir(), $this->avatar);
+
             unset($this->avatarFile);
             
             if(null !== $this->avatarTemp){
@@ -494,6 +492,11 @@ class User implements AdvancedUserInterface, \Serializable {
                 unset($this->avatarTemp);
             }
         }
+    }
+    
+    protected function imageResize($savePath, $imageName = '') 
+    {       
+        \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, '', 150, 150);
     }
     
     protected function getUploadRootDir() {

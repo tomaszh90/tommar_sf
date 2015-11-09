@@ -9,7 +9,7 @@
 <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 <meta property="og:locale" content="pl_PL" />
 <meta property="og:title" content="{{ pageTitle|striptags }}" />
-<meta property="og:site_name" content="Timeto.pl"/>
+<meta property="og:site_name" content=""/>
 
 <link rel="stylesheet" href="{{ asset('bundles/tomadmin/bootstrap/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
@@ -33,7 +33,7 @@
         <div class="login-box-msg">
           {% include 'TomSiteBundle:Template:flashMsg.html.twig' %}
         </div>
-
+        {% form_theme loginForm 'bootstrap_3_layout.html.twig' %}
         {{ form_start(loginForm, {'action': path('_check_path'),'attr': {'novalidate': 'true'} }) }}
             <div class="form-group has-feedback {% if loginForm.username.vars.errors|length %}has-error{% endif %}">
                 {{ form_widget(loginForm.username) }}
@@ -63,13 +63,17 @@
         
         <div id="rememberPasswdForm" class="optionalForm" style="margin-top: 30px; display: none;">
             <h4>Przypomnij hasło</h4>
+            {% form_theme rememberPasswdForm 'bootstrap_3_layout.html.twig' %}
             {{ form(rememberPasswdForm, {'attr': {'novalidate': 'true'}}) }}
         </div>
 
         <div id="registerUserForm" class="optionalForm" style="margin-top: 30px; display: none;">
             <h4>Rejestracja</h4>
+            {% form_theme registerUserForm 'bootstrap_3_layout.html.twig' %}
             {{ form(registerUserForm, {'attr': {'novalidate': 'true'}}) }}
         </div>
+        
+        <div class="clearfix"></div>
       </div>
     </div>
 

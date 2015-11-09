@@ -1,0 +1,30 @@
+{% extends "TomSiteBundle::base.html.twig" %}
+
+{% block pageTitle %}{{ parent() }} {% endblock %}
+{% block ogTitle %}{{ parent() }}   {% endblock %}
+{% block ogImage %}                 {% endblock %}
+{% block metaDescription %}  {% endblock %}
+{% block ogDescription %}   {% endblock %}
+{% block metaKeywords %}         {% endblock %}
+
+{% block pageContainer %}
+<div class="row">
+    <div class="col-xs-12">
+    {% include 'TomSiteBundle:Template:flashMsg.html.twig' %}
+    {{ form_start(accountSettingsForm) }}
+
+        <div class="avatar-row">
+            <img class="img-responsive" src="{{ asset(user.avatar) }}" alt="">
+            {{ form_row(accountSettingsForm.avatarFile) }}
+        </div>
+        
+        {{ form_rest(accountSettingsForm) }}
+
+    {{ form_end(accountSettingsForm) }}
+    
+    {{ form(changePasswdForm, {'attr': {'novalidate': 'true'}}) }}
+    </div>
+</div>
+{% endblock %}
+
+

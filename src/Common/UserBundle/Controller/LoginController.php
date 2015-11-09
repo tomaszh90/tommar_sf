@@ -39,7 +39,7 @@ class LoginController extends Controller
         }
         
         if(isset($loginError)) {
-            $this->get('session')->getFlashBag()->add('error', $loginError->getMessage());
+            $this->addFlash('error', $loginError->getMessage());
         }
         
         $loginForm = $this->createForm(new LoginType(), array(
@@ -59,7 +59,7 @@ class LoginController extends Controller
                     $userManager = $this->get('user_manager');
                     $userManager->sendResetPasswordLink($userEmail);
                     
-                    $this->get('session')->getFlashBag()->add('success', 'Informacje dotyczące resetowania hasła zostały wysłane na adres e-mail.');
+                    $this->addFlash('success', 'Informacje dotyczące resetowania hasła zostały wysłane na adres e-mail.');
                     
                     return $this->redirect($this->generateUrl('site_login'));
                     
@@ -85,13 +85,13 @@ class LoginController extends Controller
                     
                     $userManager = $this->get('user_manager');
                     $userManager->registerUser($User);
-                    
-                    $this->get('session')->getFlashBag()->add('success', 'Konto zostało utworzone. Na Twoją skrzynkę pocztową została wysłana wiadomość aktywacyjna.');
+
+                    $this->addFlash('success', 'Konto zostało utworzone. Na Twoją skrzynkę pocztową została wysłana wiadomość aktywacyjna.');
                     
                     return $this->redirect($this->generateUrl('site_login'));
                     
                 } catch (UserException $exc) {
-                    $this->get('session')->getFlashBag()->add('error', $exc->getMessage());
+                    $this->addFlash('error', $exc->getMessage());
                 }
                 
             }
@@ -119,11 +119,11 @@ class LoginController extends Controller
             $userManager = $this->get('user_manager');
             $userManager->resetPassword($actionToken);
             
-            $this->get('session')->getFlashBag()->add('success', 'Nowe hasło zostało wysłane na Twój adres e-mail.');
+            $this->addFlash('success', 'Nowe hasło zostało wysłane na Twój adres e-mail.');
             
         } catch (UserException $exc) {
             
-            $this->get('session')->getFlashBag()->add('error', $exc->getMessage());
+            $this->addFlash('error', $exc->getMessage());
             
         }
         
@@ -144,11 +144,11 @@ class LoginController extends Controller
             $userManager = $this->get('user_manager');
             $userManager->activateAccount($actionToken);
             
-            $this->get('session')->getFlashBag()->add('success', 'Twoj konto zostało aktywowane.');
+            $this->addFlash('success', 'Twoj konto zostało aktywowane.');
             
         } catch (UserException $exc) {
             
-            $this->get('session')->getFlashBag()->add('error', $exc->getMessage());
+            $this->addFlash('error', $exc->getMessage());
             
         }
         
