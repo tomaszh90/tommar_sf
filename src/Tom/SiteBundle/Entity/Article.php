@@ -65,7 +65,7 @@ class Article {
      *      minWidth = 600,
      *      minHeight = 480,
      *      maxWidth = 1920,
-     *      maxHeight = 1080,
+     *      maxHeight = 1200,
      *      maxSize = "1M"
      * )
      */
@@ -458,11 +458,13 @@ class Article {
      */
     public function postSave(){
         if(NULL !== $this->getImageFile()){
-            $this->getImagFile()->move($this->getUploadRootDir(), $this->image);
+            $this->getImageFile()->move($this->getUploadRootDir(), $this->image);
+            $this->imageResize($this->getUploadRootDir(), $this->image);
+                        
             unset($this->imageFile);
             
             if(isset($this->imageTemp)){
-                unlink($this->getUploadRootDir().'/'.$this->imageTemp);
+                \Tom\SiteBundle\Libs\Utils::removeImage($this->getUploadRootDir(), $this->imageTemp);
                 unset($this->imageTemp);
             }
         }
@@ -473,7 +475,7 @@ class Article {
      */
     public function postRemove() {
         if(null !== $this->image){
-            unlink($this->getUploadRootDir().'/'.$this->image);
+            \Tom\SiteBundle\Libs\Utils::removeImage($this->getUploadRootDir(), $this->image);
         }
     }
     
@@ -481,7 +483,13 @@ class Article {
         return __DIR__.'/../../../../web/'.self::UPLOAD_DIR;
     }
     
-
+    protected function imageResize($savePath, $imageName = '') 
+    {       
+        \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, 'th_', 150, 150);
+        \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, 'sm_', 768, 512);
+        \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, 'md_', 768, 768);
+    }
+    
     /**
      * Set updateDate
      *

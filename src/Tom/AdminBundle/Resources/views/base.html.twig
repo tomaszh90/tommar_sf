@@ -349,45 +349,37 @@
 <script src="{{ asset('bundles/tomadmin/plugins/tinymce/tinymce.min.js') }}"></script>
 <script src="{{ asset('bundles/tomadmin/plugins/select2/select2.full.min.js') }}"></script>
 <script src="{{ asset('bundles/tomadmin/admin/js/app.js') }}"></script>
-    <script>
-    $(function () {
-        //Initialize Select2 Elements
-        $(".select2").select2();
-    });
-    </script>
-    <script>
-    $(document).ready(function()
-    {
-        if($("textarea.tinymce").length > 0) {
+<script>
+$(document).ready(function() {
+    $(".select2").select2();
 
-            tinymce.init({
-                selector: "textarea.tinymce",
-                height: 200,
-                image_advtab : true,    
-                image_class_list: [
-                    {title: 'None', value: ''},
-                    {title: 'Responsywny', value: 'img-responsive'}
-                ],				
+    if($("textarea.tinymce").length > 0) {
 
-                plugins: [
-                 "advlist autolink link image lists charmap print preview hr anchor pagebreak code",
-                 "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
-                 "table contextmenu directionality emoticons paste textcolor responsivefilemanager fontawesome noneditable"
-                ],
-                toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist | numlist | outdent | indent | styleselect",
-                toolbar2: "responsivefilemanager | mybutton | link unlink anchor | image media | forecolor backcolor | preview | code | fontawesome | fontsizeselect",
-                language : 'pl',
-                
-                extended_valid_elements: 'span[class|style|data-mce-style]',
-                external_filemanager_path:"{{ asset('bundles/tomadmin/plugins/tinymce/filemanager/') }}",
-                filemanager_title:"Responsive Filemanager" ,
-                external_plugins: { "filemanager" : "{{ asset('bundles/tomadmin/plugins/tinymce/filemanager/plugin.min.js') }}"},
-                content_css : "{{ asset('bundles/tomadmin/bootstrap/css/bootstrap.css') }},https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+        tinymce.init({
+            selector: "textarea.tinymce",
+            height: 200,
+            image_advtab : true,    
+            image_class_list: [
+                {title: 'None', value: ''},
+                {title: 'Responsywny', value: 'img-responsive'}
+            ],				
+            plugins: [
+             "advlist autolink link image lists charmap print preview hr anchor pagebreak code",
+             "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+             "table contextmenu directionality emoticons paste textcolor responsivefilemanager fontawesome noneditable"
+            ],
+            toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist | numlist | outdent | indent | styleselect",
+            toolbar2: "responsivefilemanager | mybutton | link unlink anchor | image media | forecolor backcolor | preview | code | fontawesome | fontsizeselect",
+            language : 'pl',
+            extended_valid_elements: 'span[class|style|data-mce-style]',
+            external_filemanager_path:"{{ asset('bundles/tomadmin/plugins/tinymce/filemanager/') }}",
+            filemanager_title:"Responsive Filemanager" ,
+            external_plugins: { "filemanager" : "{{ asset('bundles/tomadmin/plugins/tinymce/filemanager/plugin.min.js') }}"},
+            content_css : "{{ asset('bundles/tomadmin/bootstrap/css/bootstrap.css') }},https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+        });
 
-             });
-
-        }
-    });
+    }
+});
 </script>
 {% endblock %}
 
