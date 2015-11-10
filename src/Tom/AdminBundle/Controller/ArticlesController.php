@@ -2,37 +2,18 @@
 
 namespace Tom\AdminBundle\Controller;
 
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
+use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
-use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 use Tom\SiteBundle\Entity\Article;
 use Tom\AdminBundle\Form\Type\ArticleType;
 
-/**
- * @Route("/artykuly")
- */
+
 class ArticlesController extends Controller
 {
-   /**
-    * @Route(
-    *       "/",
-    *       name="tom_admin_articles"
-    * )
-    * 
-    * @Template()
-    */
-    public function ArticlesAction()
-    {
-        $RepoArticles = $this->getDoctrine()->getRepository('TomSiteBundle:Article');
-        $Articles = $RepoArticles->findAll();
-        
-        return array(
-            'articles' => $Articles,
-            'pageTitle' => 'Artykuły <small>lista wpisów</small>'
-        );
-    }
+    private $deleteTokenName = 'delete-article-%d';
     
     /**
      * @Route(
@@ -44,15 +25,12 @@ class ArticlesController extends Controller
      * 
      * @Template()
      */
-    public function formAction(Request $Request, $id = NULL) {
+    public function formAction(Request $Request, Article $Article = NULL) {
 
-        
-        if(null == $id){
+        if(null == $Article){
             $Article = new Article();
             $Article->setAuthor($this->getUser());
             $newArticleForm = TRUE;
-        }else{
-            $Article = $this->getDoctrine()->getRepository('TomSiteBundle:Article')->find($id);
         }
         
         $form = $this->createForm(new ArticleType(), $Article);
@@ -64,7 +42,7 @@ class ArticlesController extends Controller
             $em->persist($Article);
             $em->flush();
 
-            $message = (isset($newArticleForm)) ? 'Poprawnie dodano nowy artykuł.': 'Artykuł został‚ poprawiony.';
+            $message = (isset($newArticleForm)) ? 'Poprawnie dodano nowy artykuł.': 'Artykuł został zaktualizowany.';
             $this->get('session')->getFlashBag()->add('success', $message);
 
             return $this->redirect($this->generateUrl('tom_admin_article_form', array(
@@ -73,10 +51,104 @@ class ArticlesController extends Controller
         }
         
         return array(
+            'pageTitle' => (isset($newArticleForm) ? 'Artykuł <small>utwórz nowy</small>' : 'Artykuł <small>edytujesz:&nbsp;&nbsp;<strong class="color-black">'.$Article->getTitle().'</strong></small>'),
             'currPage' => 'articles',
             'form' => $form->createView(),
             'article' => $Article,
-            'pageTitle' => ($newArticleForm == TRUE ? 'Artykuł <small>utwórz nowy</small>' : 'Artykuł <small>edytuj:</small>')
         );
     }
+    
+    /**
+     * @Route(
+     *      "/{status}/{page}", 
+     *      name="tom_admin_articles",
+     *      requirements={"page"="\d+"},
+     *      defaults={"status"="all", "page"=1}
+     * )
+     * 
+     * @Template()
+     */
+    public function indexAction(Request $request, $status, $page) {
+        
+        $queryParams = array(
+            'titleLike' => $request->query->get('titleLike'),
+            'categoryId' => $request->query->get('categoryId'),
+            'status' => $status
+        );
+        
+        $RepoArticle = $this->getDoctrine()->getRepository('TomSiteBundle:Article');
+        
+        $statistics = $RepoArticle->getStatistics();
+        
+        $qb = $RepoArticle->getQueryBuilder($queryParams);
+        
+        $paginationLimit = $this->container->getParameter('admin.pagination_limit');
+        $limits = array(2, 5, 10, 15);
+        
+        $limit = $request->query->get('limit', $paginationLimit);
+        
+        $paginator = $this->get('knp_paginator');
+        $pagination = $paginator->paginate($qb, $page, $limit);
+        
+        $categoriesList = $this->getDoctrine()->getRepository('TomSiteBundle:ArticleCategory')->getAsArray();
+       
+        $statusesList = array(
+            'Opublikowane' => 'published',
+            'Nieopublikowane' => 'unpublished',
+            'Wszystkie' => 'all'
+        );
+        
+        return array(
+            'pageTitle' => 'Artykuły <small>lista wpisów</small>',
+            'currPage' => 'articles',
+            'queryParams' => $queryParams,
+            'categoriesList' => $categoriesList,
+            
+            'limits' => $limits,
+            'currLimit' => $limit,
+            
+            'statusesList' => $statusesList,
+            'currStatus' => $status,
+            'statistics' => $statistics,
+            
+            'pagination' => $pagination,
+            'currLimit' => $limit,
+            'currStatus' => $status,
+            
+            'deleteTokenName' => $this->deleteTokenName,
+            'csrfProvider' => $this->get('form.csrf_provider')
+        );
+    }
+    
+    /**
+     * @Route(
+     *      "/usun/{id}/{token}", 
+     *      name="tom_admin_article_delete",
+     *      requirements={"id"="\d+"}
+     * )
+     * 
+     * @Template()
+     */
+    public function deleteAction($id, $token) {
+        
+        $tokenName = sprintf($this->deleteTokenName, $id);
+        $csrfProvider = $this->get('form.csrf_provider');
+        
+        if(!$csrfProvider->isCsrfTokenValid($tokenName, $token)){
+            $this->get('session')->getFlashBag()->add('error', 'Niepoprawny token akcji.');
+            
+        }else{
+            
+            $Article = $this->getDoctrine()->getRepository('TomSiteBundle:Article')->find($id);
+            $em = $this->getDoctrine()->getManager();
+            $em->remove($Article);
+            $em->flush();
+            
+            $this->get('session')->getFlashBag()->add('success', 'Poprawnie usunięto artykuł wraz z komentarzami.');
+        }
+        
+        return $this->redirect($this->generateUrl('tom_admin_articles'));
+    }
+    
+
 }

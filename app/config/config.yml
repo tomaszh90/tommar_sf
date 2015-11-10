@@ -80,3 +80,10 @@ swiftmailer:
     username:  "%mailer_user%"
     password:  "%mailer_password%"
     spool:     { type: memory }
+    port:      587
+    encryption: tls
+    auth_mode:  plain
+
+knp_paginator:
+    template:
+        sortable: TomAdminBundle:Pagination:sortable_link.html.twig

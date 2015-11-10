@@ -133,11 +133,6 @@ class Article {
     private $updateDate = null;
 
     /**
-     * @ORM\Column(name="published", type="boolean")
-     */
-    private $published;
-
-    /**
      * @ORM\OneToMany(
      *      targetEntity = "Comment",
      *      mappedBy = "article"
@@ -511,27 +506,4 @@ class Article {
         return $this->updateDate;
     }
 
-    /**
-     * Set published
-     *
-     * @param boolean $published
-     *
-     * @return Article
-     */
-    public function setPublished($published)
-    {
-        $this->published = $published;
-
-        return $this;
-    }
-
-    /**
-     * Get published
-     *
-     * @return boolean
-     */
-    public function getPublished()
-    {
-        return $this->published;
-    }
 }

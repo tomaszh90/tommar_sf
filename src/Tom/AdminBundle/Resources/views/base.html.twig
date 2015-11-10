@@ -20,6 +20,7 @@
 <link rel="stylesheet" href="{{ asset('bundles/tomadmin/bootstrap/css/bootstrap.min.css') }}">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css">
 <link rel="stylesheet" href="https://code.ionicframework.com/ionicons/2.0.1/css/ionicons.min.css">
+<link rel="stylesheet" href="{{ asset('bundles/tomadmin/plugins/select2/select2.min.css') }}">
 <link rel="stylesheet" href="{{ asset('bundles/tomadmin/admin/css/AdminLTE.css') }}">
 <link rel="stylesheet" href="{{ asset('bundles/tomadmin/admin/css/skins/skin-blue.css') }}">
 {% endblock %}
@@ -34,9 +35,9 @@
       <header class="main-header">
 
         <!-- Logo -->
-        <a href="index2.html" class="logo">
+        <a href="{{ path('tom_admin_dashboard') }}" class="logo">
           <!-- mini logo for sidebar mini 50x50 pixels -->
-          <span class="logo-mini"><b>TP</b></span>
+          <span class="logo-mini"><b>TT</b></span>
           <!-- logo for regular state and mobile devices -->
           <span class="logo-lg"><b>Timeto</b>Panel</span>
         </a>
@@ -228,7 +229,22 @@
                 <i class="fa fa-angle-left pull-right"></i>
               </a>
               <ul class="treeview-menu">
+                <li class="{% if app.request.get('_route') == 'tom_admin_article_form' %}active{% endif %}"><a href="{{ path('tom_admin_article_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
                 <li class="{% if app.request.get('_route') == 'tom_admin_articles' %}active{% endif %}"><a href="{{ path('tom_admin_articles') }}"><i class="fa fa-circle-o"></i> Lista wpisów</a></li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Tagi<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li class="{% if app.request.get('_route') == 'tom_admin_tag_form' %}active{% endif %}"><a href="{{ path('tom_admin_tag_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
+                    <li class="{% if app.request.get('_route') == 'tom_admin_tags' %}active{% endif %}"><a href="{{ path('tom_admin_tags') }}"><i class="fa fa-circle-o"></i> Lista wpisów</a></li>
+                  </ul>
+                </li>
+                <li>
+                  <a href="#"><i class="fa fa-circle-o"></i> Kategorie<i class="fa fa-angle-left pull-right"></i></a>
+                  <ul class="treeview-menu">
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
+                    <li><a href="#"><i class="fa fa-circle-o"></i> Lista wpisów</a></li>
+                  </ul>
+                </li>
               </ul>
             </li>
             
@@ -257,7 +273,7 @@
       <footer class="main-footer">
         <!-- To the right -->
         <div class="pull-right hidden-xs">
-            Projekt i realizacja <a href="" target="_blank"><strong>Tomek&Marcin</strong></a>
+            Projekt i realizacja <a href="" target="_blank"><strong>T&M</strong></a>
         </div>
         <strong>Copyright &copy; 2015 <a href="{{ path('tom_site_homepage') }}">Timeto.pl</a>.</strong> Wszelkie prawa zastrzeżone.
       </footer>
@@ -326,12 +342,54 @@
       <div class="control-sidebar-bg"></div>
     </div><!-- ./wrapper -->
     
-
 {% block javascripts %}
 <script src="{{ asset('bundles/tomadmin/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="{{ asset('bundles/tomadmin/bootstrap/js/bootstrap.min.js') }}"></script>
-<script src="{{ asset('bundles/tomadmin/admin/js/app.min.js') }}"></script>
+<script src="{{ asset('bundles/tomadmin/plugins/tinymce/tinymce.min.js') }}"></script>
+<script src="{{ asset('bundles/tomadmin/plugins/select2/select2.full.min.js') }}"></script>
+<script src="{{ asset('bundles/tomadmin/admin/js/app.js') }}"></script>
+    <script>
+    $(function () {
+        //Initialize Select2 Elements
+        $(".select2").select2();
+    });
+    </script>
+    <script>
+    $(document).ready(function()
+    {
+        if($("textarea.tinymce").length > 0) {
+
+            tinymce.init({
+                selector: "textarea.tinymce",
+                height: 200,
+                image_advtab : true,    
+                image_class_list: [
+                    {title: 'None', value: ''},
+                    {title: 'Responsywny', value: 'img-responsive'}
+                ],				
+
+                plugins: [
+                 "advlist autolink link image lists charmap print preview hr anchor pagebreak code",
+                 "searchreplace wordcount visualblocks visualchars insertdatetime media nonbreaking",
+                 "table contextmenu directionality emoticons paste textcolor responsivefilemanager fontawesome noneditable"
+                ],
+                toolbar1: "undo redo | bold italic underline | alignleft aligncenter alignright alignjustify | bullist | numlist | outdent | indent | styleselect",
+                toolbar2: "responsivefilemanager | mybutton | link unlink anchor | image media | forecolor backcolor | preview | code | fontawesome | fontsizeselect",
+                language : 'pl',
+                
+                extended_valid_elements: 'span[class|style|data-mce-style]',
+                external_filemanager_path:"{{ asset('bundles/tomadmin/plugins/tinymce/filemanager/') }}",
+                filemanager_title:"Responsive Filemanager" ,
+                external_plugins: { "filemanager" : "{{ asset('bundles/tomadmin/plugins/tinymce/filemanager/plugin.min.js') }}"},
+                content_css : "{{ asset('bundles/tomadmin/bootstrap/css/bootstrap.css') }},https://maxcdn.bootstrapcdn.com/font-awesome/4.4.0/css/font-awesome.min.css"
+
+             });
+
+        }
+    });
+</script>
 {% endblock %}
+
 </body>
 </html>

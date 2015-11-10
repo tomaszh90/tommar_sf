@@ -19,5 +19,4 @@ class ArticleCategory extends AbstractTaxonomy {
      */
     protected $articles;
     
-    
 }

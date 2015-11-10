@@ -2,12 +2,15 @@
 
 namespace Tom\SiteBundle\Entity;
 
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
 
 
 /**
  * @ORM\MappedSuperclass
  * @ORM\HasLifecycleCallbacks
+ * @UniqueEntity(fields={"name"})
+ * @UniqueEntity(fields={"slug"})
  */
 abstract class AbstractTaxonomy {
     

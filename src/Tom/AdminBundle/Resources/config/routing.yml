@@ -6,9 +6,14 @@ tom_admin_dashboard:
 tom_admin_articles:
     resource: "@TomAdminBundle/Controller/ArticlesController.php"
     type: annotation
-    prefix: /
+    prefix: /artykuly
+    
+tom_admin_tags:
+    resource: "@TomAdminBundle/Controller/TagsController.php"
+    type: annotation
+    prefix: /tagi
     
 tom_admin_settings:
     resource: "@TomAdminBundle/Controller/SettingsController.php"
     type: annotation
-    prefix: /
+    prefix: /ustawienia

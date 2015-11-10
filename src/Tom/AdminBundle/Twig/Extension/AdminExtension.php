@@ -38,6 +38,12 @@ class AdminExtension extends \Twig_Extension {
 //                    ),
         );
     }
+    
+    public function getFilters() {
+        return array(
+            'admin_format_date' => new \Twig_Filter_Method($this, 'adminFormatDate')
+        );
+    }
 
 
     
@@ -54,6 +60,9 @@ class AdminExtension extends \Twig_Extension {
         return $openTag.$text.$closeTag;
     }
     
-
-
+    
+    public function adminFormatDate(\DateTime $datetime) {
+        return $datetime->format('d/m/Y, H:i:s');
+    }
+    
 }

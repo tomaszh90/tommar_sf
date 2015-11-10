@@ -29,8 +29,11 @@ class ArticleType extends AbstractType
                     'placeholder' => 'Alias'
                 )
             ))
-            ->add('content', 'text', array(
-                'label' => 'Treść'
+            ->add('content', 'textarea', array(
+                'label' => 'Treść',
+                'attr' => array(
+                    'class' => 'tinymce'
+                )
             ))
             ->add('imageFile', 'file', array(
                 'label' => 'Zdjęcie'
@@ -54,13 +57,6 @@ class ArticleType extends AbstractType
                 'attr' => array(
                     'placeholder' => 'Dodaj tagi'
                 )
-            ))
-            ->add('published', 'choice', array(
-                'choices' => array(
-                    '1' => 'Opublikowano',
-                    '0' => 'Nie opublikowano'
-                ),
-                'label' =>  'Status'
             ))
             ->add('save', 'submit', array(
                 'label' => 'Zapisz'
