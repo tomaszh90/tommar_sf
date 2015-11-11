@@ -27,9 +27,12 @@ class IndexController extends Controller
         $id=1;
         $em = $this->getDoctrine() ->getManager();
         $seo = $em->getRepository('TomSiteBundle:Seo')->find($id);
+        $em_script = $this->getDoctrine() ->getManager();
+        $javascript = $em_script->getRepository('TomSiteBundle:Javascript')->find($id);
         
         return array (
-            'seo' => $seo
+            'seo' => $seo,
+            'javascript' => $javascript
          );
         
        //return array();

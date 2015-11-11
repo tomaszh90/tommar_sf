@@ -258,6 +258,7 @@
               </a>
               <ul class="treeview-menu">
                 <li class="{% if app.request.get('_route') == 'tom_admin_seo' %}active{% endif %}"><a href="{{ path('tom_admin_seo') }}"><i class="fa fa-circle-o"></i> Seo</a></li>
+                <li class="{% if app.request.get('_route') == 'tom_admin_jacascript' %}active{% endif %}"><a href="{{ path('tom_admin_javascript') }}"><i class="fa fa-circle-o"></i> Javascript</a></li>
               </ul>
             </li>
           </ul><!-- /.sidebar-menu -->

@@ -112,4 +112,49 @@ class SettingsController extends Controller
             'form' => $form->createView()
         );
     }
+    
+    /**
+    * @Route(
+    *       "/javascript/{id}",
+    *       name="tom_admin_javascript",
+    *       defaults = {"id" = 1},
+    *       requirements = {"id" = "\d+"}
+    * )
+    * 
+    * @Template("TomAdminBundle:Settings/Javascript:Javascript.html.twig")
+    */
+    public function JavascriptAction(Request $Request, $id) {
+        
+        $RepoScript = $this->getDoctrine()->getRepository('TomSiteBundle:Javascript');
+        $Script     = $RepoScript->find($id);
+        
+        if(NULL == $Script) {
+            throw $this->createNotFoundException('Nie znaleziono takiego rekordu');
+        }
+        
+        $form = $this->createForm(new \Tom\AdminBundle\Form\Type\JavascriptType(), $Script);
+        
+        if($Request->isMethod('POST')) {
+            $Session = $this->get('session');
+            $form->handleRequest($Request);
+            
+            if($form->isValid()) {
+                
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($Script);
+                $em->flush();
+         
+                $this->addFlash('success','Zmiany zostały zapisane poprawnie!');
+                return $this->redirect($this->generateUrl('tom_admin_javascript'));
+            }
+            else {
+                $this->addFlash('error','Popraw błędy formularza');
+            }
+        }
+        
+        return array(
+            'pageTitle' => 'Script <small>ustawienia witryny</small>',
+            'form' => $form->createView()
+        );
+    }
 }
