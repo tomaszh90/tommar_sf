@@ -7,6 +7,8 @@
 {% block ogDescription %}  {{ seo.descriptions }}         {% endblock %}
 {% block metaKeywords %}   {{ seo.keywords }}         {% endblock %}
 
+{% block javascript %} {{ javascript.scriptHead }} {% endblock %}
+
 {% block stylesheets %}
 {{parent()}}
 {% endblock %}
