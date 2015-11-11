@@ -13,7 +13,7 @@
 {{parent()}}
 {% endblock %}
 
-{% block seoText %}   {{ seo.h1Index }}         {% endblock %}
+{% block seoText %}   {{ seo.h1Index|raw }}         {% endblock %}
 
 {% block pageSlider %}<!-- slider -->
     <div class="slider">
