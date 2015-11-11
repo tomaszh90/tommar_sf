@@ -2,16 +2,21 @@ tom_admin_dashboard:
     resource: "@TomAdminBundle/Controller/DashboardController.php"
     type: annotation
     prefix: /
+    
+tom_admin_article_categories:
+    resource: "@TomAdminBundle/Controller/ArticleCategoriesController.php"
+    type: annotation
+    prefix: /artykuly/kategorie
 
+tom_admin_article_tags:
+    resource: "@TomAdminBundle/Controller/ArticleTagsController.php"
+    type: annotation
+    prefix: /artykuly/tagi
+    
 tom_admin_articles:
     resource: "@TomAdminBundle/Controller/ArticlesController.php"
     type: annotation
     prefix: /artykuly
-    
-tom_admin_tags:
-    resource: "@TomAdminBundle/Controller/TagsController.php"
-    type: annotation
-    prefix: /tagi
     
 tom_admin_settings:
     resource: "@TomAdminBundle/Controller/SettingsController.php"

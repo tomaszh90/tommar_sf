@@ -6,13 +6,13 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-use Symfony\Component\HttpFoundation\JsonResponse;
+//use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Tom\SiteBundle\Entity\Tag;
 use Tom\AdminBundle\Form\Type\TaxonomyType;
 
 
-class TagsController extends Controller
+class ArticleTagsController extends Controller
 {
     private $deleteTokenName = 'delete-%d-tag';
     
