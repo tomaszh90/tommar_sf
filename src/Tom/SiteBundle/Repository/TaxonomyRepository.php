@@ -14,6 +14,12 @@ class TaxonomyRepository extends EntityRepository {
                 ->leftJoin('t.articles', 'a')
                 ->groupBy('t.id');
         
+        if(!empty($params['nameLike'])){
+            $nameLike = '%'.$params['nameLike'].'%';
+            $qb->andWhere('t.name LIKE :nameLike')
+                    ->setParameter('nameLike', $nameLike);
+        }
+        
         return $qb;
     }
     

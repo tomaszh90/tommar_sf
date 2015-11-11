@@ -18,7 +18,7 @@ use Symfony\Component\HttpFoundation\File\UploadedFile;
  */
 class Article {
     
-    const DEFAULT_IMAGE = 'default-thumbnail.jpg';
+    const DEFAULT_IMAGE = 'default-thumbnail.jpeg';
     const UPLOAD_DIR = 'uploads/article/';
     
     /**
@@ -251,10 +251,10 @@ class Article {
     public function getImage()
     {
         if(null == $this->image){
-            return Article::UPLOAD_DIR.Article::DEFAULT_IMAGE;
+            return Article::DEFAULT_IMAGE;
         }
         
-        return Article::UPLOAD_DIR.$this->image;
+        return $this->image;
     }
     
     

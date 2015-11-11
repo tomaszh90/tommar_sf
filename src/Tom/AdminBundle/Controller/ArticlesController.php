@@ -51,7 +51,7 @@ class ArticlesController extends Controller
         }
         
         return array(
-            'pageTitle' => (isset($newArticleForm) ? 'Artykuł <small>utwórz nowy</small>' : 'Artykuł <small>edytujesz:&nbsp;&nbsp;<strong class="color-black">'.$Article->getTitle().'</strong></small>'),
+            'pageTitle' => (isset($newArticleForm) ? 'Artykuł <small>utwórz nowy</small>' : 'Artykuł <small>edycja</small>'),
             'currPage' => 'articles',
             'form' => $form->createView(),
             'article' => $Article,
@@ -112,7 +112,6 @@ class ArticlesController extends Controller
             'statistics' => $statistics,
             
             'pagination' => $pagination,
-            'currLimit' => $limit,
             'currStatus' => $status,
             
             'deleteTokenName' => $this->deleteTokenName,
@@ -135,7 +134,7 @@ class ArticlesController extends Controller
         $csrfProvider = $this->get('form.csrf_provider');
         
         if(!$csrfProvider->isCsrfTokenValid($tokenName, $token)){
-            $this->get('session')->getFlashBag()->add('error', 'Niepoprawny token akcji.');
+            $this->addFlash('error', 'Niepoprawny token akcji.');
             
         }else{
             
@@ -144,7 +143,7 @@ class ArticlesController extends Controller
             $em->remove($Article);
             $em->flush();
             
-            $this->get('session')->getFlashBag()->add('success', 'Poprawnie usunięto artykuł wraz z komentarzami.');
+            $this->addFlash('success', 'Poprawnie usunięto artykuł wraz z komentarzami.');
         }
         
         return $this->redirect($this->generateUrl('tom_admin_articles'));

@@ -6,6 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Tom\SiteBundle\Entity\Tag;
 use Tom\AdminBundle\Form\Type\TaxonomyType;
@@ -27,19 +28,33 @@ class TagsController extends Controller
      */
     public function indexAction(Request $Request, $page) {
         
+        $queryParams = array(
+            'nameLike' => $Request->query->get('nameLike'),
+        );
+        
         $RepoTag = $this->getDoctrine()->getRepository('TomSiteBundle:Tag');
         
-        $qb = $RepoTag->getQueryBuilder();
+        $qb = $RepoTag->getQueryBuilder($queryParams);
         
-        $limit = $this->container->getParameter('admin.pagination_limit');
+        $paginationLimit = $this->container->getParameter('admin.pagination_limit');
+        $limits = array(2, 5, 10, 15);
+        
+        $limit = $Request->query->get('limit', $paginationLimit);
         
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($qb, $page, $limit);
         
         return array(
             'pageTitle' => 'Tagi <small>lista wpisów</small>',
+            
             'currPage' => 'taxonomies',
+            'queryParams' => $queryParams,
+            
             'pagination' => $pagination,
+            
+            'limits' => $limits,
+            'currLimit' => $limit,
+            
             'deleteTokenName' => $this->deleteTokenName,
             'csrfProvider' => $this->get('form.csrf_provider')
         );
@@ -75,7 +90,7 @@ class TagsController extends Controller
 
             $flashMessage = (isset($newTag)) ? 'Poprawnie dodano nowy tag.' : 'Tag został zaktualizowany.';
 
-            $this->get('session')->getFlashBag()->add('success', $flashMessage);
+            $this->addFlash('success', $flashMessage);
 
             return $this->redirect($this->generateUrl('tom_admin_tag_form', array(
                 'id' => $Tag->getId()
@@ -90,6 +105,24 @@ class TagsController extends Controller
             'tag' => $Tag
         );
     }
+    
+//    /**
+//     * @Route(
+//     *      "/ajax/dodaj",
+//     *      name="tom_admin_tag_add_ajax",
+//     *      requirements={
+//     *          "_format": "json",
+//     *          "methods": "POST"
+//     *      }
+//     * )
+//     */
+//    public function addTagAjaxAction(Request $Request) {
+//        $RepoTags = $this->getDoctrine()->getRepository('TomSiteBundle:Tag');
+//        $data = json_decode($Request->getContent(), true);
+//        
+//        return new JsonResponse(true);
+//        
+//    }
     
     
     /**
@@ -107,16 +140,16 @@ class TagsController extends Controller
         $csrfProvider = $this->get('form.csrf_provider');
         
         if(!$csrfProvider->isCsrfTokenValid($tokenName, $token)){
-            $this->get('session')->getFlashBag()->add('error', 'Niepoprawny token akcji!');
+            $this->addFlash('error', 'Niepoprawny token akcji!');
             
-        }else{
+        } else{
             
             $Tag = $this->getDoctrine()->getRepository('TomSiteBundle:Tag')->find($id);
             $em = $this->getDoctrine()->getManager();
             $em->remove($Tag);
             $em->flush();
             
-            $this->get('session')->getFlashBag()->add('success', 'Poprawnie usunięto tag.');
+            $this->addFlash('success', 'Poprawnie usunięto tag.');
         }
         
         return $this->redirect($this->generateUrl('tom_admin_tags'));

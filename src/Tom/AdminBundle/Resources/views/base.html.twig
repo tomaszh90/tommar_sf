@@ -1,6 +1,7 @@
 <!DOCTYPE html>
 <html lang="pl">
 <head>
+<base href="/panel" />
 <title>{% spaceless %}{% block pageTitle %}Panel Administratora - Timeto{% endblock %}{% endspaceless %}</title>
 
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
@@ -30,7 +31,7 @@
 <![endif]-->
 </head>
 <body class="hold-transition skin-blue sidebar-mini">
-  <div class="wrapper">
+  <div class="wrapper" ng-app="adminApp">
       <!-- Main Header -->
       <header class="main-header">
 
@@ -343,6 +344,8 @@
     </div><!-- ./wrapper -->
     
 {% block javascripts %}
+<script src="{{ asset('bundles/tomadmin/angular/angular.min.js') }}"></script>
+<script src="{{ asset('bundles/tomadmin/angular/adminApp.js') }}"></script>
 <script src="{{ asset('bundles/tomadmin/plugins/jQuery/jQuery-2.1.4.min.js') }}"></script>
 <!-- Bootstrap 3.3.5 -->
 <script src="{{ asset('bundles/tomadmin/bootstrap/js/bootstrap.min.js') }}"></script>

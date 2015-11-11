@@ -70,7 +70,7 @@ class ArticleCategoriesController extends Controller
             $em->flush();
 
             $message = (isset($newCategory)) ? 'Poprawnie dodano nową kategorię!': 'Poprawiono dane kategorii';
-            $this->get('session')->getFlashBag()->add('success', $message);
+            $this->addFlash('success', $message);
 
             return $this->redirect($this->generateUrl('admin_categoryForm', array(
                 'id' => $Category->getId()

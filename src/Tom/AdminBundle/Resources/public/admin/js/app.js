@@ -702,6 +702,19 @@ function _init() {
 (function ($) {
 
   'use strict';
+  
+    var $filterSearchForm = $('form.filter-search');
+    $filterSearchForm.find('[name="limit"]').change(function(){
+        $filterSearchForm.submit();
+    });
+
+    $('form [name="limit"]').change(function(){
+        $(this).closest('form').submit();
+    });
+
+    $('form [name="categoryId"]').change(function(){
+        $(this).closest('form').submit();
+    });
 
   $.fn.todolist = function (options) {
     // Render options

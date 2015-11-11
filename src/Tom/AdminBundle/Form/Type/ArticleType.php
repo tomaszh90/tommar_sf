@@ -20,13 +20,13 @@ class ArticleType extends AbstractType
             ->add('title', 'text', array(
                 'label' => 'Tytuł',
                 'attr' => array(
-                    'placeholder' => 'Tytuł'
+                    'autocomplete' => 'off',
                 )
             ))
             ->add('slug', 'text', array(
                 'label' => 'Alias',
                 'attr' => array(
-                    'placeholder' => 'Alias'
+                    'autocomplete' => 'off'
                 )
             ))
             ->add('content', 'textarea', array(
@@ -47,7 +47,11 @@ class ArticleType extends AbstractType
                 'label' => 'Kategoria',
                 'class' => 'Tom\SiteBundle\Entity\ArticleCategory',
                 'property' => 'name',
-                'empty_value' => 'Wybierz kategorię'
+                'empty_value' => 'Wybierz kategorię',
+                'attr' => array(
+                    'class'       => 'select2',
+                    'style'       => 'width: 100%'
+                )
             ))
             ->add('tags', 'entity', array(
                 'label' => 'Tagi',
@@ -55,11 +59,16 @@ class ArticleType extends AbstractType
                 'class' => 'Tom\SiteBundle\Entity\Tag',
                 'property' => 'name',
                 'attr' => array(
-                    'placeholder' => 'Dodaj tagi'
+                    'placeholder' => 'Dodaj tagi',
+                    'class'       => 'select2',
+                    'style'       => 'width: 100%'
                 )
             ))
             ->add('save', 'submit', array(
-                'label' => 'Zapisz'
+                'label' => 'Zapisz',
+                'attr' => array(
+                    'class' => 'btn btn-success'
+                )
             ));
     }
     

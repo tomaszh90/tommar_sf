@@ -19,13 +19,22 @@ class TaxonomyType extends AbstractType
     {
         $builder
             ->add('name', 'text', array(
-                'label' => 'Tytuł'
+                'label' => 'Nazwa',
+                'attr' => array(
+                    'autocomplete' => 'off',
+                )
             ))
             ->add('slug', 'text', array(
-                'label' => 'Alias'
+                'label' => 'Alias',
+                'attr' => array(
+                    'autocomplete' => 'off',
+                )
             ))
             ->add('save', 'submit', array(
-                'label' => 'Zapisz'
+                'label' => 'Zapisz',
+                'attr' => array(
+                    'class' => 'btn btn-success'
+                )
             ));
     }
     
