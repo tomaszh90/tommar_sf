@@ -113,7 +113,7 @@ class SettingsController extends Controller
         );
     }
     
-    /**
+   /**
     * @Route(
     *       "/javascript/{id}",
     *       name="tom_admin_javascript",

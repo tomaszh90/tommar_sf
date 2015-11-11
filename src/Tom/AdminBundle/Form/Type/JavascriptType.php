@@ -16,7 +16,7 @@ class JavascriptType extends AbstractType{
     public function buildForm(FormBuilderInterface $builder, array $options) {
         
         $builder
-            ->add('script_head', 'text', array(
+            ->add('script_head', 'textarea', array(
                 'label' => 'Javascript head',
                 'attr' => array(
                     'autocomplete' => 'off'
