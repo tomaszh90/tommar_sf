@@ -8,6 +8,7 @@
 {% block metaKeywords %}            {% endblock %}
 
 {% block stylesheets %}
+    <link rel="stylesheet" href="{{ asset('bundles/tomadmin/google/css/default.css') }}">
 {{parent()}}
 {% endblock %}
 
@@ -23,9 +24,66 @@
        <section class="content">
             {{ form(form, {'attr': {'novalidate': 'true'}}) }}
        </section>
+       
+       <div class="content">
+       <div class="serps-wrapper clearfix">
 
+<div class="preview-window  clearfix">
+<div class="google-top">
+<span class="google-logo"></span>
+
+<div class="search-wrapper">
+    <span class="google-search emptyMe"></span>
+    <span class="google-btn"></span>
+</div>
+
+</div>
+
+<div class="search-type-bar">
+    <ul class="search-type">
+        <li><span class="active">Internet</span></li>
+        <li>Grafika</li>
+        <li>Filmy</li>
+        <li>Zakupy</li>
+        <li>Wiadomości</li>
+    </ul>
+</div>
+<div class="results">   
+    <p id="title" class="gTitle emptyMe">DUPA</p>
+    <p id="url" class="gUrl emptyMe"></p>
+    <p id="desc" class="gDesc emptyMe"></p>
+</div>
+</div>
+
+<form id="search-form">
+    <fieldset>
+        
+   		<label for="titleInput">Tytuł</label>
+        <div id="titleNum" class="counter">Wielkość tytułu <span class="number">50</span></div>
+        <input type="text" id="titleInput" class="gTitleInput" tabindex="1" value="DUPA"> 
+        
+        <label for="urlInput">Adres URL</label>
+        <div id="urlNum"></div>
+        <input type="text" id="urlInput" class="gUrlInput" tabindex="2">
+        
+        <label for="descInput">Opis strony</label>
+        <div id="descNum" class="counter">Wielkość opisu <span class="number">155</span></div>
+        <textarea type="text" id="descInput" class="gDescInput" tabindex="3"></textarea>
+        
+        <div class="form-group">
+            <label for="searchInput">Słowo szukane</label>
+            <input type="text" class="gSearchInput" id="searchInput" tabindex="4">
+        </div>
+        
+        <input type="submit" class="btn" id="reset" tabindex="5" value="Zrestartuj">
+    </fieldset>
+</form>
+
+</div>
+       </div>
 {% endblock %}
 
 {% block javascripts %}
 {{parent()}}
+<script src="{{ asset('bundles/tomadmin/google/js/functions.js') }}"></script>
 {% endblock %}
