@@ -174,7 +174,7 @@ ul.search-type li {
 	padding: 15px 0 0 0;
 	margin: 0 12px
 }
-.active {
+.active_google {
 	color: red;
 	font-weight: bold;
 	border-bottom: 2px red solid;
