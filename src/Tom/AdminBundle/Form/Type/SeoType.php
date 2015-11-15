@@ -34,6 +34,15 @@ class SeoType extends AbstractType{
                     'autocomplete' => 'off'
                 )
             ))
+            ->add('searchAction', 'text', array(
+                'label' => 'Schema Search',
+                'attr' => array(
+                    'autocomplete' => 'off'
+                )
+            ))
+            ->add('imageFile', 'file', array(
+                'label' => 'Zdjęcie'
+            ))
             ->add('submit', 'submit', array(
                 'label' => 'Zapisz',
                 'attr' => array(

@@ -8,6 +8,8 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Symfony\Component\HttpFoundation\Request;
 
+use Tom\SiteBundle\Entity\Seo;
+
 class SettingsController extends Controller
 {
     
@@ -78,7 +80,13 @@ class SettingsController extends Controller
     * 
     * @Template("TomAdminBundle:Settings/Seo:Seo.html.twig")
     */
-    public function SeoAction(Request $Request, $id) {
+    public function SeoAction(Request $Request, $id, Seo $Seo_site = NULL) {
+        
+        if(null == $Seo_site){
+            $Seo_site = new Seo();
+            $Seo_site->setAuthor($this->getUser());
+            $newSeoForm = TRUE;
+        }
         
         $RepoSeo = $this->getDoctrine()->getRepository('TomSiteBundle:Seo');
         $Seo     = $RepoSeo->find($id);
@@ -109,7 +117,8 @@ class SettingsController extends Controller
         
         return array(
             'pageTitle' => 'SEO <small>ustawienia witryny</small>',
-            'form' => $form->createView()
+            'form' => $form->createView(),
+            'seo' => $Seo_site
         );
     }
     

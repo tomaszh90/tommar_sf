@@ -22,7 +22,8 @@
          </ol>
        </section>   
        <section class="content">
-            {{ form(form, {'attr': {'novalidate': 'true'}}) }}
+              {{ form(form, {'attr': {'novalidate': 'true'}}) }}
+               <img class="img-responsive" src="{{ asset('uploads/image-seo/') }}{{ seo.image }}" />
        </section>
        
        <div class="content">
@@ -80,7 +81,7 @@
 </form>
 
 </div>
-       </div>
+       </div> 
 {% endblock %}
 
 {% block javascripts %}
