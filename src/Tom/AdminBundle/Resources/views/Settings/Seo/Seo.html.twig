@@ -9,6 +9,8 @@
 
 {% block stylesheets %}
     <link rel="stylesheet" href="{{ asset('bundles/tomadmin/google/css/default.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/tomadmin/markitup/markitup/skins/markitup/style.css') }}">
+    <link rel="stylesheet" href="{{ asset('bundles/tomadmin/markitup/markitup/sets/html/style.css') }}">
 {{parent()}}
 {% endblock %}
 
@@ -35,6 +37,7 @@
                         <div class="col-md-12">
                             <div class="form-group">
                                   {{ form(form, {'attr': {'novalidate': 'true'}}) }}
+                                  <!--wysihtml5-toolbar -->
                             </div>
                             <!-- /.form-group -->
                             <div class="box-body">
@@ -110,5 +113,13 @@
 
 {% block javascripts %}
 {{parent()}}
+<script src="{{ asset('bundles/tomadmin/markitup/markitup/jquery.markitup.js') }}"></script>
+<script src="{{ asset('bundles/tomadmin/markitup/markitup/sets/html/set.js') }}"></script>
 <script src="{{ asset('bundles/tomadmin/google/js/functions.js') }}"></script>
+
+<script language="javascript">
+$(document).ready(function()	{
+   $('#seo_form_searchAction').markItUp(mySettings);
+});
+</script>
 {% endblock %}
