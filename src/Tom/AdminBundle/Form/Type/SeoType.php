@@ -41,7 +41,7 @@ class SeoType extends AbstractType{
                 )
             ))
             ->add('imageFile', 'file', array(
-                'label' => 'Zdjęcie'
+                'label' => 'Zdjęcie og'
             ))
             ->add('submit', 'submit', array(
                 'label' => 'Zapisz',
