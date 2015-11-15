@@ -9,7 +9,11 @@ chmod 777:
 struktura katalogów
 
 web/uploads/image-seo/
+
 web/uploads/article/
+
 web/uploads/user/avatar/
+
 web/uploads/filemanager/
+
 web/uploads/filemanager-thumbs/
