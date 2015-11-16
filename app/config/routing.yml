@@ -2,6 +2,10 @@ common_user:
     resource: "@CommonUserBundle/Resources/config/routing.yml"
     prefix:   /
 
+common_user_admin:
+    resource: "@CommonUserBundle/Resources/config/routing-admin.yml"
+    prefix:   /panel/uzytkownicy
+
 tom_admin:
     resource: "@TomAdminBundle/Resources/config/routing.yml"
     prefix:   /panel

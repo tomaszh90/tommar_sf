@@ -702,7 +702,14 @@ function _init() {
 (function ($) {
 
   'use strict';
-  
+    $('.treeview-menu li.active')
+            .parent()
+                .addClass('menu-open').addClass('active')
+            .parent()
+                .addClass('active')
+            .closest('.treeview')
+                .addClass('active');
+    
     var $filterSearchForm = $('form.filter-search');
     $filterSearchForm.find('[name="limit"]').change(function(){
         $filterSearchForm.submit();
@@ -714,6 +721,17 @@ function _init() {
 
     $('form [name="categoryId"]').change(function(){
         $(this).closest('form').submit();
+    });
+    
+    //iCheck for checkbox and radio inputs
+    $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({
+      checkboxClass: 'icheckbox_minimal-blue',
+      radioClass: 'iradio_minimal-blue'
+    });
+    //Red color scheme for iCheck
+    $('input[type="checkbox"].minimal-red, input[type="radio"].minimal-red').iCheck({
+      checkboxClass: 'icheckbox_minimal-red',
+      radioClass: 'iradio_minimal-red'
     });
 
   $.fn.todolist = function (options) {

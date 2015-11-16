@@ -32,10 +32,10 @@ class AdminExtension extends \Twig_Extension {
     
     public function getFunctions() {
         return array(
-//            new \Twig_SimpleFunction('user_data', 
-//                        array($this, 'getUserData'), 
-//                        array('is_safe' => array('html'))
-//                    ),
+            new \Twig_SimpleFunction('print_navigation', 
+                        array($this, 'navigation'), 
+                        array('is_safe' => array('html'))
+                    ),
         );
     }
     
@@ -44,9 +44,34 @@ class AdminExtension extends \Twig_Extension {
             'admin_format_date' => new \Twig_Filter_Method($this, 'adminFormatDate')
         );
     }
-
-
     
+    private $navigationArticle;
+    private $navigationPage;
+
+    public function navigation() {
+        if(!isset($this->navigationArticle)) {
+            $RepoArticle = $this->doctrine->getRepository('TomSiteBundle:Article');
+            $this->navigationArticle = $RepoArticle->getStatistics();
+        }
+        if(!isset($this->navigationPage)) {
+            $RepoPage = $this->doctrine->getRepository('TomSiteBundle:Page');
+            $this->navigationPage = $RepoPage->getStatistics();
+        }
+        
+        return $this->environment->render('TomAdminBundle:Template:navigation.html.twig', array(
+            'navigation' => array(
+                'article' => array(
+                    'count' => $this->navigationArticle
+                ),
+                'page' => array(
+                    'count' => $this->navigationPage
+                )
+            )
+        ));
+    }
+    
+
+        
     public function shorten($text, $length = 200, $wrapTag = 'p') {
         
         $text = html_entity_decode($text);

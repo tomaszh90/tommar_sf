@@ -16,19 +16,18 @@
 </section>
 
 <section class="content">
-
     <div class="row">
         <div class="col-xs-12">
           <div class="box">
             <div class="box-header padding-bottom-15">
               <h3 class="box-title">Lista</h3>
               <div class="box-tools">
-                  <a class="btn btn-block btn-md btn-success pull-right" href="{{ path('tom_admin_tag_form') }}"><small><i class="fa fa-plus"></i></small>&nbsp;&nbsp;Dodaj nowy</a>
+                  <a class="btn btn-block btn-md btn-success pull-right" href="{{ path('tom_admin_article_category_form') }}"><small><i class="fa fa-plus"></i></small>&nbsp;&nbsp;Dodaj nową</a>
               </div>
             </div><!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
 
-                <form action="{{ path('tom_admin_tags') }}" method="get" class="form-inline filter-search padding-top-15 padding-bottom-15" role="form">
+                <form action="{{ path('tom_admin_article_categories') }}" method="get" class="form-inline filter-search padding-top-15 padding-bottom-15" role="form">
                     
                     <div class="col-xs-6 col-md-2 col-lg-1 padding-bottom-15">
                         <div class="form-group limit">
@@ -58,35 +57,32 @@
                 <thead>
                     <tr>
                         <th>{{ knp_pagination_sortable(pagination, 'ID', 't.id') }}</th>
-                        <th>{{ knp_pagination_sortable(pagination, 'Nazwa', 't.name') }}</th>
-                        <th>{{ knp_pagination_sortable(pagination, 'Slug', 't.slug') }}</th>
+                        <th>{{ knp_pagination_sortable(pagination, 'Nazwa', 'p.name') }}</th>
                         <th>{{ knp_pagination_sortable(pagination, 'Ilość przypisanych artykułów', 'articlesCount') }}</th>
                         <th class="actions">Akcje</th>
                     </tr>
                 </thead>
-                {% for row in pagination %}         
-                    {% set tag = row[0] %}
-                    {% set editPath = path('tom_admin_tag_form', {'id': tag.id}) %}
-                    <tr>
-                        <td>{{ tag.id }}</td>
-                        <td><a href="{{ editPath }}">{{ tag.name }}</a></td>
-                        <td>{{ tag.slug }}</td>
-                        <td>{{ row['articlesCount'] }}</td>
-                        <td>
-                            <div class="btn-group">
-                                <a href="{{ editPath }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
-
-                                {% if is_granted('ROLE_ADMIN') %}
-                                    {% set tokenName = csrfProvider.generateCsrfToken(deleteTokenName|format(tag.id)) %}
-                                    {% set deletePath = path('tom_admin_tag_delete', {'id': tag.id, 'token': tokenName}) %}
-                                    <a href="{{ deletePath }}" class="btn btn-danger" data-confirmAction="">
-                                        <span class="glyphicon glyphicon-trash"></span>
-                                    </a>
-                                {% endif %}
-                            </div>
-                        </td>
-                    </tr>
-                {% endfor %}
+                <tbody>
+                    {% for row in pagination %}
+                        {% set category = row[0] %}
+                        {% set editPath = path('tom_admin_article_category_form', {'id': category.id}) %}
+                        <tr>
+                            <td>{{ category.id }}</td>
+                            <td><a href="{{ editPath }}">{{ category.name }}</a></td>
+                            <td>{{ row['articlesCount'] }}</td>
+                            <td>
+                                <div class="btn-group">
+                                    <a href="{{ editPath }}" class="btn btn-primary"><span class="glyphicon glyphicon-edit"></span></a>
+                                    <a href="{{ path('tom_admin_article_category_delete', {'id': category.id}) }}" class="btn btn-danger"><span class="glyphicon glyphicon-trash"></span></a>
+                                </div>
+                            </td>
+                        </tr>
+                     {% else %}
+                        <tr>
+                            <td colspan="8" class="text-center"><br />Brak kategorii spełniejących określone warunki.<br /></td>
+                        </tr>
+                  {% endfor %}
+                </tbody>
             </table>
 
             </div>

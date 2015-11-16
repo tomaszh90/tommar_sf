@@ -15,18 +15,18 @@
   </ol>
 </section>
 
-<section class="content" ng-controller="articleController">
+<section class="content" ng-controller="pagesController">
     {{ form_start(form, {'attr': {'novalidate': 'true'}}) }}
     <div class="row">
         <!-- left column -->
         <div class="col-xs-12 col-md-12 col-lg-7">
             <div class="box box-primary">
               <div class="box-header with-border">
-                  <h3 class="box-title"><strong>{{ article.id is not null or not form.vars.valid ? article.title :'{[{title}]}' }}</strong></h3>
+                  <h3 class="box-title"><strong>{{ page.id is not null or not form.vars.valid ? page.title :'{[{title}]}' }}</strong></h3>
               </div>
 
                 <div class="box-body">
-                    {{ article.id is not null or not form.vars.valid  ? form_row(form.title) : form_row(form.title, {'attr': {'ng-model': 'title'}}) }}
+                    {{ page.id is not null or not form.vars.valid  ? form_row(form.title) : form_row(form.title, {'attr': {'ng-model': 'title'}}) }}
                     {{ form_row(form.slug) }}
                     {{ form_row(form.content) }}
                 </div>
@@ -45,33 +45,15 @@
               </div>
                 <div class="box-body">
                     {{ form_row(form.publishedDate) }}
-                    {{ form_row(form.category) }}
-                    {{ form_row(form.tags) }}
-                </div>
-            </div>
-        </div>
-        <div class="col-xs-12 col-md-6 col-lg-5">
-            <div class="box box-warning">
-              <div class="box-header with-border">
-                  <h3 class="box-title"><strong>Zdjęcie</strong></h3>
-              </div>
-                <div class="box-body">
-                    <div class="col-xs-12 col-md-6">
-                        <img class="img-responsive" src="{{ asset('uploads/article/sm_') }}{{ article.image }}" />
-                    </div>
-                    <div class="col-xs-12 col-md-6">
-                        <h4>{{ article.id is not null ? 'Zaktualizuj zdjęcie' : 'Dodaj zdjęcie' }}</h4>
-                        {{ form_widget(form.imageFile) }}
-                    </div>
                 </div>
             </div>
         </div>
     </div>
-{{ form_end(form) }}
+    {{ form_end(form) }}
 </section>
 {% endblock %}
 
 {% block javascripts %}
 {{parent()}}
-<script src="{{ asset('bundles/tomadmin/angular/controller/articlesController.js') }}"></script>
+<script src="{{ asset('bundles/tomadmin/angular/controller/pagesController.js') }}"></script>
 {% endblock %}

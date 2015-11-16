@@ -25,7 +25,10 @@ class ArticleCategoryDeleteType extends AbstractType {
         
         $builder
             ->add('setNull', 'checkbox', array(
-                'label' => 'Ustaw wszystkie artykuły bez kategorii'
+                'label' => 'Ustaw wszystkie artykuły bez kategorii',
+                'attr' => array(
+                    'class' => 'minimal-red'
+                ),
             ))
             ->add('newCategory', 'entity', array(
                 'label' => 'Wybierz nową kategorię',
@@ -39,7 +42,10 @@ class ArticleCategoryDeleteType extends AbstractType {
                 }
             ))
             ->add('submit', 'submit', array(
-                    'label' => 'Usuń'
+                    'label' => 'Usuń',
+                    'attr' => array(
+                        'class' => 'btn btn-danger'
+                    ),
             ));
     }
 }

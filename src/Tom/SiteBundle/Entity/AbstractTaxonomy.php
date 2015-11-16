@@ -2,9 +2,9 @@
 
 namespace Tom\SiteBundle\Entity;
 
-use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 use Doctrine\ORM\Mapping as ORM;
-
+use Symfony\Component\Validator\Constraints as Assert;
+use Symfony\Bridge\Doctrine\Validator\Constraints\UniqueEntity;
 
 /**
  * @ORM\MappedSuperclass
@@ -23,6 +23,7 @@ abstract class AbstractTaxonomy {
     
     /**
      * @ORM\Column(type="string", length=120, unique=true)
+     * @Assert\NotBlank
      */
     private $name;
     

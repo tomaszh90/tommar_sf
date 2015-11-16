@@ -86,7 +86,11 @@
                             </div>
                         </td>
                     </tr>
-                {% endfor %}
+                    {% else %}
+                    <tr>
+                        <td colspan="8" class="text-center"><br />Brak tagów spełniejących określone warunki.<br /></td>
+                    </tr>
+                  {% endfor %}
             </table>
 
             </div>

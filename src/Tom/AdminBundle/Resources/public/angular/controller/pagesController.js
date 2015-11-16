@@ -1,4 +1,4 @@
-adminApp.controller('articleController', function($scope, $http) {
+adminApp.controller('pagesController', function($scope, $http) {
     
 //    $scope.addTag = function() {
 //        var string = $('#addTag').val();

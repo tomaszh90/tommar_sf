@@ -447,7 +447,7 @@ class Article {
             $this->image = $fileName.'.'.$this->getImageFile()->guessExtension();
         }
         
-        if(null == $this->createDate){
+        if(null === $this->createDate){
             $this->createDate = new \DateTime();
         }
     }

@@ -1,0 +1,57 @@
+{% extends "TomAdminBundle::base.html.twig" %}
+
+{% block pageTitle %}{{ pageTitle|striptags }} - {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+{% endblock %}
+
+{% block pageContainer %}
+<section class="content-header">
+  <h1>{{ pageTitle|raw }}</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+    <li class="active">Here</li>
+  </ol>
+</section>
+
+<section class="content" ng-controller="articleController">
+    <div class="row">
+    {{ form_start(manageUserForm, {'attr': {'novalidate': 'true'}}) }}
+        <div class="col-xs-12 {% if user.id is not null %}col-md-6{% endif %}">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                  <h3 class="box-title"><strong>{{ user.id is not null ? user.username :'{[{username}]}' }}</strong></h3>
+              </div>
+
+                <div class="box-body">
+                    {{ user.id is not null ? form_row(manageUserForm.username) : form_row(manageUserForm.username, {'attr': {'ng-model': 'username'}}) }}
+                    {{ form_rest(manageUserForm) }}
+                </div>
+
+            </div>
+        </div>
+    {{ form_end(manageUserForm) }}
+
+    {% if user.id is not null %}
+        <div class="col-xs-12 col-md-6">
+            <div class="box box-warning">
+                <div class="box-header with-border">
+                    <h3 class="box-title">Zmiana hasła</h3>
+                </div>
+
+                <div class="box-body">
+                    {{ form(changePasswdForm, {'attr': {'novalidate': 'true'}}) }}
+                </div>
+
+            </div>
+        </div>
+    {% endif %}
+    </div>
+</section>
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+<script src="{{ asset('bundles/tomadmin/angular/controller/articlesController.js') }}"></script>
+{% endblock %}

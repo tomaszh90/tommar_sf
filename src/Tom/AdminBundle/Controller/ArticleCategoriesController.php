@@ -59,25 +59,39 @@ class ArticleCategoriesController extends Controller {
      * @Route(
      *      "/{page}", 
      *      name="tom_admin_article_categories",
+     *      requirements={"page"="\d+"},
      *      defaults={"page"=1}
      * )
      * 
      * @Template()
      */
-    public function indexAction($page) {
+    public function indexAction(Request $Request, $page) {
+        
+        $queryParams = array(
+            'nameLike' => $Request->query->get('nameLike'),
+        );
         
         $RepoCategory = $this->getDoctrine()->getRepository('TomSiteBundle:ArticleCategory');
         $qb = $RepoCategory->getQueryBuilder();
         
-        $limit = $this->container->getParameter('admin.pagination_limit');
+        $paginationLimit = $this->container->getParameter('admin.pagination_limit');
+        $limits = array(2, 5, 10, 15);
+        $limit = $Request->query->get('limit', $paginationLimit);
         
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($qb, $page, $limit);
+        
             
         return array(
             'pageTitle' => 'Kategorie artykułów <small>lista wpisów</small>',
-            'currPage'   => 'taxonomies',
-            'pagination' => $pagination
+            
+            'currPage' => 'taxonomies',
+            'queryParams' => $queryParams,
+            
+            'pagination' => $pagination,
+            
+            'limits' => $limits,
+            'currLimit' => $limit,
         );
     }
     
@@ -111,15 +125,16 @@ class ArticleCategoriesController extends Controller {
                 $modifiedArticles = $RepoArticle->moveToCategory($Category->getId(), $newCategoryId);
                 
                 $em = $this->getDoctrine()->getManager();
-                $em->persist($Category);
+                $em->remove($Category);
                 $em->flush();
                 
-                $Request->addFlash('success', sprintf('Kategoria została usunięta. Zostało zmodyfikowanych %d artykułów.', $modifiedArticles));
+                $this->addFlash('success', sprintf('Kategoria została usunięta.'));
+                $this->addFlash('warning', sprintf('Zostało zmodyfikowanych %d artykułów.', $modifiedArticles));
                 
                 return $this->redirect($this->generateUrl('tom_admin_article_categories'));
                 
             } else{
-                $Request->addFlash('error', 'Musisz wybrać nowa kategorię lub zaznaczyć checkbox.');
+                $this->addFlash('error', 'Musisz wybrać nowa kategorię lub zaznaczyć checkbox.');
             }
         }          
         

@@ -43,7 +43,7 @@ class ArticlesController extends Controller
             $em->flush();
 
             $message = (isset($newArticleForm)) ? 'Poprawnie dodano nowy artykuł.': 'Artykuł został zaktualizowany.';
-            $this->get('session')->getFlashBag()->add('success', $message);
+            $this->addFlash('success', $message);
 
             return $this->redirect($this->generateUrl('tom_admin_article_form', array(
                 'id' => $Article->getId()
@@ -149,5 +149,4 @@ class ArticlesController extends Controller
         return $this->redirect($this->generateUrl('tom_admin_articles'));
     }
     
-
 }

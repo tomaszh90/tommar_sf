@@ -3,6 +3,11 @@ tom_admin_dashboard:
     type: annotation
     prefix: /
     
+tom_admin_pages:
+    resource: "@TomAdminBundle/Controller/PagesController.php"
+    type: annotation
+    prefix: /strony    
+
 tom_admin_article_categories:
     resource: "@TomAdminBundle/Controller/ArticleCategoriesController.php"
     type: annotation

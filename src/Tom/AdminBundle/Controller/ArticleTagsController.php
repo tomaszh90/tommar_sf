@@ -33,12 +33,10 @@ class ArticleTagsController extends Controller
         );
         
         $RepoTag = $this->getDoctrine()->getRepository('TomSiteBundle:Tag');
-        
         $qb = $RepoTag->getQueryBuilder($queryParams);
         
         $paginationLimit = $this->container->getParameter('admin.pagination_limit');
         $limits = array(2, 5, 10, 15);
-        
         $limit = $Request->query->get('limit', $paginationLimit);
         
         $paginator = $this->get('knp_paginator');
