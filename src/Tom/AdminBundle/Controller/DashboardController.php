@@ -19,8 +19,13 @@ class DashboardController extends Controller
     */
     public function indexAction()
     {
+        $user = $this->getUser();
+
+         // the above is a shortcut for this
+        $user = $this->get('security.token_storage')->getToken()->getUser();
         return array(
-            'pageTitle' => 'Dashboard <small>najnowsze zdarzenia</small>'
+            'pageTitle' => 'Dashboard <small>najnowsze zdarzenia</small>',
+            'user' => $user
         );
     }
 }
