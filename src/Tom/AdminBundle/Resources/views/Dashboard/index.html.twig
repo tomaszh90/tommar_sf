@@ -20,6 +20,15 @@
   </ol>
 </section>
 
+  <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
+    {{ form_widget(messengerform) }}
+    <p>
+        <button type="submit">Utwórz</button>
+    </p>
+</form>
+  
+  
+  
 <section class="content">
 {{ app.user.username }}
 <img src="{{ asset(app.user.avatar) }}" class="img-circle" alt="User Image">
@@ -119,9 +128,47 @@
               </div>
               <!--/.direct-chat -->
             </div>
+
+
+
 </section>
 {% endblock %}
 
 {% block javascripts %}
 {{parent()}}
+<script>
+    function messengerForm( $form, callback ){
+ 
+  /*
+   * Get all form values
+   */
+  var values = {};
+  $.each( $form.serializeArray(), function(i, field) {
+    values[field.name] = field.value;
+  });
+ 
+  /*
+   * Throw the form values to the server!
+   */
+  $.ajax({
+    type        : $form.attr( 'method' ),
+    url         : $form.attr( 'action' ),
+    data        : values,
+    success     : function(data) {
+      callback( data );
+    }
+  });
+ 
+}
+$(document).ready(function(){
+ 
+$( 'form' ).submit( function( e ) {
+e.preventDefault();
+messengerForm( $(this), function( response ) {
+console.log(JSON.stringify(response)); 
+});
+  });
+ 
+});
+</script>
 {% endblock %}
