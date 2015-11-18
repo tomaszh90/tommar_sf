@@ -19,7 +19,9 @@
     <li class="active">Here</li>
   </ol>
 </section>
-
+ {% for flashMessage in app.session.flashbag.get('success') %}
+      {{ flashMessage }}
+{% endfor %}    
   <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
     {{ form_widget(messengerform) }}
     <p>
