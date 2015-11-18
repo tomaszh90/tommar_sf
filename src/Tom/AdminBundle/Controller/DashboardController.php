@@ -7,9 +7,9 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
-use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 use Tom\AdminBundle\Form\Type\MessengerType;
+use Tom\SiteBundle\Entity\Messenger;
 
 class DashboardController extends Controller
 {
@@ -22,27 +22,27 @@ class DashboardController extends Controller
     * 
     * @Template()
     */
-    public function indexAction()
+    public function indexAction(Messenger $messenger = NULL)
     {
-    $RepoScript = $this->getDoctrine()->getRepository('TomSiteBundle:Messenger');
-   // $Script     = $RepoScript->find($id);
+        $messenger = new Messenger();
         $request = $this->getRequest();
-    $messengerform = $this->createForm( new MessengerType() );
+    $messengerform = $this->createForm( new MessengerType(), $messenger );
  
     if ( $request->isMethod( 'POST' ) ) {
+        $Session = $this->get('session');
         $messengerform->submit( $request ); 
         if ( $messengerform->isValid( ) ) { 
            /*
             * $data['contents']
             */
-            $em = $this->getDoctrine()->getManager();
-                //$em->persist($Script);
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($messenger);
                 $em->flush();
-            $data = $messengerform->getData(); 
-            $response['success'] = true;
+                $data = $messengerform->getData(); 
+                $response['success'] = true;
         }else{
             $response['success'] = false;
-            $response['cause'] = 'whatever';
+            $response['cause'] = 'blah';
         }
             return new JsonResponse( $response );
         }
