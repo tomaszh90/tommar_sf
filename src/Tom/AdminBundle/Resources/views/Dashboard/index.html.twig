@@ -12,20 +12,24 @@
 {% endblock %}
 
 {% block pageContainer %}
+    <div class="notification success buba" id="sprawdzam">
+    <div class="alert alert-success" role="alert">
+        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+        <span class="sr-only">Success:</span>
+        Poprawie przesłano do bazy!
+    </div>
+</div>  
 <section class="content-header">
   <h1>{{ pageTitle|raw }}</h1>
   <ol class="breadcrumb">
     <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
     <li class="active">Here</li>
   </ol>
-</section>
- {% for flashMessage in app.session.flashbag.get('success') %}
-      {{ flashMessage }}
-{% endfor %}    
+</section> 
   <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
     {{ form_widget(messengerform) }}
     <p>
-        <button type="submit">Utwórz</button>
+        <button type="submit" id="wyslij">Utwórz</button>
     </p>
 </form>
   
@@ -167,10 +171,11 @@ $(document).ready(function(){
 $( 'form' ).submit( function( e ) {
 e.preventDefault();
 messengerForm( $(this), function( response ) {
+    $("#sprawdzam").show().delay(3000).fadeOut();
+     $("#MessengerType_contents").val("");
 console.log(JSON.stringify(response)); 
 });
   });
- 
 });
 </script>
 {% endblock %}

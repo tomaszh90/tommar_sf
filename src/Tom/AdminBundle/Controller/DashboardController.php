@@ -38,7 +38,7 @@ class DashboardController extends Controller
                 $em->persist($messenger);
                 $em->flush();
                 $data = $messengerform->getData(); 
-                $this->addFlash('success','Git!');
+                //$this->addFlash('success','Git!');
                 $response['success'] = true;
         }else{
             $response['success'] = false;
