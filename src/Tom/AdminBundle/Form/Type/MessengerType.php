@@ -9,7 +9,12 @@ class MessengerType extends AbstractType
 {
   public function buildForm( FormBuilderInterface $builder, array $options) {
   
-    $builder->add( 'contents', 'text' );
+    $builder->add( 'contents', 'text', array(
+                'label' => 'Treść:',
+                 'attr' => array(
+                    'class' => 'form-control'
+                )
+            )); 
     //$builder->add( 'body',  'textarea' );
   }
  

@@ -24,9 +24,15 @@ class DashboardController extends Controller
     public function indexAction(Messenger $messenger = NULL)
     {
         $messenger = new Messenger();
+        $messenger->setAuthorMess($this->getUser());
+        $messenger->setUpdateDate(new \DateTime());
         $request = $this->getRequest();
+        
     $messengerform = $this->createForm( new MessengerType(), $messenger );
- 
+
+     $repository = $this->getDoctrine()
+			->getRepository('TomSiteBundle:Messenger');
+     $users = $repository->findAll();
     if ( $request->isMethod( 'POST' ) ) {
         $Session = $this->get('session');
         $messengerform->submit( $request ); 
@@ -46,9 +52,11 @@ class DashboardController extends Controller
         }
             return new JsonResponse( $response );
         }
+        
         return array(
         'messengerform' => $messengerform->createView(),
         'pageTitle' => 'Dashboard <small>najnowsze zdarzenia</small>',
+            'entities' => $users,
         );
 }
         

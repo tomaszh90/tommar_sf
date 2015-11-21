@@ -13,11 +13,11 @@
 
 {% block pageContainer %}
     <div class="notification success buba" id="sprawdzam">
-    <div class="alert alert-success" role="alert">
+   <!-- <div class="alert alert-success" role="alert">
         <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="sr-only">Success:</span>
+        <span class="sr-only">Success:</span>-->
         Poprawie przesłano do bazy!
-    </div>
+    <!--</div>-->
 </div>  
 <section class="content-header">
   <h1>{{ pageTitle|raw }}</h1>
@@ -26,14 +26,8 @@
     <li class="active">Here</li>
   </ol>
 </section> 
-  <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
-    {{ form_widget(messengerform) }}
-    <p>
-        <button type="submit" id="wyslij">Utwórz</button>
-    </p>
-</form>
-  
-  
+
+
   
 <section class="content">
 {{ app.user.username }}
@@ -58,34 +52,35 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                   <!-- Conversations are loaded here -->
-                  <div class="direct-chat-messages">
+                  <div class="direct-chat-messages" id="spr">
                     <!-- Message. Default to the left -->
+                     {% for entitie in entities %}
                     <div class="direct-chat-msg">
                       <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">admin</span>
-                        <span class="direct-chat-timestamp pull-right">23 Jan 2:00 pm</span>
+                        <span class="direct-chat-name pull-left">{{ entitie.id }}</span>
+                        <span class="direct-chat-timestamp pull-right"></span>
                       </div>
                       <!-- /.direct-chat-info -->
                       <img class="direct-chat-img" src="/timeto/web/uploads/user/avatar/default-avatar.jpg" alt="message user image"><!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
-                        Is this template really for free? That's unbelievable!
+                       {{ entitie.contents }}
                       </div>
                       <!-- /.direct-chat-text -->
-                    </div>
+                    </div>{% endfor %}
                     <!-- /.direct-chat-msg -->
 
-                    <!-- Message to the right -->
+                    <!-- Message to the right
                     <div class="direct-chat-msg right">
                       <div class="direct-chat-info clearfix">
                         <span class="direct-chat-name pull-right">admin</span>
                         <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
                       </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="/timeto/web/uploads/user/avatar/default-avatar.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                      <!-- /.direct-chat-info 
+                      <img class="direct-chat-img" src="/timeto/web/uploads/user/avatar/default-avatar.jpg" alt="message user image"><!-- /.direct-chat-img 
                       <div class="direct-chat-text">
                         You better believe it!
                       </div>
-                      <!-- /.direct-chat-text -->
+                      <!-- /.direct-chat-text 
                     </div>
                     <!-- /.direct-chat-msg -->
 
@@ -121,11 +116,11 @@
                 </div>
                 <!-- /.box-body -->
                 <div class="box-footer">
-                  <form action="#" method="post">
+                  <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
                     <div class="input-group">
-                      <input type="text" name="message" placeholder="Type Message ..." class="form-control">
+                     {{ form_widget(messengerform) }}
                           <span class="input-group-btn">
-                            <button type="button" class="btn btn-warning btn-flat">Send</button>
+                            <button type="submit" id="wyslij" class="btn btn-warning btn-flat">Send</button>
                           </span>
                     </div>
                   </form>
@@ -173,6 +168,7 @@ e.preventDefault();
 messengerForm( $(this), function( response ) {
     $("#sprawdzam").show().delay(3000).fadeOut();
      $("#MessengerType_contents").val("");
+     $('#spr').load(document.URL +  ' #spr');
 console.log(JSON.stringify(response)); 
 });
   });
