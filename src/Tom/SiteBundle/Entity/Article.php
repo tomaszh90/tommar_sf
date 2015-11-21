@@ -143,6 +143,11 @@ class Article {
     private $comments;
     
     /**
+     * @ORM\Column(type="string", length=200, nullable=true)
+     */
+    private $metaDescription = null;
+    
+    /**
      * Constructor
      */
     public function __construct()
@@ -485,7 +490,7 @@ class Article {
     
     protected function imageResize($savePath, $imageName = '') 
     {       
-        \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, 'th_', 150, 150);
+        \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, 'th_', 100, 100);
         \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, 'sm_', 768, 512);
         \Tom\SiteBundle\Libs\Utils::imageResize($savePath, $imageName, 'md_', 768, 768);
     }
@@ -514,4 +519,28 @@ class Article {
         return $this->updateDate;
     }
 
+
+    /**
+     * Set metaDescription
+     *
+     * @param string $metaDescription
+     *
+     * @return Article
+     */
+    public function setMetaDescription($metaDescription)
+    {
+        $this->metaDescription = $metaDescription;
+
+        return $this;
+    }
+
+    /**
+     * Get metaDescription
+     *
+     * @return string
+     */
+    public function getMetaDescription()
+    {
+        return $this->metaDescription;
+    }
 }

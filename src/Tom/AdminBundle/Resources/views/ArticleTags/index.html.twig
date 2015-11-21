@@ -79,7 +79,7 @@
                                 {% if is_granted('ROLE_ADMIN') %}
                                     {% set tokenName = csrfProvider.generateCsrfToken(deleteTokenName|format(tag.id)) %}
                                     {% set deletePath = path('tom_admin_tag_delete', {'id': tag.id, 'token': tokenName}) %}
-                                    <a href="{{ deletePath }}" class="btn btn-danger" data-confirmAction="">
+                                    <a href="{{ deletePath }}" class="btn btn-danger" data-confirmAction="" onclick="return confirm('Czy potwierdzasz usunięcie?');">
                                         <span class="glyphicon glyphicon-trash"></span>
                                     </a>
                                 {% endif %}

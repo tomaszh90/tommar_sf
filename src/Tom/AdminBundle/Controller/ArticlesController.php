@@ -149,4 +149,39 @@ class ArticlesController extends Controller
         return $this->redirect($this->generateUrl('tom_admin_articles'));
     }
     
+    /**
+     * @Route(
+     *      "/rebuild/metadesc"
+     * )
+     */
+    public function rebuildMetadesc() {
+        $RepoArticles = $this->getDoctrine()->getRepository('TomSiteBundle:Article');
+        $Articles = $RepoArticles->findBy(array('metaDescription' => NULL));
+        
+        if(NULL == $Articles) {
+            $this->addFlash('error', 'Wszystkie artykuły posiadają dane meta description!');
+
+            return $this->redirect($this->generateUrl('tom_admin_articles'));
+        }
+        
+        foreach($Articles as $Article) {
+            $Article->setMetadescription($this->shorten($Article->getContent()));
+            
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Article);
+            $em->flush();
+        }
+    }
+    
+    protected function shorten($text, $length = 160) {
+        
+        $text = html_entity_decode($text);
+        $text = strip_tags($text);
+        if(strlen($text) > $length) {
+            $text = substr($text, 0, $length).'...';
+        }
+        
+        return trim($text);
+    }
+    
 }
