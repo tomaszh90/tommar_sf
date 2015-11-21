@@ -46,7 +46,7 @@ class DashboardController extends Controller
                 $response['success'] = true;
         }else{
             $response['success'] = false;
-            $response['cause'] = 'blah';
+            $response['errors'] = 'blah';
         }
             return new JsonResponse( $response );
         }

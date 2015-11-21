@@ -52,7 +52,8 @@
                 <!-- /.box-header -->
                 <div class="box-body">
                   <!-- Conversations are loaded here -->
-                  <div class="direct-chat-messages" id="spr">
+                  <div class="direct-chat-messages">
+                      <div id="spr">
                     <!-- Message. Default to the left -->
                      {% for entitie in entities %}
                          {% if entitie.authorMess.username == app.user.username %}
@@ -103,7 +104,7 @@
 
 
                   
-
+                   </div>
                   </div>
                   <!--/.direct-chat-messages-->
 
@@ -112,7 +113,7 @@
                     <ul class="contacts-list">
                       <li>
                         <a href="#">
-                          <img class="contacts-list-img" src="dist/img/user1-128x128.jpg">
+                          <img class="contacts-list-img" src="">
 
                           <div class="contacts-list-info">
                                 <span class="contacts-list-name">
@@ -172,8 +173,14 @@
     url         : $form.attr( 'action' ),
     data        : values,
     success     : function(data) {
-      callback( data );
-    }
+        if(data['success']===true){
+callback( data );
+}
+ 
+if(data['success']===false){
+ callback( data );
+}       
+     }
   });
  
 }
@@ -190,11 +197,12 @@ console.log(JSON.stringify(response));
 });
   });
 });
-function myFunction() {
+$( "#MessengerType_contents" ).one( "click", function() {
+    $("#MessengerType_contents").attr("placeholder", "Czatuj...");
      setInterval(function(){
       $('#spr').load(document.URL +  ' #spr');
-      $("#MessengerType_contents").attr("placeholder", "Czatuj...");
+      
  },3000);
-}
+});
 </script>
 {% endblock %}

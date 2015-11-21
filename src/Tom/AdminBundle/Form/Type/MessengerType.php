@@ -13,7 +13,7 @@ class MessengerType extends AbstractType
                 'label' => 'Treść:',
                  'attr' => array(
                     'class' => 'form-control',
-                     'onclick' => 'myFunction()',
+                     //'onclick' => 'myFunction()',
                      'placeholder' => 'Kliknij, aby włączyć czat'
                 )
             )); 
