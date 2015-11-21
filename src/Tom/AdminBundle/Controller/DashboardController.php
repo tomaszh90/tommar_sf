@@ -30,7 +30,7 @@ class DashboardController extends Controller
         
     $messengerform = $this->createForm( new MessengerType(), $messenger );
         $em = $this->getDoctrine()->getManager();
-     $entities = $em->getRepository('TomSiteBundle:Messenger')->findBy([], ['id' => 'DESC']);
+     $entities = $em->getRepository('TomSiteBundle:Messenger')->findBy([], ['id' => 'DESC'], 10, 0);
     if ( $request->isMethod( 'POST' ) ) {
         $Session = $this->get('session');
         $messengerform->submit( $request ); 
