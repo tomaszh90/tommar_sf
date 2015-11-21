@@ -29,10 +29,8 @@ class DashboardController extends Controller
         $request = $this->getRequest();
         
     $messengerform = $this->createForm( new MessengerType(), $messenger );
-
-     $repository = $this->getDoctrine()
-			->getRepository('TomSiteBundle:Messenger');
-     $users = $repository->findAll();
+        $em = $this->getDoctrine()->getManager();
+     $entities = $em->getRepository('TomSiteBundle:Messenger')->findBy([], ['id' => 'DESC']);
     if ( $request->isMethod( 'POST' ) ) {
         $Session = $this->get('session');
         $messengerform->submit( $request ); 
@@ -40,7 +38,7 @@ class DashboardController extends Controller
            /*
             * $data['contents']
             */
-                $em = $this->getDoctrine()->getManager();
+               // $em = $this->getDoctrine()->getManager();
                 $em->persist($messenger);
                 $em->flush();
                 $data = $messengerform->getData(); 
@@ -56,7 +54,7 @@ class DashboardController extends Controller
         return array(
         'messengerform' => $messengerform->createView(),
         'pageTitle' => 'Dashboard <small>najnowsze zdarzenia</small>',
-            'entities' => $users,
+        'entities' => $entities,
         );
 }
         

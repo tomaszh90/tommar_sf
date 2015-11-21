@@ -12,7 +12,9 @@ class MessengerType extends AbstractType
     $builder->add( 'contents', 'text', array(
                 'label' => 'Treść:',
                  'attr' => array(
-                    'class' => 'form-control'
+                    'class' => 'form-control',
+                     'onclick' => 'myFunction()',
+                     'placeholder' => 'Kliknij, aby włączyć czat'
                 )
             )); 
     //$builder->add( 'body',  'textarea' );

@@ -55,19 +55,35 @@
                   <div class="direct-chat-messages" id="spr">
                     <!-- Message. Default to the left -->
                      {% for entitie in entities %}
+                         {% if entitie.authorMess.username == app.user.username %}
                     <div class="direct-chat-msg">
                       <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">{{ entitie.id }}</span>
-                        <span class="direct-chat-timestamp pull-right"></span>
+                        <span class="direct-chat-name pull-left">{{ entitie.authorMess.username }}</span>
+                        <span class="direct-chat-timestamp pull-right">{{ entitie.updateDate|date('Y-m-d H:i:s') }}</span>
                       </div>
                       <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="/timeto/web/uploads/user/avatar/default-avatar.jpg" alt="message user image"><!-- /.direct-chat-img -->
+                      <img class="direct-chat-img" src="{{ asset (entitie.authorMess.avatar) }}" alt="message user image"><!-- /.direct-chat-img -->
                       <div class="direct-chat-text">
                        {{ entitie.contents }}
                       </div>
                       <!-- /.direct-chat-text -->
-                    </div>{% endfor %}
-                    <!-- /.direct-chat-msg -->
+                    </div>
+                       {% else %}
+                           <!-- Message to the right -->
+                    <div class="direct-chat-msg right">
+                      <div class="direct-chat-info clearfix">
+                        <span class="direct-chat-name pull-right">{{ entitie.authorMess.username }}</span>
+                        <span class="direct-chat-timestamp pull-left">{{ entitie.updateDate|date('Y-m-d H:i:s') }}</span>
+                      </div>
+                      <!-- /.direct-chat-info -->
+                      <img class="direct-chat-img" src="{{ asset (entitie.authorMess.avatar) }}" alt="message user image"> 
+                      <div class="direct-chat-text">
+                        {{ entitie.contents }}
+                      </div>
+            
+                    </div>{% endif %}
+                   {% endfor %}
+                    
 
                     <!-- Message to the right
                     <div class="direct-chat-msg right">
@@ -166,12 +182,19 @@ $(document).ready(function(){
 $( 'form' ).submit( function( e ) {
 e.preventDefault();
 messengerForm( $(this), function( response ) {
-    $("#sprawdzam").show().delay(3000).fadeOut();
+   /* $("#sprawdzam").show().delay(3000).fadeOut();*/
      $("#MessengerType_contents").val("");
      $('#spr').load(document.URL +  ' #spr');
+    
 console.log(JSON.stringify(response)); 
 });
   });
 });
+function myFunction() {
+     setInterval(function(){
+      $('#spr').load(document.URL +  ' #spr');
+      $("#MessengerType_contents").attr("placeholder", "Czatuj...");
+ },3000);
+}
 </script>
 {% endblock %}
