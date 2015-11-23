@@ -6,8 +6,18 @@ tom_admin_dashboard:
 tom_admin_pages:
     resource: "@TomAdminBundle/Controller/PagesController.php"
     type: annotation
-    prefix: /strony    
-
+    prefix: /strony 
+    
+tom_admin_slider_categories:
+    resource: "@TomAdminBundle/Controller/SliderCategoriesController.php"
+    type: annotation
+    prefix: /slider/kategorie
+    
+tom_admin_slider:
+    resource: "@TomAdminBundle/Controller/SliderController.php"
+    type: annotation
+    prefix: /slider
+    
 tom_admin_article_categories:
     resource: "@TomAdminBundle/Controller/ArticleCategoriesController.php"
     type: annotation

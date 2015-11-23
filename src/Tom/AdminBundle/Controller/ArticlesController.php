@@ -73,7 +73,9 @@ class ArticlesController extends Controller
         $queryParams = array(
             'titleLike' => $request->query->get('titleLike'),
             'categoryId' => $request->query->get('categoryId'),
-            'status' => $status
+            'status' => $status,
+            'orderBy' => 'a.id',
+            'orderDir' => 'DESC'
         );
         
         $RepoArticle = $this->getDoctrine()->getRepository('TomSiteBundle:Article');

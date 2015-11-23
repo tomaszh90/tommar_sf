@@ -32,6 +32,9 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
+.table .btn-group {
+    min-width: 90px;
+}
 /* Layout */
 .wrapper {
   min-height: 100%;

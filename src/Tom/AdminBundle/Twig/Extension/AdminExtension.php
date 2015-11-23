@@ -47,6 +47,7 @@ class AdminExtension extends \Twig_Extension {
     
     private $navigationArticle;
     private $navigationPage;
+    private $navigationSlider;
 
     public function navigation() {
         if(!isset($this->navigationArticle)) {
@@ -57,6 +58,10 @@ class AdminExtension extends \Twig_Extension {
             $RepoPage = $this->doctrine->getRepository('TomSiteBundle:Page');
             $this->navigationPage = $RepoPage->getStatistics();
         }
+        if(!isset($this->navigationSlider)) {
+            $RepoSlider = $this->doctrine->getRepository('TomSiteBundle:Slider');
+            $this->navigationSlider = $RepoSlider->getStatistics();
+        }
         
         return $this->environment->render('TomAdminBundle:Template:navigation.html.twig', array(
             'navigation' => array(
@@ -65,6 +70,9 @@ class AdminExtension extends \Twig_Extension {
                 ),
                 'page' => array(
                     'count' => $this->navigationPage
+                ),
+                'slider' => array(
+                    'count' => $this->navigationSlider
                 )
             )
         ));

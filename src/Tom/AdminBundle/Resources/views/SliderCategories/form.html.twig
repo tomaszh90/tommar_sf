@@ -1,0 +1,42 @@
+{% extends "TomAdminBundle::base.html.twig" %}
+
+{% block pageTitle %}{{ pageTitle|striptags }} - {{ parent() }}{% endblock %}
+
+{% block stylesheets %}
+{{parent()}}
+{% endblock %}
+
+{% block pageContainer %}
+<section class="content-header">
+  <h1>{{ pageTitle|raw }}</h1>
+  <ol class="breadcrumb">
+    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+    <li class="active">Here</li>
+  </ol>
+</section>
+
+<section class="content" ng-controller="articleController">
+{{ form_start(form, {'attr': {'novalidate': 'true'}}) }}
+    <div class="row">
+        <div class="col-xs-12">
+            <div class="box box-primary">
+              <div class="box-header with-border">
+                  <h3 class="box-title"><strong>{{ category.id is not null or not form.vars.valid ? category.name :'{[{name}]}' }}</strong></h3>
+              </div>
+
+                <div class="box-body">
+                    {{ category.id is not null or not form.vars.valid  ? form_row(form.name) : form_row(form.name, {'attr': {'ng-model': 'name'}}) }}
+                    {{ form_rest(form) }}
+                </div>
+
+            </div>
+        </div>
+    </div>
+{{ form_end(form) }}
+</section>
+{% endblock %}
+
+{% block javascripts %}
+{{parent()}}
+<script src="{{ asset('bundles/tomadmin/angular/controller/articlesController.js') }}"></script>
+{% endblock %}

@@ -45,6 +45,25 @@
         <li class="{% if app.request.get('_route') == 'tom_admin_pages' %}active on{% endif %}"><a href="{{ path('tom_admin_pages') }}"><i class="fa fa-circle-o"></i> Lista stron</a></li>
       </ul>
     </li>
+    
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-files-o"></i>
+        <span>Slider</span>
+        <span class="label label-default pull-right">{{ navigation.slider.count.all }}</span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="{% if app.request.get('_route') == 'tom_admin_slider_form' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
+        <li class="{% if app.request.get('_route') == 'tom_admin_slider' %}active on{% endif %}"><a href="{{ path('tom_admin_slider') }}"><i class="fa fa-circle-o"></i> Lista sliderów</a></li>
+        <li>
+          <a href="#"><i class="fa fa-circle-o"></i> Kategorie<i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_slider_category_form' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_category_form') }}"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
+            <li class="{% if app.request.get('_route') == 'tom_admin_slider_categories' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_categories') }}"><i class="fa fa-circle-o"></i> Lista kategorii</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
 
     <li class="header">Użytkownicy</li>
     <li class="treeview">
