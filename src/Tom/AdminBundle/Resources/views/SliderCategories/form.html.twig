@@ -15,7 +15,7 @@
   </ol>
 </section>
 
-<section class="content" ng-controller="articleController">
+<section class="content" ng-controller="sliderController">
 {{ form_start(form, {'attr': {'novalidate': 'true'}}) }}
     <div class="row">
         <div class="col-xs-12">
@@ -38,5 +38,5 @@
 
 {% block javascripts %}
 {{parent()}}
-<script src="{{ asset('bundles/tomadmin/angular/controller/articlesController.js') }}"></script>
+<script src="{{ asset('bundles/tomadmin/angular/controller/sliderController.js') }}"></script>
 {% endblock %}

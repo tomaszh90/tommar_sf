@@ -64,6 +64,27 @@ class ArticleType extends AbstractType
                     'style'       => 'width: 100%'
                 )
             ))
+            ->add('newTag', 'text', array(
+                'label' => 'Dodaj tag',
+                'mapped' => false,
+                'attr' => array(
+                    'autocomplete' => 'off',
+                    'ng-model' => 'article.addTag',
+                    'ng-minlength' => '3',
+                    'ng-maxlength' => '60',
+                    'ng-pattern' => '/^[\w -]*$/',
+                    'required' => '',
+                    'placeholder' => 'Wprowadź nowy tag'
+                )
+            ))
+            ->add('saveTag', 'button', array(
+                'label' => 'Dodaj',
+                'attr' => array(
+                    'class' => 'btn btn-primary',
+                    'ng-click' => 'addTag(article.addTag)',
+                    'ng-disabled' => '!article.addTag'
+                )
+            ))
             ->add('save', 'submit', array(
                 'label' => 'Zapisz',
                 'attr' => array(

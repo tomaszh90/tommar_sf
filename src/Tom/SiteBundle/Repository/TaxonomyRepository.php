@@ -20,6 +20,11 @@ class TaxonomyRepository extends EntityRepository {
                     ->setParameter('nameLike', $nameLike);
         }
         
+        if(!empty($params['orderBy'])){
+            $orderDir = !empty($params['orderDir']) ? $params['orderDir'] : NULL;
+            $qb->orderBy($params['orderBy'], $orderDir);
+        }
+        
         return $qb;
     }
     

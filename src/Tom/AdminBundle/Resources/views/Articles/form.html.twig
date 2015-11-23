@@ -15,7 +15,7 @@
   </ol>
 </section>
 
-<section class="content" ng-controller="articleController">
+<section class="content" ng-controller="articleController" data-url="{{ path('tom_admin_api_tag_add') }}">
     {{ form_start(form, {'attr': {'novalidate': 'true'}}) }}
     <div class="row">
         <!-- left column -->
@@ -47,6 +47,18 @@
                     {{ form_row(form.publishedDate) }}
                     {{ form_row(form.category) }}
                     {{ form_row(form.tags) }}
+                    <div class="form-group">                      
+                        {{ form_label(form.newTag) }}
+
+                        <div class="col-xs-9 col-sm-7">
+                        {{ form_widget(form.newTag) }}
+                            <div id="tagMessages" ng-show="tagMessages" ng-bind-html="tagMessages"></div>
+                        </div>
+                        <div class="col-xs-3 col-sm-3">
+                        {{ form_widget(form.saveTag) }}
+                        </div>
+                    </div>
+                    
                 </div>
             </div>
         </div>

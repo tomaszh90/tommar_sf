@@ -6,7 +6,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
-//use Symfony\Component\HttpFoundation\JsonResponse;
+use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Tom\SiteBundle\Entity\Tag;
 use Tom\AdminBundle\Form\Type\TaxonomyType;
@@ -30,6 +30,8 @@ class ArticleTagsController extends Controller
         
         $queryParams = array(
             'nameLike' => $Request->query->get('nameLike'),
+            'orderBy' => 't.id',
+            'orderDir' => 'DESC'
         );
         
         $RepoTag = $this->getDoctrine()->getRepository('TomSiteBundle:Tag');
@@ -104,23 +106,46 @@ class ArticleTagsController extends Controller
         );
     }
     
-//    /**
-//     * @Route(
-//     *      "/ajax/dodaj",
-//     *      name="tom_admin_tag_add_ajax",
-//     *      requirements={
-//     *          "_format": "json",
-//     *          "methods": "POST"
-//     *      }
-//     * )
-//     */
-//    public function addTagAjaxAction(Request $Request) {
-//        $RepoTags = $this->getDoctrine()->getRepository('TomSiteBundle:Tag');
-//        $data = json_decode($Request->getContent(), true);
-//        
-//        return new JsonResponse(true);
-//        
-//    }
+    /**
+     * @Route(
+     *      "/api/dodaj",
+     *      name="tom_admin_api_tag_add",
+     *      requirements={
+     *          "_format": "json",
+     *          "methods": "POST"
+     *      }
+     * )
+     */
+    public function addTagApiAction(Request $Request) {
+        $data = json_decode($Request->getContent(), true);
+        $tagValue  = trim($data['tag']);
+        
+        if(strlen($tagValue) >= 3) {       
+            $RepoTags = $this->getDoctrine()->getRepository('TomSiteBundle:Tag');
+            $findTag = $RepoTags->findBySlug(\Tom\SiteBundle\Libs\Utils::sluggify($tagValue));
+            
+            if(NULL == $findTag) {
+                $Tag = new Tag();
+                $Tag->setName($tagValue);
+                
+                $em = $this->getDoctrine()->getManager();
+                $em->persist($Tag);
+                $em->flush();
+                
+                $result = array(
+                    'id' => $Tag->getId(),
+                    'name' => $Tag->getName(),
+                ); 
+            } else {
+                $result = false;
+            }
+            
+        } else {
+            $result = false;
+        }
+ 
+        return new JsonResponse($result);  
+    }
     
     
     /**
