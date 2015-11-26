@@ -1,0 +1,244 @@
+@charset "utf-8";
+/* CSS Document */
+/* -------------------------------------------------------------- Colors for Main css Starts ---------------------------- */
+.top-nav {
+	border: none;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	font-size: 12px;
+	color: #fff;
+	background-color: #e4545b;
+}
+#navigation ul.nav a:hover {
+	color: #e4545b;
+}
+#navigation ul.nav a.current {
+	color: #e4545b;
+}
+#navigation ul.nav li .yamm-content a:hover {
+	color: #e4545b!important;
+}
+.navbar-nav>li>.dropdown-menu li a:hover {
+	color: #e4545b!important;
+}
+.dropdown-submenu:hover>a:after {
+	border-left-color: #e4545b;
+}
+#mobile-header .icon-bar {
+	background-color: #e4545b;
+}
+.breaking-news .title {
+	background-color: #e4545b;
+	color: #fff;
+	margin: 0px;
+	text-transform: uppercase;
+	text-align: center;
+	padding-top: 6px;
+	padding-right: 10px;
+	padding-bottom: 6px;
+	padding-left: 10px;
+	font-size: 16px;
+}
+ul.cats li:hover span {
+	border: 2px solid #e4545b;
+	background-color: #e4545b;
+	color: #fff;
+}
+ul.cats li span {
+	width: 50px;
+	height: 50px;
+	color: #e4545b;
+	text-align: center;
+	border-radius: 25px;
+	line-height: 2.7;
+	border: 2px solid #e4545b;
+	background-color: none;
+}
+.tag-list a:hover {
+	color: #fff;
+	background-color: #e4545b;
+}
+.picture .category-image {
+	position: relative;
+	background-color: #e4545b;
+}
+.category-caption h2 {
+	font-size: 14px;
+	color: #fff;
+	background-color: #e4545b;
+	padding-top: 11px;
+	padding-right: 20px;
+	padding-bottom: 11px;
+	padding-left: 20px;
+	letter-spacing: 2px;
+	margin: 0px;
+}
+.category-caption span {
+	font-size: 14px;
+	color: #fff;
+	background-color: #e4545b;
+	padding-top: 6px;
+	padding-right: 12px;
+	padding-bottom: 6px;
+	padding-left: 12px;
+	border: 1px solid #e4545b;
+}
+.category-caption span:hover {
+	background-color: transparent;
+	border: 1px solid #e4545b;
+}
+.category-caption span:hover a {
+	color: #e4545b;
+}
+.category-caption h2.main-caption:hover {
+	background-color: #e4545b;
+	color: #fff;
+	text-decoration: none;
+}
+.category-caption h2.sub-caption {
+	background-color: #e4545b;
+}
+ul.via li:first-child {
+	color: #FFF;
+	background-color: #e4545b;
+}
+ul.via li:hover {
+	color: #FFF;
+	background-color: #e4545b;
+}
+.sharepost ul li:first-child {
+	font-size: 14px;
+	color: #fff;
+	background-color: #e4545b;
+	padding-top: 8px;
+	padding-right: 16px;
+	padding-bottom: 8px;
+	padding-left: 16px;
+	letter-spacing: 2px;
+}
+.next-n-prev .btns {
+	margin-top: 30px;
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 10px;
+	padding-bottom: 10px;
+	background-color: #FFFFFF;
+	color: #e4545b;
+	border: 2px solid #e4545b;
+	text-align: center;
+}
+.next-n-prev .btns:hover {
+	background-color: #e4545b;
+	color: #fff!important;
+	border: 2px solid #e4545b;
+}
+.next-n-prev .btns a {
+	color: #e4545b!important;
+}
+ul.media-list .media .reply a {
+	padding-left: 10px;
+	padding-right: 10px;
+	padding-top: 2px;
+	padding-bottom: 6px;
+	background-color: #FFFFFF;
+	color: #e4545b;
+	border: 1px solid #e4545b;
+}
+ul.media-list .media .reply a:hover {
+	background-color: #e4545b;
+	color: #fff;
+	border: 1px solid #e4545b;
+}
+.error-page .big {
+	font-size: 100px;
+	font-weight: 900;
+	color: #e4545b;
+	margin: 0px;
+	padding: 0px;
+}
+.scrollup {
+	background-color: #e4545b;
+}
+/* -------------------------------------------------------------- Colors for Main css Ends ---------------------------- */
+
+/* -------------------------------------------------------------- Colors for Bootstrap min css Starts ---------------------------- */
+
+button, html input[type=button], input[type=reset], input[type=submit] {
+	color: #e4545b;
+	-webkit-appearance: button;
+	cursor: pointer;
+	background-color: #fff;
+	font-size: 14px;
+	padding-top: 8px;
+	padding-right: 14px;
+	padding-bottom: 8px;
+	padding-left: 14px;
+	margin-top: 4px;
+	border: 2px solid #e4545b;
+}
+button, html input[type=button]:hover, input[type=reset]:hover, input[type=submit]:hover {
+	color: #fff;
+	background-color: #e4545b;
+	border: 2px solid #e4545b;
+}
+.dropdown-menu>li>a:hover, .dropdown-menu>li>a:focus {
+	color: #e4545b;
+	text-decoration: none;
+}
+.dropdown-menu>.active>a, .dropdown-menu>.active>a:hover, .dropdown-menu>.active>a:focus {
+	color: #e4545b;
+	text-decoration: none;
+	background-color: #337ab7;
+	outline: 0
+}
+.nav .open>a, .nav .open>a:hover, .nav .open>a:focus {
+	/*background-color: #eee;
+	border-color: #337ab7*/
+	color: #e4545b!important;
+}
+.nav-pills>li.active>a, .nav-pills>li.active>a:hover, .nav-pills>li.active>a:focus {
+	color: #fff;
+	background-color: #e4545b
+}
+.nav-tabs {
+	border-bottom: 1px solid #e4545b
+}
+.nav-tabs>li.active>a, .nav-tabs>li.active>a:hover, .nav-tabs>li.active>a:focus {
+	color: #fff;
+	cursor: default;
+	background-color: #e4545b;
+	border: 1px solid #e4545b;
+	border-bottom-color: transparent
+}
+.nav-tabs.nav-justified>.active>a, .nav-tabs.nav-justified>.active>a:hover, .nav-tabs.nav-justified>.active>a:focus {
+	border: none;
+	background-color: #e4545b;
+	color: #fff;
+}
+.nav-tabs.nav-justified>li>a {
+	border-bottom: 1px solid #e4545b;
+	border-radius: 0
+}
+.navbar-inverse .navbar-toggle {
+	border-color: #e4545b
+}
+.navbar-inverse .navbar-toggle .icon-bar {
+	background-color: #e4545b
+}
+.navbar-inverse .navbar-nav>.open>a, .navbar-inverse .navbar-nav>.open>a:hover, .navbar-inverse .navbar-nav>.open>a:focus {
+	color: #e4545b;/*background-color: #080808*/
+}
+.pagination>li>a:hover, .pagination>li>span:hover, .pagination>li>a:focus, .pagination>li>span:focus {
+	color: #fff;
+	background-color: #e4545b;
+	border-color: #e4545b
+}
+.pagination>.active>a, .pagination>.active>span, .pagination>.active>a:hover, .pagination>.active>span:hover, .pagination>.active>a:focus, .pagination>.active>span:focus {
+	z-index: 2;
+	color: #fff;
+	cursor: default;
+	background-color: #e4545b;
+	border-color: #e4545b
+}
+
+/* -------------------------------------------------------------- Colors for Bootstrap min css Starts ---------------------------- */

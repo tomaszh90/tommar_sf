@@ -1,179 +1,18 @@
 {% extends "TomSiteBundle::base.html.twig" %}
 
-{% block pageTitle %}{{ parent() }} {% endblock %}
-{% block ogTitle %}{{ parent() }}   {% endblock %}
-{% block ogImage %}                 {% endblock %}
-{% block metaDescription %} {{ seo.descriptions }}        {% endblock %}
-{% block ogDescription %}  {{ seo.descriptions }}         {% endblock %}
-{% block metaKeywords %}   {{ seo.keywords }}         {% endblock %}
-
-{% block javascript %} {{ javascript.scriptHead|raw }} {% endblock %}
+{% block pageTitle %}{{ parent() }}{% endblock %}
+{% block ogTitle %}{{ parent() }}{% endblock %}
+{% block ogImage %}{% endblock %}
+{% block metaDescription %}{% endblock %}
+{% block ogDescription %}{% endblock %}
+{% block metaKeywords %}{% endblock %}
 
 {% block stylesheets %}
 {{parent()}}
 {% endblock %}
 
-{% block seoText %} 
-    {{ parent() }}
-    {{ seo.h1Index }}         
-{% endblock %}
-
-{% block pageSlider %}<!-- slider -->
-    <div class="slider">
-			<div class="row">
-				<div class="col-sm-12 col-md-8 slider-left">
-                    <div class="slider-item">
-					<figure class="effect-milo">
-						<img src="http://firenze.different-themes.com/html/images/demo/1200x800-20.jpg" alt="img11"/>
-						<figcaption>
-							<h2>lorem ipsumlorem ipsum  <span> lorem ipsum</span>  lorem ipsum lorem ipsum lorem ipsum</h2>
-							<p> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-							<a href="#">View more</a>
-						</figcaption>
-					</figure>
-                    </div>
-				</div>
-				<div class="col-sm-12 col-md-4 slider-right">
-					<div class="row">
-						<div class="col-xs-12">
-
-                            <div class="slider-item rightside">
-        					<figure class="effect-milo">
-        						<img src="http://firenze.different-themes.com/html/images/demo/1200x800-20.jpg" alt="img11"/>
-        						<figcaption>
-        							<h2> lorem ipsum lorem ipsum <span> lorem ipsum</span> lorem ipsum</h2>
-                                    <p> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-        							<a href="#">View more</a>
-        						</figcaption>
-        					</figure>
-                            </div>
-
-						</div>
-						<div class="col-xs-12">
-
-                            <div class="slider-item rightside">
-        					<figure class="effect-milo">
-        						<img src="http://firenze.different-themes.com/html/images/demo/1200x800-20.jpg" alt="img11"/>
-        						<figcaption>
-        							<h2> lorem ipsum lorem ipsum lorem ipsum lorem ipsum</h2>
-        							<p> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-        							<a href="#">View more</a>
-        						</figcaption>
-        					</figure>
-                            </div>
-
-						</div>
-					</div>
-				</div>
-			</div>
-    </div>
-    <!-- end slider -->   {% endblock %}
-    
-       {% block pageLeftside %}<!-- Main (left side) -->
-
-<section>
-
-    <div class="row">
-        <div class="col-sm-12">
-			<div class="blog-post">
-				<div class="blog-post-container">
-				   <a href="#"><img src="http://firenze.different-themes.com/html/images/demo/1200x800-3.jpg" alt=""></a>
-				</div>
-
-				<div class="blog-post-body">
-
-                    <div class="post-meta"><span class="post-category"><a href="#"> lorem ipsum</a></span></div>
-                    <div class="divider"></div>
-				   <h2 class="title"><a href="#"> lorem ipsum lorem ipsum lorem ipsum</a></h2>
-                    <div class="post-meta">Posted on <span class="post-time">Dupa 23, 2015</span> by <span class="post-author"><a href="#"> lorem ipsum lorem ipsum</a></span></div>
-				   <p>
-                    lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum
-                   </p>
-                   <p>
-                      <div class="more-button"><a href="#"><span class="read-more-button">READ MORE</span></a></div>
-                      <div class="wcircle-menu-button">
-                        <div class="wcircle-icon">
-                          <div class="wcircle-menu-icon"> <i class="fa fa-share-alt"></i> </div>
-                        </div>
-                        <div class="wcircle-menu" style="display:none;">
-                          <div class="wcircle-menu-item share-facebook"> <a href="#"><i class="fa fa-facebook"></i></a> </div>
-                          <div class="wcircle-menu-item share-youtube"> <a href="#"><i class="fa fa-youtube"></i></a> </div>
-                          <div class="wcircle-menu-item share-twitter"> <a href="#"><i class="fa fa-twitter"></i></a> </div>
-                          <div class="wcircle-menu-item share-google"> <a href="#"><i class="fa fa-google"></i></a> </div>
-                          <div class="wcircle-menu-item share-linkedin"> <a href="#"><i class="fa fa-linkedin"></i></a> </div>
-                          <div class="wcircle-menu-item share-pinterest"> <a href="#"><i class="fa fa-pinterest"></i></a> </div>
-                          <div class="wcircle-menu-item share-tumblr"> <a href="#"><i class="fa fa-tumblr"></i></a> </div>
-                        </div>
-                      </div>
-                   </p>
-				</div>
-			</div>
-        </div>
-    </div>
-
-  </section>
-    
-  <!-- Grid Post style -->
-  <section>
-  <h4 class="main-heading"><span>Grid style</span></h4>
-
-   <div class="row">
-        <div class="col-md-6">
-
-            <!-- grid list item -->
-   		    <div class="grid-post">
-                <div class="grid-post-container">
-    			   <a href="#"><img src="http://firenze.different-themes.com/html/images/demo/1200x800-3.jpg" alt=""></a>
-                   <div class="post-cats"><a href="#"> lorem ipsum</a></div>
-    			</div>
-
-                <div class="post-meta">
-                    <span class="post-meta-publ-date">February 23, 2015</span>
-                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
-                </div>
-
-    			<div class="grid-post-body">
-    				<h3 class="title"><a href="#"> lorem ipsum lorem ipsum lorem ipsum lorem ipsum</a></h3>
-    				<p> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-                    <p><a href="#" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
-    			</div>
-    		</div>
-            <!-- end grid list item -->
-
-        </div>
-        <div class="col-md-6">
-
-            <!-- grid list item -->
-    		<div class="grid-post">
-                <div class="grid-post-container">
-    			   <a href="#"><img src="http://firenze.different-themes.com/html/images/demo/1200x800-3.jpg" alt=""></a>
-                   <div class="post-cats"><a href="#">Lorem</a></div>
-    			</div>
-
-                <div class="post-meta">
-                    <span class="post-meta-publ-date">February 23, 2015</span>
-                    <span><i class="fa fa-comments"></i> <a href="#" rel="category tag">32</a></span>
-                </div>
-
-    			<div class="grid-post-body">
-    				<h3 class="title"><a href="#"> lorem ipsum lorem ipsum lorem ipsum lorem ipsum</a></h3>
-    				<p> lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum lorem ipsum</p>
-                    <p><a href="#" class="more-button"><span class="read-more-button">READ MORE</span></a></p>
-    			</div>
-    		</div>
-            <!-- end grid list item -->
-
-        </div>
-    </div>
-
-
-  </section>
-  <!-- end Grid Post style -->
-
-{% endblock %}
-
 {% block pageContainer %}
-test  
+
 {% endblock %}
 
 {% block javascripts %}
