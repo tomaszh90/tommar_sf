@@ -16,36 +16,31 @@
 <meta property="og:description" content="{% spaceless %}{% block ogDescription %}Timeto.pl{% endblock %}{% endspaceless %}" />
 <meta name="keywords" content="{% spaceless %}{% block metaKeywords %}Timeto{% endblock %}{% endspaceless %}" />
 
-<!-- All Stylesheets -->
-<link href="{{ asset('bundles/tomsite/css/all-stylesheets.css') }}" rel="stylesheet">
 <!-- All Colored Stylesheets -->		
-<link rel="alternate stylesheet" type="text/css" href="css/colors/blue.css" title="blue">
+
 <!-- HTML5 shim and Respond.js for IE8 support of HTML5 elements and media queries -->
 <!-- WARNING: Respond.js doesn't work if you view the page via file:// -->
 <!--[if lt IE 9]>
 <script src="https://oss.maxcdn.com/html5shiv/3.7.2/html5shiv.min.js"></script>
 <script src="https://oss.maxcdn.com/respond/1.4.2/respond.min.js"></script>
 <![endif]-->		
-<!-- Favicons -->
-<link rel="shortcut icon" href="images/icons/favicon/favicon.png">
-<link rel="apple-touch-icon" href="images/icons/favicon/apple-touch-icon.png">
-<link rel="apple-touch-icon" sizes="72x72" href="images/icons/favicon/apple-touch-icon-72x72.png">
-<link rel="apple-touch-icon" sizes="114x114" href="images/icons/favicon/apple-touch-icon-114x114.png">
 
 {% block stylesheets %}
-{#<link rel="stylesheet" href="{{ asset('bundles/tomadmin/bootstrap/css/bootstrap.min.css') }}">#}
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/css/colors/blue.css') }}" title="blue" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/css/bootstrap/bootstrap.min.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/css/stylesheet.css') }}">
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/css/sidr/jquery.sidr.light.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/owl-carousel/owl-carousel/owl.carousel.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/owl-carousel/owl-carousel/owl.theme.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/owl-carousel/owl-carousel/owl.transitions.css') }}" />
+<link rel="stylesheet" type="text/css" href="{{ asset('bundles/tomsite/fonts/font-awesome/css/font-awesome.min.css') }}" />
 {% endblock %}
 
-{% block javascript %} {% endblock %}
 </head>
 <body>
-
     
-<body>
-    <!-- HEADER STARTS
-    ========================================================================= -->
     <header>
-        <!-- TOP ROW STARTS -->
+
         <div class="top-nav hidden-sm hidden-xs">
             <div class="container">
                 <div class="row">
@@ -64,30 +59,26 @@
                 </div>
             </div>
         </div>
-        <!-- TOP ROW ENDS -->
-        <!-- LOGO & ADS STARTS -->
+
         <div class="container">
             <div class="row">
-                <div class="col-lg-4 col-md-2 logo"><a href="index.html"><img src="images/logo.png" alt=""></a></div>
+                <div class="col-lg-4 col-md-2 logo">
+                    <a href="index.html">
+                        <img src="{{ asset('bundles/tomsite/images/logo.png') }}" alt="">
+                    </a>
+                </div>
                 <div class="col-lg-8 col-md-10">
-                    <div class="ad-728x90 visible-lg visible-md"><img src="../../images/ads/728x90/3d_728x90_v2.gif" alt=""></div>
-                    <div class="ad-468x60 visible-sm"><img src="../../images/ads/468x60/3d_468x60_v4.gif" alt=""></div>
+                    <div class="ad-728x90 visible-lg visible-md"><img src="{{ asset('bundles/tomsite/images/images/ads/728x90/3d_728x90_v2.gif') }}" alt=""></div>
+                    <div class="ad-468x60 visible-sm"><img src="{{ asset('bundles/tomsite/images/images/ads/468x60/3d_468x60_v4.gif') }}" alt=""></div>
                 </div>
             </div>
         </div>
-        <!-- LOGO & ADS ENDS -->
     </header>
-    <!-- /. HEADER ENDS
-    ========================================================================= -->
-    <!-- MOBILE MENU BUTTON STARTS
-            ========================================================================= -->
+
     <div id="mobile-header">
         <a id="responsive-menu-button" href="#sidr-main"><span class="icon-bar"></span> <span class="icon-bar"></span> <span class="icon-bar"></span></a>
     </div>
-    <!-- /. MOBILE MENU BUTTON ENDS
-            ========================================================================= -->
-    <!-- NAVIGATION STARTS
-            ========================================================================= -->
+
     <nav id="navigation">
         <div class="navbar yamm navbar-inverse" role="navigation">
             <div class="container">
@@ -249,7 +240,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/fashion/1.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/1.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">FASHION</h2>
                                                                                             </div>
                                                                                     </div>
@@ -262,7 +253,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/fashion/2.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/2.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">FASHION</h2>
                                                                                             </div>
                                                                                     </div>
@@ -275,7 +266,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/fashion/3.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/3.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">FASHION</h2>
                                                                                             </div>
                                                                                     </div>
@@ -288,7 +279,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/fashion/4.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/4.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">FASHION</h2>
                                                                                             </div>
                                                                                     </div>
@@ -315,7 +306,7 @@
                                                                             <article class="col-lg-2 col-md-2">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/sports/1.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/1.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">SPORTS</h2>
                                                                                             </div>
                                                                                     </div>
@@ -328,7 +319,7 @@
                                                                             <article class="col-lg-2 col-md-2">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/sports/2.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/2.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">SPORTS</h2>
                                                                                             </div>
                                                                                     </div>
@@ -341,7 +332,7 @@
                                                                             <article class="col-lg-2 col-md-2">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/sports/3.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/3.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">SPORTS</h2>
                                                                                             </div>
                                                                                     </div>
@@ -354,7 +345,7 @@
                                                                             <article class="col-lg-2 col-md-2">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/sports/4.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/4.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">SPORTS</h2>
                                                                                             </div>
                                                                                     </div>
@@ -367,7 +358,7 @@
                                                                             <article class="col-lg-2 col-md-2">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/sports/5.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/5.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">SPORTS</h2>
                                                                                             </div>
                                                                                     </div>
@@ -380,7 +371,7 @@
                                                                             <article class="col-lg-2 col-md-2">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/sports/6.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/6.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">SPORTS</h2>
                                                                                             </div>
                                                                                     </div>
@@ -407,7 +398,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/photography/4.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}photography/4.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">PHOTOGRAPHY</h2>
                                                                                             </div>
                                                                                     </div>
@@ -420,7 +411,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/photography/5.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}photography/5.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">PHOTOGRAPHY</h2>
                                                                                             </div>
                                                                                     </div>
@@ -433,7 +424,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/photography/6.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}photography/6.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">PHOTOGRAPHY</h2>
                                                                                             </div>
                                                                                     </div>
@@ -446,7 +437,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/photography/7.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}photography/7.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">PHOTOGRAPHY</h2>
                                                                                             </div>
                                                                                     </div>
@@ -473,7 +464,7 @@
                                                                             <article class="col-lg-4 col-md-4">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/tech/1.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}tech/1.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">TECH</h2>
                                                                                             </div>
                                                                                     </div>
@@ -486,7 +477,7 @@
                                                                             <article class="col-lg-4 col-md-4">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/tech/2.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}tech/2.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">TECH</h2>
                                                                                             </div>
                                                                                     </div>
@@ -499,7 +490,7 @@
                                                                             <article class="col-lg-4 col-md-4">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/tech/3.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}tech/3.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">TECH</h2>
                                                                                             </div>
                                                                                     </div>
@@ -526,9 +517,9 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/fashion/9.jpg" class="img-responsive" alt="" >											
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/9.jpg" class="img-responsive" alt="" >											
                                                                                                     <h2 class="overlay-category">FASHION</h2>
-                                                                                                    <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                                                             </div>
                                                                                     </div>
                                                                                     <div class="detail">
@@ -540,9 +531,9 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/food/2.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}food/2.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">FOOD</h2>
-                                                                                                    <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                                                             </div>
                                                                                     </div>
                                                                                     <div class="detail">
@@ -554,9 +545,9 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/sports/7.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/7.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">SPORTS</h2>
-                                                                                                    <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                                                             </div>
                                                                                     </div>
                                                                                     <div class="detail">
@@ -568,9 +559,9 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/photography/2.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}photography/2.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">PHOTOGRAPHY</h2>
-                                                                                                    <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                                                             </div>
                                                                                     </div>
                                                                                     <div class="detail">
@@ -596,7 +587,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/life-style/2.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/2.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">LIFE STYLE</h2>
                                                                                             </div>
                                                                                     </div>
@@ -609,7 +600,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/life-style/3.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/3.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">LIFE STYLE</h2>
                                                                                             </div>
                                                                                     </div>
@@ -622,7 +613,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/life-style/5.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/5.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">LIFE STYLE</h2>
                                                                                             </div>
                                                                                     </div>
@@ -635,7 +626,7 @@
                                                                             <article class="col-lg-3 col-md-3">
                                                                                     <div class="picture">
                                                                                             <div class="category-image">
-                                                                                                    <img src="../../images/life-style/6.jpg" class="img-responsive" alt="" >
+                                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/6.jpg" class="img-responsive" alt="" >
                                                                                                     <h2 class="overlay-category">LIFE STYLE</h2>
                                                                                             </div>
                                                                                     </div>
@@ -667,10 +658,7 @@
             </div>
         </div>
     </nav>
-    <!-- /. NAVIGATION ENDS
-            ========================================================================= -->
-    <!-- NEWS STARTS
-            ========================================================================= -->
+
     <section class="breaking-news">
         <div class="container">
             <div class="row">
@@ -686,10 +674,7 @@
             </div>
         </div>
     </section>
-    <!-- /. NEWS ENDS
-            ========================================================================= -->
-    <!-- SLIDER STARTS
-            ========================================================================= -->
+
     <section>
         <div class="container">
             <div class="row slider">
@@ -698,7 +683,7 @@
                     <!-- Column 1 Starts -->
                     <div class="col-lg-8">
                         <div class="pic-with-overlay">
-                            <img src="../../images/slider/6.jpg" class="img-responsive" alt="" >
+                            <img src="{{ asset('bundles/tomsite/images/images/') }}slider/6.jpg" class="img-responsive" alt="" >
                             <div class="bg">&nbsp;</div>
                             <div><span class="category">LIFE STYLE</span></div>
                             <h1><a href="#">Pellentesque habitant morbi senectus et netus et malesuada</a></h1>
@@ -711,7 +696,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="pic-with-overlay-2">
-                                    <img src="../../images/slider/7.jpg" class="img-responsive" alt="" >
+                                    <img src="{{ asset('bundles/tomsite/images/images/') }}slider/7.jpg" class="img-responsive" alt="" >
                                     <div class="bg">&nbsp;</div>
                                     <div><span class="category">PHOTOGRAPHY</span></div>
                                     <h1><a href="#">Netus et malesuada</a></h1>
@@ -720,7 +705,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="pic-with-overlay-2">
-                                    <img src="../../images/slider/5.jpg" class="img-responsive" alt="" >
+                                    <img src="{{ asset('bundles/tomsite/images/images/') }}slider/5.jpg" class="img-responsive" alt="" >
                                     <div class="bg">&nbsp;</div>
                                     <div><span class="category">SPORTS</span></div>
                                     <h1><a href="#">Morbi senectus</a></h1>
@@ -737,7 +722,7 @@
                     <!-- Column 1 Starts -->
                     <div class="col-lg-8">
                         <div class="pic-with-overlay">
-                                <img src="../../images/slider/2.jpg" class="img-responsive" alt="" >
+                                <img src="{{ asset('bundles/tomsite/images/images/') }}slider/2.jpg" class="img-responsive" alt="" >
                                 <div class="bg">&nbsp;</div>
                                 <div><span class="category">FASHION 2014</span></div>
                                 <h1><a href="#">Pellentesque habitant morbi senectus et netus et malesuada</a></h1>
@@ -750,7 +735,7 @@
                         <div class="row">
                             <div class="col-lg-12">
                                 <div class="pic-with-overlay-2">
-                                    <img src="../../images/slider/3.jpg" class="img-responsive" alt="" >
+                                    <img src="{{ asset('bundles/tomsite/images/images/') }}slider/3.jpg" class="img-responsive" alt="" >
                                     <div class="bg">&nbsp;</div>
                                     <div><span class="category">CATWALK</span></div>
                                     <h1><a href="#">Netus et malesuada</a></h1>
@@ -759,7 +744,7 @@
                             </div>
                             <div class="col-lg-12">
                                 <div class="pic-with-overlay-2">
-                                    <img src="../../images/slider/4.jpg" class="img-responsive" alt="" >
+                                    <img src="{{ asset('bundles/tomsite/images/images/') }}slider/4.jpg" class="img-responsive" alt="" >
                                     <div class="bg">&nbsp;</div>
                                     <div><span class="category">TECH</span></div>
                                     <h1><a href="#">Morbi senectus</a></h1>
@@ -798,7 +783,7 @@
                                                     <article class="col-lg-6 col-md-6">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/fashion/11.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/11.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">FASHION</h2>
                                                                     </div>
                                                             </div>
@@ -811,7 +796,7 @@
                                                                     <div class="caption">Pellentesque habitant morbi senectus et netus et malesuada</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -823,7 +808,7 @@
                                                     <article class="col-lg-6 col-md-6">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/fashion/10.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/10.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">SIMPLICITY</h2>
                                                                     </div>
                                                             </div>
@@ -836,7 +821,7 @@
                                                                     <div class="caption">Habitant morbi tristique senectus et netus et habitant</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -849,7 +834,7 @@
                                                     <article class="col-lg-4 col-md-4">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/fashion/9.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/9.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">HAIR STYLE</h2>
                                                                     </div>
                                                             </div>
@@ -862,7 +847,7 @@
                                                                     <div class="small-caption">Lorem ipsum dolor ame sit consectetuer elit</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -874,7 +859,7 @@
                                                     <article class="col-lg-4 col-md-4">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/fashion/7.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/7.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">ACCESSORIES</h2>
                                                                     </div>
                                                             </div>
@@ -887,7 +872,7 @@
                                                                     <div class="small-caption">Vestibulum auctor nequ dapibus senectus</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -899,7 +884,7 @@
                                                     <article class="col-lg-4 col-md-4">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/fashion/6.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/6.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">FLOWERS</h2>
                                                                     </div>
                                                             </div>
@@ -912,7 +897,7 @@
                                                                     <div class="small-caption">Aliquam tincidunt neque mauris eu risus</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -939,7 +924,7 @@
                                                     <article class="col-lg-4 col-md-4">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/photography/home/1.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}photography/home/1.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">FASHION</h2>
                                                                     </div>
                                                             </div>
@@ -952,7 +937,7 @@
                                                                     <div class="small-caption">Quisque sit amet est et sapien ullamcorper</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -964,7 +949,7 @@
                                                     <article class="col-lg-4 col-md-4">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/photography/home/2.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}photography/home/2.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">FASHION</h2>
                                                                     </div>
                                                             </div>
@@ -977,7 +962,7 @@
                                                                     <div class="small-caption">Donec eu libero sit ame quam egestas semper</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -989,7 +974,7 @@
                                                     <article class="col-lg-4 col-md-4">
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/photography/home/3.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}photography/home/3.jpg" class="img-responsive" alt="" >
                                                                             <h2 class="overlay-category">FASHION</h2>
                                                                     </div>
                                                             </div>
@@ -1002,7 +987,7 @@
                                                                     <div class="small-caption">Pellentesque habitant morbi tristique sene</div>
                                                                     <div class="author">
                                                                             <div class="pic">
-                                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                             </div>
@@ -1030,9 +1015,9 @@
                                                             <article>
                                                                     <div class="picture">
                                                                             <div class="category-image">
-                                                                                    <img src="../../images/life-style/3.jpg" class="img-responsive" alt="" >
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/3.jpg" class="img-responsive" alt="" >
                                                                                     <h2 class="overlay-category">SIMPLICITY</h2>
-                                                                                    <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                                             </div>
                                                                     </div>
                                                                     <div class="detail">
@@ -1044,7 +1029,7 @@
                                                                             <div class="small-caption">Pellentesque habitant morbi</div>
                                                                             <div class="author">
                                                                                     <div class="pic">
-                                                                                            <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                             <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                             <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                                     </div>
@@ -1056,7 +1041,7 @@
                                                             <article>
                                                                     <div class="picture">
                                                                             <div class="category-image">
-                                                                                    <img src="../../images/life-style/4.jpg" class="img-responsive" alt="" >
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/4.jpg" class="img-responsive" alt="" >
                                                                                     <h2 class="overlay-category">SIMPLICITY</h2>
                                                                             </div>
                                                                     </div>
@@ -1069,7 +1054,7 @@
                                                                             <div class="small-caption">Senectus et netus et malesuada</div>
                                                                             <div class="author">
                                                                                     <div class="pic">
-                                                                                            <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                             <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                             <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                                     </div>
@@ -1081,7 +1066,7 @@
                                                             <article>
                                                                     <div class="picture">
                                                                             <div class="category-image">
-                                                                                    <img src="../../images/life-style/5.jpg" class="img-responsive" alt="" >
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/5.jpg" class="img-responsive" alt="" >
                                                                                     <h2 class="overlay-category">SIMPLICITY</h2>
                                                                             </div>
                                                                     </div>
@@ -1094,7 +1079,7 @@
                                                                             <div class="small-caption">Morbi senectus et netus</div>
                                                                             <div class="author">
                                                                                     <div class="pic">
-                                                                                            <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                             <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                             <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                                     </div>
@@ -1108,7 +1093,7 @@
                                                             <article>
                                                                     <div class="picture">
                                                                             <div class="category-image">
-                                                                                    <img src="../../images/life-style/1.jpg" class="img-responsive" alt="" >
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/1.jpg" class="img-responsive" alt="" >
                                                                                     <h2 class="overlay-category">FASHION</h2>
                                                                             </div>
                                                                     </div>
@@ -1121,7 +1106,7 @@
                                                                             <div class="caption">Pellentesque habitant morbi senectus et netus et malesuada senectus et netus et malesuada</div>
                                                                             <div class="author">
                                                                                     <div class="pic">
-                                                                                            <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                             <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                             <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                                     </div>
@@ -1133,7 +1118,7 @@
                                                             <article>
                                                                     <div class="picture">
                                                                             <div class="category-image">
-                                                                                    <img src="../../images/life-style/2.jpg" class="img-responsive" alt="" >
+                                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/2.jpg" class="img-responsive" alt="" >
                                                                                     <h2 class="overlay-category">FASHION</h2>
                                                                             </div>
                                                                     </div>
@@ -1146,7 +1131,7 @@
                                                                             <div class="caption">Pellentesque habitant morbi senectus et netus et malesuada  senectus et netus et malesuada</div>
                                                                             <div class="author">
                                                                                     <div class="pic">
-                                                                                            <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                                             <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                                             <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                                                     </div>
@@ -1216,7 +1201,7 @@
                                                             <div role="tabpanel" class="tab-pane active" id="popular">
                                                                     <ul class="tabs-posts">
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/1.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/1.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1225,7 +1210,7 @@
                                                                                     <div class="caption"><a href="#">Aenean ultricies mi vitae est. Mauris placerat eleifend leosit amet est.</a></div>
                                                                             </li>
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/2.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/2.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1234,7 +1219,7 @@
                                                                                     <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
                                                                             </li>
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/3.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/3.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1243,7 +1228,7 @@
                                                                                     <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
                                                                             </li>
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/4.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/4.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1252,7 +1237,7 @@
                                                                                     <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
                                                                             </li>
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/5.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/5.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1267,7 +1252,7 @@
                                                             <div role="tabpanel" class="tab-pane" id="comments">
                                                                     <ul class="tabs-posts">
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/6.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/6.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1276,7 +1261,7 @@
                                                                                     <div class="caption"><a href="#">Aenean ultricies mi vitae est. Mauris placerat eleifend leosit amet est.</a></div>
                                                                             </li>
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/7.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/7.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1285,7 +1270,7 @@
                                                                                     <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
                                                                             </li>
                                                                             <li>
-                                                                                    <div class="pic"><img src="../../images/footer/recent-posts/8.jpg" class="img-responsive" alt="" ></div>
+                                                                                    <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/8.jpg" class="img-responsive" alt="" ></div>
                                                                                     <div class="info">
                                                                                             <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1320,7 +1305,7 @@
                                     <!-- TABS ENDS -->
                                     <!-- ADVERTISEMENT 300 X 250 STARTS -->
                                     <div class="ad-300x250">							
-                                            <img src="../../images/ads/3d_300x250_v2.gif" width="300" height="250" alt="" >
+                                            <img src="{{ asset('bundles/tomsite/images/images/') }}ads/3d_300x250_v2.gif" width="300" height="250" alt="" >
                                     </div>
                                     <!-- ADVERTISEMENT 300 X 250 ENDS -->
                                     <!-- FEATURED VIDEOS STARTS -->
@@ -1335,10 +1320,10 @@
                                                     <div>
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/featured-videos/1.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}featured-videos/1.jpg" class="img-responsive" alt="" >
                                                                             <div class="bg">&nbsp;</div>
                                                                             <h2 class="overlay-category">FASHION</h2>
-                                                                            <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
+                                                                            <div class="play-button"><a href="#"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></a></div>
                                                                     </div>
                                                             </div>
                                                             <div class="detail">
@@ -1355,10 +1340,10 @@
                                                     <div>
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/featured-videos/2.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}featured-videos/2.jpg" class="img-responsive" alt="" >
                                                                             <div class="bg">&nbsp;</div>
                                                                             <h2 class="overlay-category">FASHION</h2>
-                                                                            <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
+                                                                            <div class="play-button"><a href="#"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></a></div>
                                                                     </div>
                                                             </div>
                                                             <div class="detail">
@@ -1375,10 +1360,10 @@
                                                     <div>
                                                             <div class="picture">
                                                                     <div class="category-image">
-                                                                            <img src="../../images/featured-videos/3.jpg" class="img-responsive" alt="" >
+                                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}featured-videos/3.jpg" class="img-responsive" alt="" >
                                                                             <div class="bg">&nbsp;</div>
                                                                             <h2 class="overlay-category">FASHION</h2>
-                                                                            <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
+                                                                            <div class="play-button"><a href="#"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></a></div>
                                                                     </div>
                                                             </div>
                                                             <div class="detail">
@@ -1403,16 +1388,16 @@
                                                     </div>
                                             </div>
                                             <ul>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/2.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/5.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/6.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/7.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
-                                                    <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/2.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/5.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/6.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/7.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
+                                                    <li><a href="author-page.html"><img src="{{ asset('bundles/tomsite/images/images/') }}featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
                                             </ul>
                                             <div class="clearfix"></div>
                                     </div>
@@ -1435,14 +1420,14 @@
                                     <!-- ADVERTISEMENT 125 x 125 STARTS -->
                                     <div class="ad-125x125">
                                             <div class="row">
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/1.jpg" width="125" height="125" alt=""></div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/2.jpg" width="125" height="125" alt=""></div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/3.jpg" width="125" height="125" alt=""></div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/5.gif" width="125" height="125" alt=""></div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/4.jpg" width="125" height="125" alt=""></div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/6.gif" width="125" height="125" alt=""></div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/2.jpg" width="125" height="125" alt=""></div>
-                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="../../images/ads/125x125/3.jpg" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/1.jpg" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/2.jpg" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/3.jpg" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/5.gif" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/4.jpg" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/6.gif" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/2.jpg" width="125" height="125" alt=""></div>
+                                                    <div class="col-lg-6 col-md-6 col-sm-6 col-xs-6"><img src="{{ asset('bundles/tomsite/images/images/') }}ads/125x125/3.jpg" width="125" height="125" alt=""></div>
                                             </div>
                                     </div>
                                     <!-- ADVERTISEMENT 300 X 250 ENDS -->
@@ -1466,9 +1451,9 @@
                                     <article class="col-lg-3 col-md-6">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/fashion/1.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/1.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">FASHION</h2>
-                                                            <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                            <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                     </div>
                                             </div>
                                             <div class="detail">
@@ -1480,7 +1465,7 @@
                                                     <div class="caption">Morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1492,7 +1477,7 @@
                                     <article class="col-lg-3 col-md-6">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/sports/1.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}sports/1.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">SPORTS</h2>
                                                     </div>
                                             </div>
@@ -1505,7 +1490,7 @@
                                                     <div class="caption">Habitant morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1517,7 +1502,7 @@
                                     <article class="col-lg-3 col-md-6">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/photography/2.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}photography/2.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">PHOTOGRAPHY</h2>
                                                     </div>
                                             </div>
@@ -1530,7 +1515,7 @@
                                                     <div class="caption">Pellentesque habitant morbi tristique senectus</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1542,7 +1527,7 @@
                                     <article class="col-lg-3 col-md-6">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/food/2.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}food/2.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">FOOD</h2>
                                                     </div>
                                             </div>
@@ -1555,7 +1540,7 @@
                                                     <div class="caption">Pellentesque habitant morbi tristique senectus</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1583,7 +1568,7 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/fashion/3.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/3.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">FASHION</h2>
                                                     </div>
                                             </div>
@@ -1596,7 +1581,7 @@
                                                     <div class="caption">Morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1608,9 +1593,9 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/photography/1.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}photography/1.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">PHOTOGRAPHY</h2>
-                                                            <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                            <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                     </div>
                                             </div>
                                             <div class="detail">
@@ -1622,7 +1607,7 @@
                                                     <div class="caption">Habitant morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1634,7 +1619,7 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/food/2.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}food/2.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">FOOD</h2>
                                                     </div>
                                             </div>
@@ -1647,7 +1632,7 @@
                                                     <div class="caption">Pellentesque habitant morbi tristique senectus</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1659,9 +1644,9 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/tech/1.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}tech/1.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">TECH</h2>
-                                                            <div class="play-icon"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></div>
+                                                            <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
                                                     </div>
                                             </div>
                                             <div class="detail">
@@ -1673,7 +1658,7 @@
                                                     <div class="caption">Morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1685,7 +1670,7 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/sports/1.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}sports/1.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">SPORTS</h2>
                                                     </div>
                                             </div>
@@ -1698,7 +1683,7 @@
                                                     <div class="caption">Habitant morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1710,7 +1695,7 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/life-style/1.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/1.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">LIFE STYLE</h2>
                                                     </div>
                                             </div>
@@ -1723,7 +1708,7 @@
                                                     <div class="caption">Pellentesque habitant morbi tristique senectus</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1735,7 +1720,7 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/fashion/5.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/5.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">FASHION</h2>
                                                     </div>
                                             </div>
@@ -1748,7 +1733,7 @@
                                                     <div class="caption">Morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1760,7 +1745,7 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/life-style/3.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}life-style/3.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">LIFE STYLE</h2>
                                                     </div>
                                             </div>
@@ -1773,7 +1758,7 @@
                                                     <div class="caption">Habitant morbi tristique senectus et netus et</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1785,7 +1770,7 @@
                                     <article class="col-lg-4 col-md-4">
                                             <div class="picture">
                                                     <div class="category-image">
-                                                            <img src="../../images/food/1.jpg" class="img-responsive" alt="" >
+                                                            <img src="{{ asset('bundles/tomsite/images/images/') }}food/1.jpg" class="img-responsive" alt="" >
                                                             <h2 class="overlay-category">FASHION</h2>
                                                     </div>
                                             </div>
@@ -1798,7 +1783,7 @@
                                                     <div class="caption">Pellentesque habitant morbi tristique senectus</div>
                                                     <div class="author">
                                                             <div class="pic">
-                                                                    <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
+                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}author/small/1.jpg" class="img-circle" alt="" > 
                                                                     <span class="name"><a href="#">JOHN DOE</a></span> 
                                                                     <span class="read-article pull-right"><a href="#">MORE <i class="fa fa-angle-right"></i></a></span>
                                                             </div>
@@ -1844,7 +1829,7 @@
                                             <h3>Featured Posts</h3>
                                             <ul class="footer-posts">
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/1.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/1.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1853,7 +1838,7 @@
                                                             <div class="caption"><a href="#">Aenean ultricies mi vitae est. Mauris placerat eleifend leosit amet est.</a></div>
                                                     </li>
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/2.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/2.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1862,7 +1847,7 @@
                                                             <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
                                                     </li>
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/3.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/3.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1878,7 +1863,7 @@
                                             <h3>Recent Posts</h3>
                                             <ul class="footer-posts">
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/4.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/4.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1887,7 +1872,7 @@
                                                             <div class="caption"><a href="#">Aenean ultricies mi vitae est. Mauris placerat eleifend leosit amet est.</a></div>
                                                     </li>
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/5.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/5.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1896,7 +1881,7 @@
                                                             <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
                                                     </li>
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/6.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/6.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1912,7 +1897,7 @@
                                             <h3>Popular Posts</h3>
                                             <ul class="footer-posts">
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/7.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/7.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1921,7 +1906,7 @@
                                                             <div class="caption"><a href="#">Aenean ultricies mi vitae est. Mauris placerat eleifend leosit amet est.</a></div>
                                                     </li>
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/8.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/8.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -1930,7 +1915,7 @@
                                                             <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
                                                     </li>
                                                     <li>
-                                                            <div class="pic"><img src="../../images/footer/recent-posts/9.jpg" class="img-circle" alt="" ></div>
+                                                            <div class="pic"><img src="{{ asset('bundles/tomsite/images/images/') }}footer/recent-posts/9.jpg" class="img-circle" alt="" ></div>
                                                             <div class="info">
                                                                     <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
                                                                     <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
@@ -2022,71 +2007,17 @@
     <!-- TO TOP STARTS
             ========================================================================= -->
     <a href="#" class="scrollup">Scroll</a>      
-    <!-- /. TO TOP ENDS
-            ========================================================================= --> 
-    <!-- STYLE SWITCHER PANEL STARTS
-            ========================================================================= --> 
-    <div id="switch">
-        <div class="content-switcher">
-            <h4>CUSTOMIZE</h4>
-            <p>Choose your Color</p>
-            <ul class="header">
-                <li><a href="#" onClick="setActiveStyleSheet('blue'); return false;" class="button color switch" style="background-color:#00acec"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('grey'); return false;" class="button color switch" style="background-color:#7f7f7f"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('pink'); return false;" class="button color switch" style="background-color:#de4a4a"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('greyish-blue'); return false;" class="button color switch" style="background-color:#51758f"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('orange'); return false;" class="button color switch" style="background-color:#f86923"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('green2'); return false;" class="button color switch" style="background-color:#77be33"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('green'); return false;" class="button color switch" style="background-color:#16a765"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('yellow'); return false;" class="button color switch" style="background-color:#ffc801"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('red'); return false;" class="button color switch" style="background-color:#e81e25"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('brown'); return false;" class="button color switch" style="background-color:#964b00"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('purple'); return false;" class="button color switch" style="background-color:#ba54ff"></a></li>
-                <li><a href="#" onClick="setActiveStyleSheet('oldrose'); return false;" class="button color switch" style="background-color:#be394a"></a></li>
-            </ul>
-            <p>Versions</p>
-            <div class="styled-select">
-                    <select onChange="window.document.location.href=this.options[this.selectedIndex].value;" value="GO">
-                            <option selected="selected">Light Version - Wide</option>
-                            <option value="http://webagate.com/demos/alia/umag/Dark-Version/wide/index.html">Dark Version - Wide</option>
-                            <option value="http://webagate.com/demos/alia/umag/Light-Version/boxed/index.html">Light Version - Boxed</option>
-                            <option value="http://webagate.com/demos/alia/umag/Dark-Version/boxed/index.html">Dark Version - Boxed</option>
-                    </select>
-            </div>
-            <p><a href="http://webagate.com/demos/alia/umag/Light-Version/boxed/index.html">Bg for Boxed Version</a></p>
-            <div class="clear"></div>
-            <div id="hide"><i class="fa fa-times"></i></div>
-        </div>
-    </div>
-    <div id="show" style="display: block;">
-        <div id="setting"><i class="fa fa-cog"></i></div>
-    </div>
-    <!-- /. STYLE SWITCHER PANEL ENDS
-            ========================================================================= --> 
-    <!-- jQuery (necessary for Bootstrap's JavaScript plugins) --> 
-    <script src="js/jquery-1.11.1/jquery.min.js"></script> 
-    <!-- Include all compiled plugins (below), or include individual files as needed --> 
-    <script src="js/bootstrap/bootstrap.min.js"></script>
-    <!-- Hover Dropdown Menu --> 
-    <script src="js/bootstrap-hover/twitter-bootstrap-hover-dropdown.min.js"></script> 
-    <!-- Sidr JS Menu -->
-    <script src="js/sidr/jquery.sidr.min.js"></script>
-    <!-- Sticky --> 
-    <script type="text/javascript" src="js/sticky/jquery.sticky.js"></script>        
-    <!-- SmoothScroll --> 
-    <script type="text/javascript" src="js/SmoothScroll/SmoothScroll.html"></script>
-<!-- Owl Carousel --> 
-    <script type="text/javascript" src="owl-carousel/owl-carousel/owl.carousel.js"></script>
-    <!-- AJAX Contact Form --> 			
-    <script type="text/javascript" src="js/contact/contact-form.js"></script>
-    <!-- Style Switcher --> 
-    <script type="text/javascript" src="js/styleswitcher/styleswitcher.js"></script>
-    <!-- Retina --> 
-    <script type="text/javascript" src="js/retina/retina.js"></script> 
-    <!-- FitVids --> 
-    <script type="text/javascript" src="js/fitvids/jquery.fitvids.js"></script>
-    <!-- Custom --> 
-    <script type="text/javascript" src="js/custom/custom.js"></script>
+   
+
+    <script src="{{ asset('bundles/tomsite/js/jquery-1.11.1/jquery.min.js') }}"></script> 
+    <script src="{{ asset('bundles/tomsite/js/bootstrap/bootstrap.min.js') }}"></script> 
+    <script src="{{ asset('bundles/tomsite/js/bootstrap-hover/twitter-bootstrap-hover-dropdown.min.js') }}"></script> 
+    <script src="{{ asset('bundles/tomsite/js/sidr/jquery.sidr.min.js') }}"></script> 
+    <script src="{{ asset('bundles/tomsite/js/sticky/jquery.sticky.js') }}"></script>     
+    <script src="{{ asset('bundles/tomsite/js/SmoothScroll/SmoothScroll.js') }}"></script>     
+    <script src="{{ asset('bundles/tomsite/owl-carousel/owl-carousel/owl.carousel.js') }}"></script>          
+    <script src="{{ asset('bundles/tomsite/js/fitvids/jquery.fitvids.js') }}"></script>     
+    <script src="{{ asset('bundles/tomsite/js/custom/custom.js') }}"></script>     
 </body>
 
 {% block javascripts %}
