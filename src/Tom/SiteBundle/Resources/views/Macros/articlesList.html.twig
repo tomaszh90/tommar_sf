@@ -13,9 +13,9 @@
                     <article>
                         <div class="picture">
                             <div class="category-image">
-                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
                                 <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
-                                {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                                {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                             </div>
                         </div>
                         <div class="detail">
@@ -27,7 +27,7 @@
                             <div class="small-caption">{{ article.title }}</div>
                             <div class="author">
                                 <div class="pic">
-                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="{{ article.title }}" > 
                                     <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
                                     <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
                                 </div>
@@ -43,9 +43,9 @@
                     <article>
                         <div class="picture">
                             <div class="category-image">
-                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
                                 <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
-                                {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                                {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                             </div>
                         </div>
                         <div class="detail">
@@ -57,7 +57,7 @@
                             <div class="caption">{{ article.title }}</div>
                             <div class="author">
                                 <div class="pic">
-                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="{{ article.title }}" > 
                                     <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
                                     <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
                                 </div>
@@ -86,9 +86,9 @@
                 <article class="col-lg-6 col-md-6">
                     <div class="picture">
                         <div class="category-image">
-                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
                             <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
-                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                         </div>
                     </div>
                     <div class="detail">
@@ -100,7 +100,7 @@
                         <div class="caption">{{ article.title }}</div>
                         <div class="author">
                             <div class="pic">
-                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="{{ article.title }}" > 
                                 <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
                                 <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
                             </div>
@@ -116,9 +116,9 @@
                 <article class="col-lg-4 col-md-4">
                     <div class="picture">
                         <div class="category-image">
-                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
                             <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
-                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                         </div>
                     </div>
                     <div class="detail">
@@ -130,7 +130,7 @@
                         <div class="small-caption">{{ article.title }}</div>
                         <div class="author">
                             <div class="pic">
-                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="{{ article.title }}" > 
                                 <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
                                 <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
                             </div>
@@ -159,9 +159,9 @@
                 <article class="col-lg-4 col-md-4">
                     <div class="picture">
                         <div class="category-image">
-                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
                             <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
-                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                         </div>
                     </div>
                     <div class="detail">
@@ -173,7 +173,7 @@
                         <div class="small-caption">{{ article.title }}</div>
                         <div class="author">
                             <div class="pic">
-                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="{{ article.title }}" > 
                                 <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
                                 <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
                             </div>
