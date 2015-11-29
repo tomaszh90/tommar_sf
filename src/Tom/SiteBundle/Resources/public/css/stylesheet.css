@@ -115,7 +115,7 @@ body {
     height: 30px;
     border: 1px solid rgba(0, 0, 0, .0);
     font-size: 14px;
-    color: #333333;
+    color: #FFFFFF;
     background-color: transparent!important;
     padding-left: 24px;
     transition: width 1s;
@@ -127,7 +127,8 @@ body {
     background-position: 6px center;
 }
 .nav-icon input[type=search]:focus {
-    border: 1px solid rgba(0, 0, 0, .5);
+    border: none;
+    outline: none;
     width: 200px;
 }
 #navigation {
@@ -144,7 +145,7 @@ body {
 #navigation ul.nav li a {
     font-size: 16px;
     font-weight: 400;
-    color: #000;
+    color: #FFFFFF;
     text-decoration: none;
     -webkit-transition: all 0.3s;
     -moz-transition: all 0.3s;
@@ -719,7 +720,7 @@ ul.tabs-posts li .caption {
     font-size: 16px;
 }
 ul.tabs-posts li .caption a {
-    color: #444;
+    color: #1b3380;
 }
 .tag-list {
     padding-top: 20px;
@@ -1159,18 +1160,18 @@ article {
     padding-right: 2px;
 }
 .caption {
-    font-size: 24px;
-    font-weight: 400;
+    font-size: 20px;
+    font-weight: 600;
     padding-top: 10px;
-    line-height: 1.2;
-    color: #000;
+    line-height: 24px;
+    color: #1b3380;
 }
 .small-caption {
     font-size: 20px;
-    font-weight: 400;
+    font-weight: 600;
     padding-top: 10px;
-    line-height: 1.2;
-    color: #000;
+    line-height: 24px;
+    color: #1b3380;
 }
 .author {
     padding-top: 15px;
@@ -1178,6 +1179,7 @@ article {
 .author .pic .name {
     color: #aaaaaa;
     padding-left: 12px;
+    font-size: 12px;
 }
 .description {
     padding-top: 20px;
@@ -1424,7 +1426,8 @@ iframe {
     border-left-color: #dddddd;
 }
 .read-article {
-    line-height: 48px;
+    /*line-height: 48px;*/
+    line-height: 100%;
     font-size: 12px;
 }
 .read-article i {
@@ -1442,7 +1445,7 @@ article a:hover {
 /* ----------------------------------------------------------------------------- EDITOR PICKS STARTS ----- */
 
 section.editor-picks {
-    background-color: #222222;
+    background-color: #333;
     color: #aaa;
     padding-top: 20px;
     padding-left: 20px;
@@ -1747,7 +1750,7 @@ section.footer .row2 {
 section.footer .row3 {
     padding-top: 30px;
     padding-bottom: 30px;
-    background-color: #222222;
+    background-color: #333;
 }
 section.footer .about {
     font-size: 16px;
@@ -1941,6 +1944,9 @@ ul.contactus li i {
 .copyright {
     color: #ccc;
     text-align: center;
+}
+.avatar-xs {
+    max-width: 25px;
 }
 .avatar-sm {
     max-width: 45px;
