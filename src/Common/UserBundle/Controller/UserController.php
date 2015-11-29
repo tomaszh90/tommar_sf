@@ -17,7 +17,7 @@ class UserController extends Controller
     
     /**
      * @Route(
-     *      "/account-settings",
+     *      "/ustawienia-konta",
      *      name = "user_accountSettings"
      * )
      * 

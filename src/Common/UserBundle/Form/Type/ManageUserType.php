@@ -23,6 +23,12 @@ class ManageUserType extends AbstractType
                     'placeholder' => 'Nazwa użytkownika'
                 )
             ))
+            ->add('name', 'text', array(
+                'label' => 'Imię i nazwisko',
+                'attr' => array(
+                    'placeholder' => 'Imię i nazwisko'
+                )
+            ))
             ->add('email', 'email', array(
                 'label' => 'E-mail',
                 'attr' => array(

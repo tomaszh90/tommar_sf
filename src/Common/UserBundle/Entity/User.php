@@ -45,6 +45,21 @@ class User implements AdvancedUserInterface, \Serializable {
      * )
      */
     private $username;
+
+    /**
+     * @ORM\Column(type="string", length = 20)
+     * 
+     * @Assert\NotBlank(
+     *      groups = {"Registration", "ChangeDetails"}
+     * )
+     * 
+     * @Assert\Length(
+     *      min=3,
+     *      max=20,
+     *      groups = {"Registration", "ChangeDetails"}
+     * )
+     */
+    private $name;
     
     /**
      * @ORM\Column(type="string", length = 120, unique = true)
@@ -563,5 +578,29 @@ class User implements AdvancedUserInterface, \Serializable {
     public function getUpdateDate()
     {
         return $this->updateDate;
+    }
+
+    /**
+     * Set name
+     *
+     * @param string $name
+     *
+     * @return User
+     */
+    public function setName($name)
+    {
+        $this->name = $name;
+
+        return $this;
+    }
+
+    /**
+     * Get name
+     *
+     * @return string
+     */
+    public function getName()
+    {
+        return $this->name;
     }
 }

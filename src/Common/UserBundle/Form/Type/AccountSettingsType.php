@@ -19,6 +19,10 @@ class AccountSettingsType extends AbstractType{
                     'label' => 'Nick',
                     'required' => FALSE
                 ))
+                ->add('name', 'text', array(
+                    'label' => 'Imię i nazwisko',
+                    'required' => FALSE
+                ))
                 ->add('avatarFile', 'file', array(
                     'label' => 'Zmień avatar',
                     'required' => FALSE

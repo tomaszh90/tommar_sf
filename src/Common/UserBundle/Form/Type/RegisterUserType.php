@@ -29,6 +29,13 @@ class RegisterUserType extends AbstractType{
                     'autocomplete' => 'off'
                 )
             ))
+            ->add('name', 'text', array(
+                'label' => false,
+                'attr' => array(
+                    'placeholder' => 'Imię i nazwisko',
+                    'autocomplete' => 'off'
+                )
+            ))
             ->add('plainPassword', 'repeated', array(
                 'type' => 'password',
                 'first_options' => array(

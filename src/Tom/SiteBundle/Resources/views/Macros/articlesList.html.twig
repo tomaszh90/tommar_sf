@@ -1,0 +1,187 @@
+{% macro treeList(categoryTitle, items) %}
+    <section>
+        <div class="row category-caption">
+            <div class="col-lg-12">
+                <h2 class="pull-left">{{ categoryTitle|upper }}</h2>
+                <span class="pull-right"><a href="#"><i class="fa fa-plus"></i></a></span>
+            </div>
+        </div>
+        <div class="row">
+            <div class="col-lg-5 col-md-5">
+                {% for article in items|slice(0, 3) %}
+                    <!-- ARTICLE STARTS -->
+                    <article>
+                        <div class="picture">
+                            <div class="category-image">
+                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                                <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
+                                {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>                        
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="small-caption">{{ article.title }}</div>
+                            <div class="author">
+                                <div class="pic">
+                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                    <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
+                                    <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- ARTICLE ENDS -->
+                {% endfor %}
+            </div>
+            <div class="col-lg-7 col-md-7">
+                {% for article in items|slice(3) %}
+                    <!-- ARTICLE STARTS -->
+                    <article>
+                        <div class="picture">
+                            <div class="category-image">
+                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                                <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
+                                {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                            </div>
+                        </div>
+                        <div class="detail">
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="caption">{{ article.title }}</div>
+                            <div class="author">
+                                <div class="pic">
+                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                    <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
+                                    <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
+                                </div>
+                            </div>
+                        </div>
+                    </article>
+                    <!-- ARTICLE ENDS -->
+                {% endfor %}
+            </div>
+        </div>
+    </section>
+{% endmacro %}
+
+
+{% macro tilesTwoThreeColumn(categoryTitle, items) %}
+    <section>
+        <div class="row category-caption">
+            <div class="col-lg-12">
+                <h2 class="pull-left">{{ categoryTitle|upper }}</h2>
+                <span class="pull-right"><a href="#"><i class="fa fa-plus"></i></a></span>
+            </div>
+        </div>
+        <div class="row">
+            {% for article in items|slice(0, 2) %}
+                <!-- ARTICLE STARTS -->
+                <article class="col-lg-6 col-md-6">
+                    <div class="picture">
+                        <div class="category-image">
+                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                            <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
+                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="info">
+                            <span class="date"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>
+                            <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                            <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                        </div>
+                        <div class="caption">{{ article.title }}</div>
+                        <div class="author">
+                            <div class="pic">
+                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
+                                <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- ARTICLE ENDS -->
+            {% endfor %}
+        </div>
+        <div class="row">
+            {% for article in items|slice(2, 3) %}
+                <!-- ARTICLE STARTS -->
+                <article class="col-lg-4 col-md-4">
+                    <div class="picture">
+                        <div class="category-image">
+                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                            <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
+                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="info">
+                            <span class="date"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>
+                            <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                            <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                        </div>
+                        <div class="small-caption">{{ article.title }}</div>
+                        <div class="author">
+                            <div class="pic">
+                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
+                                <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- ARTICLE ENDS -->
+            {% endfor %}
+        </div>
+    </section>
+{% endmacro %}
+
+
+
+{% macro tilesThreeColumn(categoryTitle, items) %}
+    <section>
+        <div class="row category-caption">
+            <div class="col-lg-12">
+                <h2 class="pull-left">{{ categoryTitle|upper }}</h2>
+                <span class="pull-right"><a href="#"><i class="fa fa-plus"></i></a></span>
+            </div>
+        </div>
+        <div class="row">
+            {% for article in items|slice(0, 3) %}
+                <!-- ARTICLE STARTS -->
+                <article class="col-lg-4 col-md-4">
+                    <div class="picture">
+                        <div class="category-image">
+                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                            <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
+                            {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>#}
+                        </div>
+                    </div>
+                    <div class="detail">
+                        <div class="info">
+                            <span class="date"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>
+                            <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                            <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                        </div>
+                        <div class="small-caption">{{ article.title }}</div>
+                        <div class="author">
+                            <div class="pic">
+                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> 
+                                <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
+                            </div>
+                        </div>
+                    </div>
+                </article>
+                <!-- ARTICLE ENDS -->
+            {% endfor %}
+        </div>
+    </section>
+{% endmacro %}

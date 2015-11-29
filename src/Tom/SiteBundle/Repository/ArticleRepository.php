@@ -26,7 +26,8 @@ class ArticleRepository extends EntityRepository
                         ->select('a, c, t, au')
                         ->leftJoin('a.category', 'c')
                         ->leftJoin('a.tags', 't')
-                        ->leftJoin('a.author', 'au');
+                        ->leftJoin('a.author', 'au')
+                        ->groupBy('a.title');
         
         if(!empty($params['status'])){
             if('published' == $params['status']){
@@ -36,11 +37,6 @@ class ArticleRepository extends EntityRepository
                 $qb->where('a.publishedDate > :currDate OR a.publishedDate IS NULL')
                         ->setParameter('currDate', new \DateTime());
             }
-        }
-        
-        if(!empty($params['orderBy'])){
-            $orderDir = !empty($params['orderDir']) ? $params['orderDir'] : NULL;
-            $qb->orderBy($params['orderBy'], $orderDir);
         }
         
         if(!empty($params['categorySlug'])){
@@ -73,8 +69,18 @@ class ArticleRepository extends EntityRepository
             $qb->andWhere('a.title LIKE :titleLike')
                     ->setParameter('titleLike', $titleLike);
         }
+        
+        if(!empty($params['orderBy'])){
+            $orderDir = !empty($params['orderDir']) ? $params['orderDir'] : NULL;
+            $qb->orderBy($params['orderBy'], $orderDir);
+        }
+        
+        if(!empty($params['limit'])){
+            $qb->setMaxResults($params['limit']);
+            
+        }
                 
-        return $qb;
+        return $qb->getQuery()->getResult();
     }
     
     

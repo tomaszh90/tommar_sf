@@ -1,4 +1,6 @@
 services:
-#    tom_site.example:
-#        class: Tom\SiteBundle\Example
-#        arguments: [@service_id, "plain_value", %parameter%]
+    tom_site.twig.extension.site:
+        class: Tom\SiteBundle\Twig\Extension\SiteExtension
+        arguments: ["@doctrine"]
+        tags:
+            - { name: twig.extension }
