@@ -148,7 +148,7 @@
             </div>
 
 
-
+                          <input type="text" id="czass">
 </section>
 {% endblock %}
 
@@ -172,20 +172,27 @@
     type        : $form.attr( 'method' ),
     url         : $form.attr( 'action' ),
     data        : values,
-    success     : function(data) {
-        if(data['success']===true){
+    dataType: "json",
+     success: function(response) {
+            console.log(response['data1']['date']);
+            // alert(response['data1']['date']);
+             $("#czass").val(response['data1']['date']);
+             callback( response );
+        }
+        
+/*    success     : function(data) {
+       if(data['success']===true){
 callback( data );
 }
  
 if(data['success']===false){
  callback( data );
 }       
-     }
+     }*/
   });
- 
+  
 }
-$(document).ready(function(){
- 
+$(document).ready(function(){   
 $( 'form' ).submit( function( e ) {
 e.preventDefault();
 messengerForm( $(this), function( response ) {

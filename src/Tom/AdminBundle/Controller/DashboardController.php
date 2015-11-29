@@ -18,7 +18,7 @@ class DashboardController extends Controller
     *       "/",
     *       name="tom_admin_dashboard"
     * )
-    * 
+    *    private $date;
     * @Template()
     */
     public function indexAction(Messenger $messenger = NULL)
@@ -44,11 +44,19 @@ class DashboardController extends Controller
                 $data = $messengerform->getData(); 
                 //$this->addFlash('success','Git!');
                 $response['success'] = true;
+                $czas = new \DateTime(date('Y-m-d H:i:s'));
         }else{
             $response['success'] = false;
             $response['errors'] = 'blah';
-        }
-            return new JsonResponse( $response );
+            $czas = 'error';
+        }   
+            return new JsonResponse(array('data1' => $czas));
+            //            return new JsonResponse( $response );
+
+             $response_new = new JsonResponse();
+             $response_new->setData(array(
+            'data' => $this->czas = new \DateTime()
+));
         }
         
         return array(
