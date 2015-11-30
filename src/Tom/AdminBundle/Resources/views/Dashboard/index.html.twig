@@ -8,208 +8,228 @@
 {% block metaKeywords %}            {% endblock %}
 
 {% block stylesheets %}
-{{parent()}}
+    {{parent()}}
 {% endblock %}
 
 {% block pageContainer %}
     <div class="notification success buba" id="sprawdzam">
-   <!-- <div class="alert alert-success" role="alert">
-        <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
-        <span class="sr-only">Success:</span>-->
+        <!-- <div class="alert alert-success" role="alert">
+             <span class="glyphicon glyphicon-exclamation-sign" aria-hidden="true"></span>
+             <span class="sr-only">Success:</span>-->
         Poprawie przesłano do bazy!
-    <!--</div>-->
-</div>  
-<section class="content-header">
-  <h1>{{ pageTitle|raw }}</h1>
-  <ol class="breadcrumb">
-    <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
-    <li class="active">Here</li>
-  </ol>
-</section> 
+        <!--</div>-->
+    </div>  
+    <section class="content-header">
+        <h1>{{ pageTitle|raw }}</h1>
+        <ol class="breadcrumb">
+            <li><a href="#"><i class="fa fa-dashboard"></i> Level</a></li>
+            <li class="active">Here</li>
+        </ol>
+    </section> 
 
 
-  
-<section class="content">
-{{ app.user.username }}
-<img src="{{ asset(app.user.avatar) }}" class="img-circle" alt="User Image">
 
-<div class="col-md-6">
-              <!-- DIRECT CHAT -->
-              <div class="box box-warning direct-chat direct-chat-warning">
+    <section class="content">
+        {{ app.user.username }}
+        <img src="{{ asset(app.user.avatar) }}" class="img-circle" alt="User Image">
+
+        <div class="col-md-6">
+            <!-- DIRECT CHAT -->
+            <div class="box box-warning direct-chat direct-chat-warning">
                 <div class="box-header with-border">
-                  <h3 class="box-title">Direct Chat</h3>
+                    <h3 class="box-title">Direct Chat</h3>
 
-                  <div class="box-tools pull-right">
-                    <span data-toggle="tooltip" title="" class="badge bg-yellow" data-original-title="3 New Messages">3</span>
-                    <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
-                    </button>
-                    <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
-                      <i class="fa fa-comments"></i></button>
-                    <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
-                    </button>
-                  </div>
+                    <div class="box-tools pull-right">
+                        <span data-toggle="tooltip" title="" class="badge bg-yellow" data-original-title="3 New Messages">3</span>
+                        <button type="button" class="btn btn-box-tool" data-widget="collapse"><i class="fa fa-minus"></i>
+                        </button>
+                        <button type="button" class="btn btn-box-tool" data-toggle="tooltip" title="Contacts" data-widget="chat-pane-toggle">
+                            <i class="fa fa-comments"></i></button>
+                        <button type="button" class="btn btn-box-tool" data-widget="remove"><i class="fa fa-times"></i>
+                        </button>
+                    </div>
                 </div>
                 <!-- /.box-header -->
                 <div class="box-body">
-                  <!-- Conversations are loaded here -->
-                  <div class="direct-chat-messages">
-                      <div id="spr">
-                    <!-- Message. Default to the left -->
-                     {% for entitie in entities %}
-                         {% if entitie.authorMess.username == app.user.username %}
-                    <div class="direct-chat-msg">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-left">{{ entitie.authorMess.username }}</span>
-                        <span class="direct-chat-timestamp pull-right">{{ entitie.updateDate|date('Y-m-d H:i:s') }}</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="{{ asset (entitie.authorMess.avatar) }}" alt="message user image"><!-- /.direct-chat-img -->
-                      <div class="direct-chat-text">
-                       {{ entitie.contents }}
-                      </div>
-                      <!-- /.direct-chat-text -->
+                    <!-- Conversations are loaded here -->
+                    <div class="direct-chat-messages">
+                        <div id="spr">
+                            <!-- Message. Default to the left -->
+                            {% for entitie in entities %}
+                                {% if entitie.authorMess.username == app.user.username %}
+                                    <div class="direct-chat-msg">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-left">{{ entitie.authorMess.username }}</span>
+                                            <span class="direct-chat-timestamp pull-right">{{ entitie.updateDate|date('Y-m-d H:i:s') }}</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="{{ asset (entitie.authorMess.avatar) }}" alt="message user image"><!-- /.direct-chat-img -->
+                                        <div class="direct-chat-text">
+                                            {{ entitie.contents }}
+                                        </div>
+                                        <!-- /.direct-chat-text -->
+                                    </div>
+                                {% else %}
+                                    <!-- Message to the right -->
+                                    <div class="direct-chat-msg right">
+                                        <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-right">{{ entitie.authorMess.username }}</span>
+                                            <span class="direct-chat-timestamp pull-left">{{ entitie.updateDate|date('Y-m-d H:i:s') }}</span>
+                                        </div>
+                                        <!-- /.direct-chat-info -->
+                                        <img class="direct-chat-img" src="{{ asset (entitie.authorMess.avatar) }}" alt="message user image"> 
+                                        <div class="direct-chat-text">
+                                            {{ entitie.contents }}
+                                        </div>
+
+                                    </div>{% endif %}
+                                    {% endfor %}
+
+
+                                        <!-- Message to the right
+                                        <div class="direct-chat-msg right">
+                                          <div class="direct-chat-info clearfix">
+                                            <span class="direct-chat-name pull-right">admin</span>
+                                            <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
+                                          </div>
+                                        <!-- /.direct-chat-info 
+                                        <img class="direct-chat-img" src="/timeto/web/uploads/user/avatar/default-avatar.jpg" alt="message user image"><!-- /.direct-chat-img 
+                                        <div class="direct-chat-text">
+                                          You better believe it!
+                                        </div>
+                                        <!-- /.direct-chat-text 
+                                      </div>
+                                        <!-- /.direct-chat-msg -->
+
+
+
+
+                                    </div>
+                                </div>
+                                <!--/.direct-chat-messages-->
+
+                                <!-- Contacts are loaded here -->
+                                <div class="direct-chat-contacts">
+                                    <ul class="contacts-list">
+                                        <li>
+                                            <a href="#">
+                                                <img class="contacts-list-img" src="">
+
+                                                <div class="contacts-list-info">
+                                                    <span class="contacts-list-name">
+                                                        Count Dracula
+                                                        <small class="contacts-list-date pull-right">2/28/2015</small>
+                                                    </span>
+                                                    <span class="contacts-list-msg">How have you been? I was...</span>
+                                                </div>
+                                                <!-- /.contacts-list-info -->
+                                            </a>
+                                        </li>
+                                        <!-- End Contact Item -->
+                                    </ul>
+                                    <!-- /.contatcts-list -->
+                                </div>
+                                <!-- /.direct-chat-pane -->
+                            </div>
+                            <!-- /.box-body -->
+                            <div class="box-footer">
+                                <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
+                                    <div class="input-group">
+                                        {{ form_widget(messengerform) }}
+                                        <span class="input-group-btn">
+                                            <button type="submit" id="wyslij" class="btn btn-warning btn-flat">Send</button>
+                                        </span>
+                                    </div>
+                                </form>
+                            </div>
+                            <!-- /.box-footer-->
+                        </div>
+                        <!--/.direct-chat -->
                     </div>
-                       {% else %}
-                           <!-- Message to the right -->
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right">{{ entitie.authorMess.username }}</span>
-                        <span class="direct-chat-timestamp pull-left">{{ entitie.updateDate|date('Y-m-d H:i:s') }}</span>
-                      </div>
-                      <!-- /.direct-chat-info -->
-                      <img class="direct-chat-img" src="{{ asset (entitie.authorMess.avatar) }}" alt="message user image"> 
-                      <div class="direct-chat-text">
-                        {{ entitie.contents }}
-                      </div>
-            
-                    </div>{% endif %}
-                   {% endfor %}
-                    
-
-                    <!-- Message to the right
-                    <div class="direct-chat-msg right">
-                      <div class="direct-chat-info clearfix">
-                        <span class="direct-chat-name pull-right">admin</span>
-                        <span class="direct-chat-timestamp pull-left">23 Jan 2:05 pm</span>
-                      </div>
-                      <!-- /.direct-chat-info 
-                      <img class="direct-chat-img" src="/timeto/web/uploads/user/avatar/default-avatar.jpg" alt="message user image"><!-- /.direct-chat-img 
-                      <div class="direct-chat-text">
-                        You better believe it!
-                      </div>
-                      <!-- /.direct-chat-text 
-                    </div>
-                    <!-- /.direct-chat-msg -->
 
 
-
-                  
-                   </div>
-                  </div>
-                  <!--/.direct-chat-messages-->
-
-                  <!-- Contacts are loaded here -->
-                  <div class="direct-chat-contacts">
-                    <ul class="contacts-list">
-                      <li>
-                        <a href="#">
-                          <img class="contacts-list-img" src="">
-
-                          <div class="contacts-list-info">
-                                <span class="contacts-list-name">
-                                  Count Dracula
-                                  <small class="contacts-list-date pull-right">2/28/2015</small>
-                                </span>
-                            <span class="contacts-list-msg">How have you been? I was...</span>
-                          </div>
-                          <!-- /.contacts-list-info -->
-                        </a>
-                      </li>
-                      <!-- End Contact Item -->
-                    </ul>
-                    <!-- /.contatcts-list -->
-                  </div>
-                  <!-- /.direct-chat-pane -->
-                </div>
-                <!-- /.box-body -->
-                <div class="box-footer">
-                  <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
-                    <div class="input-group">
-                     {{ form_widget(messengerform) }}
-                          <span class="input-group-btn">
-                            <button type="submit" id="wyslij" class="btn btn-warning btn-flat">Send</button>
-                          </span>
-                    </div>
-                  </form>
-                </div>
-                <!-- /.box-footer-->
-              </div>
-              <!--/.direct-chat -->
-            </div>
-
-
-                          <input type="text" id="czass">
-</section>
-{% endblock %}
+                    <input type="text" id="czass">
+                </section>
+                {% endblock %}
 
 {% block javascripts %}
-{{parent()}}
-<script>
-    function messengerForm( $form, callback ){
- 
-  /*
-   * Get all form values
-   */
-  var values = {};
-  $.each( $form.serializeArray(), function(i, field) {
-    values[field.name] = field.value;
-  });
- 
-  /*
-   * Throw the form values to the server!
-   */
-  $.ajax({
-    type        : $form.attr( 'method' ),
-    url         : $form.attr( 'action' ),
-    data        : values,
-    dataType: "json",
-     success: function(response) {
-            console.log(response['data1']['date']);
-            // alert(response['data1']['date']);
-             $("#czass").val(response['data1']['date']);
-             callback( response );
+    {{parent()}}
+    <script type="text/javascript">
+        $(document).ready(function () {
+            setTimeOnLive();
+        });
+        function setTimeOnLive() {
+            $.ajax({ type: 'POST', url: "{{ path('tom_admin_api_onlive') }}", 
+                success: function(data){ 
+                    getDataJson();
+                }});    
         }
-        
-/*    success     : function(data) {
-       if(data['success']===true){
-callback( data );
-}
- 
-if(data['success']===false){
- callback( data );
-}       
-     }*/
-  });
-  
-}
-$(document).ready(function(){   
-$( 'form' ).submit( function( e ) {
-e.preventDefault();
-messengerForm( $(this), function( response ) {
-   /* $("#sprawdzam").show().delay(3000).fadeOut();*/
-     $("#MessengerType_contents").val("");
-     $('#spr').load(document.URL +  ' #spr');
-    
-console.log(JSON.stringify(response)); 
-});
-  });
-});
-$( "#MessengerType_contents" ).one( "click", function() {
-    $("#MessengerType_contents").attr("placeholder", "Czatuj...");
-     setInterval(function(){
-      $('#spr').load(document.URL +  ' #spr');
-      
- },3000);
-});
-</script>
+
+        function getDataJson() {
+            $.getJSON( "/timeto/web/uploads/data.json", function( data ) {
+                console.log(data);
+            });
+        }
+    </script>
+
+
+
+    <script>
+        function messengerForm($form, callback) {
+
+            /*
+             * Get all form values
+             */
+            var values = {};
+            $.each($form.serializeArray(), function (i, field) {
+                values[field.name] = field.value;
+            });
+
+            /*
+             * Throw the form values to the server!
+             */
+            $.ajax({
+                type: $form.attr('method'),
+                url: $form.attr('action'),
+                data: values,
+                dataType: "json",
+                success: function (response) {
+                    console.log(response['data1']['date']);
+                    // alert(response['data1']['date']);
+                    $("#czass").val(response['data1']['date']);
+                    callback(response);
+                }
+
+                /*    success     : function(data) {
+                 if(data['success']===true){
+                 callback( data );
+                 }
+
+                 if(data['success']===false){
+                 callback( data );
+                 }       
+                 }*/
+            });
+
+        }
+        $(document).ready(function () {
+            $('form').submit(function (e) {
+                e.preventDefault();
+                messengerForm($(this), function (response) {
+                    /* $("#sprawdzam").show().delay(3000).fadeOut();*/
+                    $("#MessengerType_contents").val("");
+                    $('#spr').load(document.URL + ' #spr');
+
+                    console.log(JSON.stringify(response));
+                });
+            });
+        });
+        $("#MessengerType_contents").one("click", function () {
+            $("#MessengerType_contents").attr("placeholder", "Czatuj...");
+            setInterval(function () {
+                $('#spr').load(document.URL + ' #spr');
+
+            }, 3000);
+        });
+    </script>
 {% endblock %}
