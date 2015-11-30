@@ -83,7 +83,7 @@ class DashboardController extends Controller {
         
         file_put_contents($this->getUploadRootDir().$dataFileName, print_r($jsonArray, TRUE));
         
-        return new JsonResponse($this->getUploadRootDir()); 
+        return new JsonResponse(true); 
     }
     
     protected function getUploadRootDir(){
