@@ -48,14 +48,14 @@ class DashboardController extends Controller {
                 $response['errors'] = 'blah';
                 $czas = 'error';
             }
-            return new JsonResponse(array('data1' => $czas));
-            //            return new JsonResponse( $response );
+           // return new JsonResponse(array('data1' => $czas));
+                        return new JsonResponse( $response );
 
-            $response_new = new JsonResponse();
-            $response_new->setData(
-                    array(
-                        'data' => $this->czas = new \DateTime()
-            ));
+            //$response_new = new JsonResponse();
+            //$response_new->setData(
+            //        array(
+            //            'data' => $this->czas = new \DateTime()
+            //));
         }
 
         return array(
@@ -78,7 +78,7 @@ class DashboardController extends Controller {
      */
     public function onLiveAction(Request $Request) {
 
-        $jsonArray = json_encode(new \DateTime);
+        $jsonArray = json_encode(new \DateTime(date('Y-m-d H:i:s')));
         $dataFileName = 'data.json';
         
         file_put_contents($this->getUploadRootDir().$dataFileName, print_r($jsonArray, TRUE));
