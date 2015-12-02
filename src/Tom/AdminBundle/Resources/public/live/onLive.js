@@ -23,6 +23,7 @@ function setTimeOnLive() {
             $.ajax({ type: 'POST', url: '/timeto/web/app_dev.php/panel/api/onlive', 
                 success: function(data){          /*jeżeli ma zostać wykonany warunek*/
                 getDataJson();
+                setCookieLive();
                  }
              });    
 }

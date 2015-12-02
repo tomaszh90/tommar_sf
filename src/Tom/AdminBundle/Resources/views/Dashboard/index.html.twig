@@ -154,4 +154,10 @@
 
 {% block javascripts %}
     {{parent()}}
+    <script>
+      function setCookieLive(cname, cvalue) {  
+          document.cookie="{{ app.user.username }}={{ asset(app.user.avatar) }}";
+    }  
+    </script>
+    
 {% endblock %}
