@@ -722,6 +722,10 @@ function _init() {
     $('form [name="categoryId"]').change(function(){
         $(this).closest('form').submit();
     });
+
+    $('form [name="typeId"]').change(function(){
+        $(this).closest('form').submit();
+    });
     
     //iCheck for checkbox and radio inputs
     $('input[type="checkbox"].minimal, input[type="radio"].minimal').iCheck({

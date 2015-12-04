@@ -3624,13 +3624,13 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
     border-right-color: #dddddd;
     border-bottom-color: #dddddd;
     border-left-color: #dddddd;*/
-    border-top-width: 1px;
+/*    border-top-width: 1px;
     border-bottom-width: 1px;
     border-top-style: solid;
     border-bottom-style: solid;
     border-right-style: none;
-    border-left-style: none;
-    background-color:#1b3380;	
+    border-left-style: none;*/
+    background-color: #0086e9;	
 }
 .navbar-inverse .navbar-brand {
     color: #9d9d9d

@@ -1,5 +1,5 @@
 @charset "utf-8";
-@import url(http://fonts.googleapis.com/css?family=Lato:100,300,400,700,900,100italic,300italic,400italic,700italic,900italic);
+@import url(https://fonts.googleapis.com/css?family=Source+Sans+Pro:400,400italic,600italic,600,700&subset=latin,latin-ext);
 /* CSS Document */
 
 /* Table of Contents
@@ -33,7 +33,7 @@
 */
 
 body {
-    font-family: 'Lato', sans-serif;
+    font-family: 'Source Sans Pro', sans-serif; 
     font-size: 14px;
     font-weight: 400;
     color: #27242f;
@@ -720,7 +720,7 @@ ul.tabs-posts li .caption {
     font-size: 16px;
 }
 ul.tabs-posts li .caption a {
-    color: #1b3380;
+    color: #2c2c2c;
 }
 .tag-list {
     padding-top: 20px;
@@ -1164,14 +1164,14 @@ article {
     font-weight: 600;
     padding-top: 10px;
     line-height: 24px;
-    color: #1b3380;
+    color: #2c2c2c;
 }
 .small-caption {
     font-size: 20px;
     font-weight: 600;
     padding-top: 10px;
     line-height: 24px;
-    color: #1b3380;
+    color: #2c2c2c;
 }
 .author {
     padding-top: 15px;

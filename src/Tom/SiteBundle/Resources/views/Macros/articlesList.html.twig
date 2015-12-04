@@ -127,7 +127,7 @@
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <div class="small-caption">{{ article.title }}</div>
+                        <div class="small-caption">{{ article.title|shorten(60) }}</div>
                         <div class="author">
                             <div class="pic">
 {#                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-xs" alt="{{ article.title }}" > 
@@ -170,7 +170,7 @@
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <div class="small-caption">{{ article.title }}</div>
+                        <div class="small-caption">{{ article.title|shorten(60) }}</div>
                         <div class="author">
                             <div class="pic">
 {#                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-xs" alt="{{ article.title }}" > 

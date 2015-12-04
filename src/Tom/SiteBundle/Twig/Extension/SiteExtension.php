@@ -41,7 +41,8 @@ class SiteExtension extends \Twig_Extension {
     
     public function getFilters() {
         return array(
-            'site_format_date' => new \Twig_Filter_Method($this, 'siteFormatDate')
+            'site_format_date' => new \Twig_Filter_Method($this, 'siteFormatDate'),
+            'shorten' => new \Twig_Filter_Method($this, 'shorten'),
         );
     }
     
@@ -77,7 +78,7 @@ class SiteExtension extends \Twig_Extension {
 //    
 
         
-    public function shorten($text, $length = 200, $wrapTag = 'p') {
+    public function shorten($text, $length = 200, $addWrapTag = false, $wrapTag = 'p') {
         
         $text = html_entity_decode($text);
         $text = strip_tags($text);
@@ -87,7 +88,13 @@ class SiteExtension extends \Twig_Extension {
         $openTag = "<{$wrapTag}>";
         $closeTag = "</{$wrapTag}>";
         
-        return $openTag.$text.$closeTag;
+        if($addWrapTag) {
+            $result = $openTag.$text.$closeTag;
+        } else {
+            $result = $text;
+        }
+        
+        return $result;
     }
     
     
