@@ -9,29 +9,31 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
- * @Route("/artykul")
+ * @Route("/")
  */
 class ArticleController extends Controller
 {
     
    /**
     * @Route(
-    *       "/",
-    *       name="tom_site_article"
+    *       "/{id}-{slug}",
+    *       name="tom_site_article",
+    *       requirements = {"id" = "\d+", "slug" = "\w+"}
     * )
     * 
     * @Template()
     */
-    public function ArticleAction()
+    public function indexAction($id)
     {
-//        $id=1;
-//        $em = $this->getDoctrine() ->getManager();
-//        $seo = $em->getRepository('TomSiteBundle:Seo')->find($id);
-//        
-//        return array (
-//            'seo' => $seo
-//         );
+        $RepoArticle = $this->getDoctrine()->getRepository('TomSiteBundle:Article');
+        $Article = $RepoArticle->getPublishedArticle($id);
         
-       return array();
+        if(NULL == $Article) {
+            throw $this->createNotFoundException('Nie znaleziono takiego artykułu.'); 
+        }
+        
+       return array(
+           'article' => $Article
+       );
     }
 }

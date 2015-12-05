@@ -44,7 +44,7 @@
             <div class="container">
                 <div class="row">
                     <div class="col-xs-12 col-sm-3 logo">
-                        <a href="index.html">
+                        <a href="{{ path('tom_site_homepage') }}">
                             <img class="img-responsive"  src="{{ asset('bundles/tomsite/images/logo.png') }}" alt="" type="image/svg+xml">
                         </a>
                     </div>
@@ -424,76 +424,6 @@
                                         </ul>
                                         <!-- Tech Mega Menu Ends -->
                                     </li>
-                                    <li class="dropdown yamm-fw">
-                                        <a class="dropdown-link" href="category-movies.html">Kultura</a>
-                                        <a class="dropdown-caret dropdown-toggle" data-hover="dropdown" ><b class="caret hidden-xs"></b></a>
-                                        <!-- Movies Mega Menu Starts -->
-                                        <ul class="dropdown-menu hidden-xs hidden-sm video">
-                                            <li>
-                                                <div class="yamm-content">
-                                                    <div class="row no-gutter-3">
-                                                        <!-- ARTICLE STARTS -->
-                                                        <article class="col-lg-3 col-md-3">
-                                                            <div class="picture">
-                                                                <div class="category-image">
-                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}fashion/9.jpg" class="img-responsive" alt="" >											
-                                                                    <h2 class="overlay-category">FASHION</h2>
-                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="detail">
-                                                                <div class="caption"><a href="category-movies.html">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac.</a></div>
-                                                            </div>
-                                                        </article>
-                                                        <!-- ARTICLE ENDS -->
-                                                        <!-- ARTICLE STARTS -->
-                                                        <article class="col-lg-3 col-md-3">
-                                                            <div class="picture">
-                                                                <div class="category-image">
-                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}food/2.jpg" class="img-responsive" alt="" >
-                                                                    <h2 class="overlay-category">FOOD</h2>
-                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="detail">
-                                                                <div class="caption"><a href="category-movies.html">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac.</a></div>
-                                                            </div>
-                                                        </article>
-                                                        <!-- ARTICLE ENDS -->
-                                                        <!-- ARTICLE STARTS -->
-                                                        <article class="col-lg-3 col-md-3">
-                                                            <div class="picture">
-                                                                <div class="category-image">
-                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}sports/7.jpg" class="img-responsive" alt="" >
-                                                                    <h2 class="overlay-category">SPORTS</h2>
-                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="detail">
-                                                                <div class="caption"><a href="category-movies.html">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac.</a></div>
-                                                            </div>
-                                                        </article>
-                                                        <!-- ARTICLE ENDS -->
-                                                        <!-- ARTICLE STARTS -->
-                                                        <article class="col-lg-3 col-md-3">
-                                                            <div class="picture">
-                                                                <div class="category-image">
-                                                                    <img src="{{ asset('bundles/tomsite/images/images/') }}photography/2.jpg" class="img-responsive" alt="" >
-                                                                    <h2 class="overlay-category">PHOTOGRAPHY</h2>
-                                                                    <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="" ></div>
-                                                                </div>
-                                                            </div>
-                                                            <div class="detail">
-                                                                <div class="caption"><a href="category-movies.html">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac.</a></div>
-                                                            </div>
-                                                        </article>
-                                                        <!-- ARTICLE ENDS -->
-                                                    </div>
-                                                </div>
-                                            </li>
-                                        </ul>
-                                        <!-- Movies Mega Menu Ends -->
-                                    </li>
                                     <li class="visible-xs"><a href="login.html">LOGIN</a></li>
                                     <li class="visible-xs"><a href="register.html">JOIN</a></li>
                                     <li class="visible-xs"><a href="#">ADVERTISEMENT</a></li>
@@ -519,6 +449,60 @@
         <div class="container">
             <div class="row">
             {% block mainContent %}{% endblock %}
+
+            <div class="col-lg-4">
+                {% block mainSidebarRight %}
+                    <div class="join-us">
+                        <div class="row category-caption">
+                            <div class="col-lg-12">
+                                <h2 class="pull-left">FOLLOW US</h2>
+                            </div>
+                        </div>
+                        <div class="row">
+                            <div class="col-lg-12">
+                                <ul>
+                                    <li class="facebook">
+                                        <div class="icon"><a href="#"><i class="fa fa-facebook"></i></a></div>
+                                    </li>
+                                    <li class="twitter">
+                                        <div class="icon"><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                    </li>
+                                    <li class="linkedin">
+                                        <div class="icon"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                                    </li>
+                                    <li class="dribbble">
+                                        <div class="icon"><a href="#"><i class="fa fa-dribbble"></i></a></div>
+                                    </li>
+                                    <li class="facebook">
+                                        <div class="icon"><a href="#"><i class="fa fa-facebook"></i></a></div>
+                                    </li>
+                                    <li class="twitter">
+                                        <div class="icon"><a href="#"><i class="fa fa-twitter"></i></a></div>
+                                    </li>
+                                    <li class="linkedin">
+                                        <div class="icon"><a href="#"><i class="fa fa-linkedin"></i></a></div>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                {% endblock %}
+                <!-- JOIN NEWSLETTER STARTS -->
+                <div class="newsletter-block">
+                    <div class="row category-caption">
+                        <div class="col-lg-12">
+                            <h2 class="pull-left">JOIN OUR NEWSLETTER</h2>
+                        </div>
+                    </div>
+                    <div class="row">
+                        <div class="col-lg-12"><input name="" type="text" placeholder="Email Address"></div>
+                        <div class="col-lg-6"><input name="" type="text" placeholder="First Name"></div>
+                        <div class="col-lg-6"><input name="" type="text" placeholder="Last Name"></div>
+                        <div class="col-lg-12"><input type="button" value="SUBSCRIBE"></div>
+                    </div>
+                </div>
+                <!-- JOIN NEWSLETTER ENDS -->
+            </div>
         </div>
     </div>
 {% block bottomContent %}{% endblock %} 

@@ -8,15 +8,31 @@ use Doctrine\ORM\EntityRepository;
 class ArticleRepository extends EntityRepository
 {
 
-    public function getPublishedArticle($slug){
+    public function getPublishedArticle($id){
         $qb = $this->getQueryBuilder(array(
-            'status' => 'published'
+            'status' => 'published',
         ));
         
-        $qb->andWhere('a.slug = :slug')
-                ->setParameter('slug', $slug);
+        $qb->andWhere('a.id = :id')
+                ->setParameter('id', $id);
         
         return $qb->getQuery()->getOneOrNullResult();
+    }
+    
+    public function getSectionArticle(array $params = array()) {
+        $qb = $this->getQueryBuilder(array(
+            'status' => 'published',
+            'categoryId' => $params['categoryId'],
+            'orderBy' => 'a.publishedDate',
+            'orderDir' => 'DESC',
+        ));
+        $qb->groupBy('a.title');
+        
+        if(!empty($params['limit'])){
+            $qb->setMaxResults($params['limit']); 
+        }
+        
+        return $qb->getQuery()->getResult();
     }
 
 
@@ -26,8 +42,8 @@ class ArticleRepository extends EntityRepository
                         ->select('a, c, t, au')
                         ->leftJoin('a.category', 'c')
                         ->leftJoin('a.tags', 't')
-                        ->leftJoin('a.author', 'au')
-                        ->groupBy('a.title');
+                        ->leftJoin('a.author', 'au');
+                        
         
         if(!empty($params['status'])){
             if('published' == $params['status']){
@@ -75,12 +91,9 @@ class ArticleRepository extends EntityRepository
             $qb->orderBy($params['orderBy'], $orderDir);
         }
         
-        if(!empty($params['limit'])){
-            $qb->setMaxResults($params['limit']);
-            
-        }
+
                 
-        return $qb->getQuery()->getResult();
+        return $qb;
     }
     
     

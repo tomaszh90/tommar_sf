@@ -50,15 +50,11 @@ class SiteExtension extends \Twig_Extension {
     
     public function articlesListModule($categoryId, $limit) {
             $RepoArticle = $this->doctrine->getRepository('TomSiteBundle:Article');
-            $Articles = $RepoArticle->getQueryBuilder(array(
+            $Articles = $RepoArticle->getSectionArticle(array(
                 'categoryId' => $categoryId,
-                'status'     => 'published',
-                'orderBy'    => 'a.publishedDate',
-                'orderDir'   => 'DESC',
                 'limit'      => $limit
             ));
 
-        
         return array(
             'articles' => $Articles
         );
