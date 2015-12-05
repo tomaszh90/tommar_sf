@@ -10,7 +10,7 @@
             <div class="col-lg-5 col-md-5">
                 {% for article in items|slice(0, 3) %}
                     <!-- ARTICLE STARTS -->
-                    <article>
+                    <article class="article">
                         <div class="picture">
                             <div class="category-image">
                                 <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
@@ -25,13 +25,6 @@
                                 <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                             </div>
                             <div class="small-caption">{{ article.title }}</div>
-                            <div class="author">
-                                <div class="pic">
-{#                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-xs" alt="{{ article.title }}" > 
-                                    <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> #}
-                                    <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
-                                </div>
-                            </div>
                         </div>
                     </article>
                     <!-- ARTICLE ENDS -->
@@ -40,7 +33,7 @@
             <div class="col-lg-7 col-md-7">
                 {% for article in items|slice(3) %}
                     <!-- ARTICLE STARTS -->
-                    <article>
+                    <article class="article">
                         <div class="picture">
                             <div class="category-image">
                                 <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
@@ -55,13 +48,6 @@
                                 <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                             </div>
                             <div class="caption">{{ article.title }}</div>
-                            <div class="author">
-                                <div class="pic">
-{#                                    <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-xs" alt="{{ article.title }}" > 
-                                    <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> #}
-                                    <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
-                                </div>
-                            </div>
                         </div>
                     </article>
                     <!-- ARTICLE ENDS -->
@@ -83,7 +69,7 @@
         <div class="row">
             {% for article in items|slice(0, 2) %}
                 <!-- ARTICLE STARTS -->
-                <article class="col-lg-6 col-md-6">
+                <article class="col-lg-6 col-md-6 article">
                     <div class="picture">
                         <div class="category-image">
                             <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
@@ -98,13 +84,6 @@
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
                         <div class="caption">{{ article.title }}</div>
-                        <div class="author">
-                            <div class="pic">
-{#                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-xs" alt="{{ article.title }}" > 
-                                <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> #}
-                                <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
-                            </div>
-                        </div>
                     </div>
                 </article>
                 <!-- ARTICLE ENDS -->
@@ -113,7 +92,7 @@
         <div class="row">
             {% for article in items|slice(2, 3) %}
                 <!-- ARTICLE STARTS -->
-                <article class="col-lg-4 col-md-4">
+                <article class="col-lg-4 col-md-4 article">
                     <div class="picture">
                         <div class="category-image">
                             <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
@@ -128,13 +107,6 @@
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
                         <div class="small-caption">{{ article.title|shorten(60) }}</div>
-                        <div class="author">
-                            <div class="pic">
-{#                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-xs" alt="{{ article.title }}" > 
-                                <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> #}
-                                <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
-                            </div>
-                        </div>
                     </div>
                 </article>
                 <!-- ARTICLE ENDS -->
@@ -156,7 +128,7 @@
         <div class="row">
             {% for article in items|slice(0, 3) %}
                 <!-- ARTICLE STARTS -->
-                <article class="col-lg-4 col-md-4">
+                <article class="col-lg-4 col-md-4 article">
                     <div class="picture">
                         <div class="category-image">
                             <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
@@ -171,13 +143,6 @@
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
                         <div class="small-caption">{{ article.title|shorten(60) }}</div>
-                        <div class="author">
-                            <div class="pic">
-{#                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-xs" alt="{{ article.title }}" > 
-                                <span class="name"><a href="#">{{ article.author.name|upper }}</a></span> #}
-                                <span class="read-article pull-right"><a href="#">WIĘCEJ <i class="fa fa-angle-right"></i></a></span>
-                            </div>
-                        </div>
                     </div>
                 </article>
                 <!-- ARTICLE ENDS -->

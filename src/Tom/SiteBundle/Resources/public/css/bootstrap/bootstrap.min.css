@@ -11,6 +11,18 @@ html {
 body {
     margin: 0
 }
+.right-inner-addon {
+    position: relative;
+}
+.right-inner-addon input {
+    padding-right: 30px;    
+}
+.right-inner-addon i {
+    position: absolute;
+    right: 0px;
+    padding: 10px 12px;
+    pointer-events: none;
+}
 article, aside, details, figcaption, figure, footer, header, hgroup, main, menu, nav, section, summary {
     display: block
 }
@@ -3416,7 +3428,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
         float: left
     }
     .navbar-nav>li>a {
-        padding-top: 10px;
+        padding-top: 8px;
         padding-bottom: 8px
     }
 }
@@ -3620,17 +3632,7 @@ textarea.input-group-sm>.form-control, textarea.input-group-sm>.input-group-addo
     color: #ccc
 }
 .navbar-inverse {
-/*    border-top-color: #dddddd;
-    border-right-color: #dddddd;
-    border-bottom-color: #dddddd;
-    border-left-color: #dddddd;*/
-/*    border-top-width: 1px;
-    border-bottom-width: 1px;
-    border-top-style: solid;
-    border-bottom-style: solid;
-    border-right-style: none;
-    border-left-style: none;*/
-    background-color: #0086e9;	
+    background-color: #0075cc;	
 }
 .navbar-inverse .navbar-brand {
     color: #9d9d9d

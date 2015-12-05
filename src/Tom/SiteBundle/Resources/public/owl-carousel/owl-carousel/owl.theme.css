@@ -3,8 +3,8 @@
 *	v1.3.2
 */
 .owl-item div {
-	padding: 0px;
-	margin: 0px;
+	/*padding: 0px;*/
+	/*margin: 0px;*/
 }
 .owl-theme .owl-controls {
 	text-align: center;
@@ -13,20 +13,26 @@
 .slider.owl-theme .owl-controls .owl-buttons .owl-prev {
 	position: absolute;
 	top: 50%;
-	left: 0px;
+	left: -45px;
 	margin-top: -10px!important;
 }
 .slider.owl-theme .owl-controls .owl-buttons .owl-next {
 	position: absolute;
 	top: 50%;
-	right: 0px;
+	right: -45px;
 	margin-top: -10px!important;
+}
+.slider.owl-theme .owl-controls .owl-buttons .owl-prev:hover {
+        left: -50px;
+}
+.slider.owl-theme .owl-controls .owl-buttons .owl-next:hover {
+        right: -50px;
 }
 .owl-theme .owl-controls .owl-buttons div {
 	display: inline-block;
 	zoom: 1;
- *display: inline;
-	font-size: 28px;
+        *display: inline;
+	font-size: 30px;
 	line-height: 1.1;
 	padding-top: 4px;
 	filter: Alpha(Opacity=100);/*IE7 fix*/
@@ -35,7 +41,8 @@
 	margin-bottom: 0px!important;
 	width: 40px;
 	height: 40px;
-	color: #fff;
+        color: #000;
+        transition: all 0.3s;
 	/*background-color: #000;*/
 }
 /* Clickable class fix problem with hover on touch devices */
