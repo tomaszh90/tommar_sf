@@ -1066,6 +1066,9 @@ article.article {
     position: relative;
     background-color: #e4545b;
 }
+.picture .category-image img {
+    transition: opacity 0.3s;
+}
 .picture .category-image:hover img {
     opacity: 0.6;
 }

@@ -18,7 +18,7 @@ class ArticleController extends Controller
     * @Route(
     *       "/{id}-{slug}",
     *       name="tom_site_article",
-    *       requirements = {"id" = "\d+", "slug" = "\w+"}
+    *       requirements = {"id" = "\d+"}
     * )
     * 
     * @Template()

@@ -13,7 +13,8 @@
                     <article class="article">
                         <div class="picture">
                             <div class="category-image">
-                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
+                                <a href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">
+                                    <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" ></a>
                                 <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
                                 {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                             </div>
@@ -24,7 +25,7 @@
                                 <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                                 <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                             </div>
-                            <div class="small-caption">{{ article.title }}</div>
+                            <a class="small-caption" href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">{{ article.title }}</a>
                         </div>
                     </article>
                     <!-- ARTICLE ENDS -->
@@ -36,7 +37,8 @@
                     <article class="article">
                         <div class="picture">
                             <div class="category-image">
-                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
+                                <a href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">
+                                    <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" ></a>
                                 <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
                                 {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                             </div>
@@ -47,7 +49,7 @@
                                 <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                                 <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                             </div>
-                            <div class="caption">{{ article.title }}</div>
+                            <a class="caption" href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">{{ article.title }}</a>
                         </div>
                     </article>
                     <!-- ARTICLE ENDS -->
@@ -72,7 +74,9 @@
                 <article class="col-lg-6 col-md-6 article">
                     <div class="picture">
                         <div class="category-image">
-                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
+                            <a href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">
+                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" />
+                            </a>
                             <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
                             {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                         </div>
@@ -83,7 +87,7 @@
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <div class="caption">{{ article.title }}</div>
+                        <a class="caption" href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">{{ article.title }}</a>
                     </div>
                 </article>
                 <!-- ARTICLE ENDS -->
@@ -95,7 +99,9 @@
                 <article class="col-lg-4 col-md-4 article">
                     <div class="picture">
                         <div class="category-image">
-                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
+                            <a href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">
+                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" />
+                            </a>
                             <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
                             {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                         </div>
@@ -106,7 +112,7 @@
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <div class="small-caption">{{ article.title|shorten(60) }}</div>
+                        <a class="small-caption" href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">{{ article.title|shorten(60) }}</a>
                     </div>
                 </article>
                 <!-- ARTICLE ENDS -->
@@ -131,7 +137,9 @@
                 <article class="col-lg-4 col-md-4 article">
                     <div class="picture">
                         <div class="category-image">
-                            <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" >
+                            <a href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">
+                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="{{ article.title }}" />
+                            </a>
                             <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
                             {#                                                <div class="play-icon"><img src="{{ asset('bundles/tomsite/images/images/') }}icons/video-icon.png" width="40" height="40" alt="{{ article.title }}" ></div>#}
                         </div>
@@ -142,7 +150,7 @@
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <div class="small-caption">{{ article.title|shorten(60) }}</div>
+                        <a class="small-caption" href="{{ path('tom_site_article', {'id': article.id, 'slug': article.slug}) }}">{{ article.title|shorten(60) }}</a>
                     </div>
                 </article>
                 <!-- ARTICLE ENDS -->

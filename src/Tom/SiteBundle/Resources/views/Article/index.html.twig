@@ -19,7 +19,7 @@
             <div class="row category-caption">
                 <div class="col-lg-12">
                     <h2 class="pull-left main-caption"><a href="#">{{ article.category.name|upper }}</a></h2>
-                    {#                    <h2 class="pull-left sub-cat">FOOD 2014</h2>#}
+                        {#                    <h2 class="pull-left sub-cat">FOOD 2014</h2>#}
                 </div>
             </div>
             <div class="row">
@@ -38,7 +38,7 @@
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <h1 class="caption">{{ article.title }}</h1>
+                        <h1 class="title"><strong>{{ article.title }}</strong></h1>
                         <div class="author">
                             <div class="pic">
                                 <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
@@ -65,9 +65,9 @@
                         <div class="clearfix"></div>
                         <ul class="via">
                             <li>TAGI</li>
-                            {% for tag in article.tags %}
-                            <li><a href="#">{{ tag.name }}</a></li>
-                            {% endfor %}
+                                {% for tag in article.tags %}
+                                <li><a href="#">{{ tag.name }}</a></li>
+                                {% endfor %}
                         </ul>
                         <div class="clearfix"></div>
                     </div>
