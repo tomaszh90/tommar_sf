@@ -23,22 +23,22 @@
                 </div>
             </div>
             <div class="row">
-                <article class="col-lg-12 col-md-12">
+                <article class="col-lg-12 col-md-12" itemscope itemType="http://schema.org/BlogPosting">
                     {% if article.image is not empty %}
                         <div class="picture">
                             <div class="category-image">
-                                <img src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
+                                <img itemprop="image" src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
                                 <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
                             </div>
                         </div>
                     {% endif %}
                     <div class="detail">
                         <div class="info">
-                            <span class="date"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>                        
+                            <span class="date" itemprop="datePublished"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>                        
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <h1 class="title"><strong>{{ article.title }}</strong></h1>
+                        <h1 class="title" itemprop="headline"><strong>{{ article.title }}</strong></h1>
                         <div class="author">
                             <div class="pic">
                                 <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
@@ -46,7 +46,7 @@
                             </div>
                         </div>
                     </div>
-                    <div class="description">
+                    <div class="description" itemprop="articleBody">
                         {{ article.content|raw }}
                     </div>
                     <div class="clearfix"></div>
@@ -55,7 +55,11 @@
                     <div>
                         <ul class="via">
                             <li>AUTOR</li>
-                            <li><a href="#">{{ article.author.name }}</a></li>
+                            <li><a href="#"><div  itemprop="author">
+                             <span itemscope itemtype="http://schema.org/Person">
+                                  Posted by 
+                                <span itemprop="name">{{ article.author.name }}</span>
+                                    </span></div></a></li>
                         </ul>
                         <div class="clearfix"></div>
                         <ul class="via">
