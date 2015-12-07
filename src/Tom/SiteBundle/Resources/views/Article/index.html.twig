@@ -57,11 +57,13 @@
                             <li>AUTOR</li>
                             <li><a href="#">{{ article.author.name }}</a></li>
                         </ul>
+                        {% if article.source is not null %}
                         <div class="clearfix"></div>
                         <ul class="via">
                             <li>ŹRÓDŁO</li>
-                            <li><a href="#">ff</a></li>
+                            <li>{{ article.source|raw }}</li>
                         </ul>
+                        {% endif %}
                         <div class="clearfix"></div>
                         <ul class="via">
                             <li>TAGI</li>
@@ -318,15 +320,14 @@
 
 {% block mainSidebarRight %}
     {{ parent() }}
-
     <!-- TABS STARTS -->
     <div class="tabs">
         <div role="tabpanel">
             <!-- Nav tabs -->
             <ul class="nav nav-tabs nav-justified" role="tablist">
-                <li role="presentation" class="active"><a href="#categories" aria-controls="popular" role="tab" data-toggle="tab">CATEGORIES</a></li>
-                <li role="presentation"><a href="#popular" aria-controls="popular" role="tab" data-toggle="tab">POPULAR</a></li>
-                <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">COMMENTS</a></li>
+                <li role="presentation" class="active"><a href="#categories" aria-controls="popular" role="tab" data-toggle="tab">KATEGORIE</a></li>
+                <li role="presentation"><a href="#popular" aria-controls="popular" role="tab" data-toggle="tab">POPULARNE</a></li>
+                <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">KOMENTOWANE</a></li>
             </ul>
             <!-- Tab panes -->
             <div class="tab-content">
@@ -334,11 +335,13 @@
                 <div role="tabpanel" class="tab-pane active" id="categories">
                     <div class="categories">
                         <ul class="cats">
-                            <li><img src="../../images/categories/1.jpg" class="img-circle" alt="" > <a href="#">Fashion</a> <span class="pull-right">50</span></li>
-                            <li><img src="../../images/categories/2.jpg" class="img-circle" alt="" > <a href="#">Photography</a> <span class="pull-right">99</span></li>
-                            <li><img src="../../images/categories/3.jpg" class="img-circle" alt="" > <a href="#">Food</a> <span class="pull-right">75</span></li>
-                            <li><img src="../../images/categories/4.jpg" class="img-circle" alt="" > <a href="#">Sports</a> <span class="pull-right">34</span></li>
-                            <li><img src="../../images/categories/5.jpg" class="img-circle" alt="" > <a href="#">Technology</a> <span class="pull-right">09</span></li>
+                        {% for row in categoryListModule() %}
+                            {% for item in row %}
+                                {% set category = item[0] %}
+                                <li><a href="#"><img class="img-circle avatar-sm" src="{{ asset('uploads/article/category/th_') }}{{ category.image }}" /> {{ category.name }} <span class="pull-right">{{ item.articlesCount }}</span></a></li>
+                            {% endfor %}
+                        {% endfor %}
+                            
                         </ul>
                     </div>
                 </div>

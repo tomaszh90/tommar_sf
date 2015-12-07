@@ -49,6 +49,15 @@ class Article {
     private $slug;
     
     /**
+     * @ORM\Column(type="string", length=120, nullable=true)
+     * 
+     * @Assert\Length(
+     *      max = 120
+     * )
+     */
+    private $source = null;
+    
+    /**
      * @ORM\Column(type="text")
      * 
      * @Assert\NotBlank
@@ -542,5 +551,29 @@ class Article {
     public function getMetaDescription()
     {
         return $this->metaDescription;
+    }
+
+    /**
+     * Set source
+     *
+     * @param string $source
+     *
+     * @return Article
+     */
+    public function setSource($source)
+    {
+        $this->source = $source;
+
+        return $this;
+    }
+
+    /**
+     * Get source
+     *
+     * @return string
+     */
+    public function getSource()
+    {
+        return $this->source;
     }
 }

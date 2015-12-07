@@ -614,6 +614,7 @@ ul.cats li:first-child {
 }
 ul.cats li a {
     color: #000;
+    display: block;
 }
 ul.cats li:hover a {
     color: #aaa!important;
@@ -1908,7 +1909,7 @@ ul.contactus li i {
     max-width: 25px;
 }
 .avatar-sm {
-    max-width: 45px;
+    max-width: 50px;
 }
 
 /* ----------------------------------------------------------------------------- FOOTER ENDS ----- */

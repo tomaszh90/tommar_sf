@@ -9,7 +9,7 @@ use Symfony\Component\HttpFoundation\Request;
 use Symfony\Component\HttpFoundation\JsonResponse;
 
 use Tom\SiteBundle\Entity\Tag;
-use Tom\AdminBundle\Form\Type\TaxonomyType;
+use Tom\AdminBundle\Form\Type\ArticleTagType;
 
 
 class ArticleTagsController extends Controller
@@ -78,7 +78,7 @@ class ArticleTagsController extends Controller
             $newTag = TRUE;
         }
         
-        $form = $this->createForm(new TaxonomyType(), $Tag);
+        $form = $this->createForm(new ArticleTagType(), $Tag);
         
         $form->handleRequest($Request);
         

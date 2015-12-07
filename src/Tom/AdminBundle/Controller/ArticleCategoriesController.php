@@ -8,7 +8,7 @@ use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 
 use Tom\SiteBundle\Entity\ArticleCategory;
-use Tom\AdminBundle\Form\Type\TaxonomyType;
+use Tom\AdminBundle\Form\Type\ArticleCategoryType;
 use Tom\AdminBundle\Form\Type\ArticleCategoryDeleteType;
 
 class ArticleCategoriesController extends Controller {    
@@ -30,7 +30,7 @@ class ArticleCategoriesController extends Controller {
             $newCategory = TRUE;
         }
         
-        $form = $this->createForm(new TaxonomyType(), $Category)   
+        $form = $this->createForm(new ArticleCategoryType(), $Category)   
                     ->handleRequest($Request);
         
         if($form->isValid()){

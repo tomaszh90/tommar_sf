@@ -7,12 +7,12 @@ use Symfony\Component\Form\FormBuilderInterface;
 use Symfony\Component\OptionsResolver\OptionsResolverInterface;
 
 
-class TaxonomyType extends AbstractType
+class ArticleCategoryType extends AbstractType
 {
 
     public function getName()
     {
-        return 'taxonomy';
+        return 'articleCategory';
     }
     
     public function buildForm(FormBuilderInterface $builder, array $options)
@@ -30,6 +30,9 @@ class TaxonomyType extends AbstractType
                     'autocomplete' => 'off',
                 )
             ))
+            ->add('imageFile', 'file', array(
+                'label' => 'Zdjęcie'
+            ))
             ->add('save', 'submit', array(
                 'label' => 'Zapisz',
                 'attr' => array(
@@ -41,7 +44,7 @@ class TaxonomyType extends AbstractType
     public function setDefaultOptions(OptionsResolverInterface $resolver)
     {
         $resolver->setDefaults(array(
-            'data_class' => 'Tom\SiteBundle\Entity\AbstractTaxonomy'
+            'data_class' => 'Tom\SiteBundle\Entity\ArticleCategory'
         ));
     }
 }

@@ -36,6 +36,10 @@ class SiteExtension extends \Twig_Extension {
                         array($this, 'articlesListModule'), 
                         array('is_safe' => array('html'))
                     ),
+            new \Twig_SimpleFunction('categoryListModule', 
+                        array($this, 'categoryListModule'), 
+                        array('is_safe' => array('html'))
+                    ),
         );
     }
     
@@ -46,8 +50,6 @@ class SiteExtension extends \Twig_Extension {
         );
     }
     
-//    private $categoryArticles;
-    
     public function articlesListModule($categoryId, $limit) {
             $RepoArticle = $this->doctrine->getRepository('TomSiteBundle:Article');
             $Articles = $RepoArticle->getSectionArticle(array(
@@ -57,6 +59,20 @@ class SiteExtension extends \Twig_Extension {
 
         return array(
             'articles' => $Articles
+        );
+    }
+
+
+    private $categoryList;
+    
+    public function categoryListModule() {
+        if(!isset($this->categoryList)) {
+            $RepoCategory = $this->doctrine->getRepository('TomSiteBundle:ArticleCategory');
+            $this->categoryList = $RepoCategory->getQueryBuilder()->getQuery()->getResult();
+        }
+
+        return array(
+            'categories' => $this->categoryList
         );
     }
 

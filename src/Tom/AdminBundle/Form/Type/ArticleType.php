@@ -29,6 +29,12 @@ class ArticleType extends AbstractType
                     'autocomplete' => 'off'
                 )
             ))
+            ->add('source', 'text', array(
+                'label' => 'Źródło',
+                'attr' => array(
+                    'autocomplete' => 'off'
+                )
+            ))
             ->add('content', 'textarea', array(
                 'label' => 'Treść',
                 'attr' => array(
