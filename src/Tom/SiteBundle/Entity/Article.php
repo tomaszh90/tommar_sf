@@ -157,6 +157,11 @@ class Article {
     private $metaDescription = null;
     
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $hits = 0;
+    
+    /**
      * Constructor
      */
     public function __construct()
@@ -575,5 +580,29 @@ class Article {
     public function getSource()
     {
         return $this->source;
+    }
+
+    /**
+     * Set hits
+     *
+     * @param integer $hits
+     *
+     * @return Article
+     */
+    public function setHits($hits)
+    {
+        $this->hits = $hits;
+
+        return $this;
+    }
+
+    /**
+     * Get hits
+     *
+     * @return integer
+     */
+    public function getHits()
+    {
+        return $this->hits;
     }
 }
