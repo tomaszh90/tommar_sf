@@ -23,16 +23,16 @@
             <div class="box-header padding-bottom-15">
               <h3 class="box-title">Lista</h3>
               <div class="box-tools">
-                  <a class="btn btn-block btn-md btn-success pull-right" href="{{ path('tom_admin_slider_form') }}"><small><i class="fa fa-plus"></i></small>&nbsp;&nbsp;Dodaj nowy</a>
+                  <a class="btn btn-block btn-md btn-success pull-right" href="{{ path('tom_admin_menu_form') }}"><small><i class="fa fa-plus"></i></small>&nbsp;&nbsp;Dodaj nową</a>
               </div>
             </div><!-- /.box-header -->
             <div class="box-body table-responsive no-padding">
 
-                <form action="{{ path('tom_admin_slider') }}" method="get" class="form-inline filter-search padding-top-15 padding-bottom-15" role="form">
+                <form action="{{ path('tom_admin_menu') }}" method="get" class="form-inline filter-search padding-top-15 padding-bottom-15" role="form">
                     
                     {% for key,val in statusesList %}
                     <div class="col-xs-12 col-md-2 col-lg-2 padding-bottom-15">
-                        <a class="btn btn-block {{ currStatus == val ? 'btn-default':'btn-primary' }}" href="{{ path('tom_admin_slider', {'status': val}) }}">
+                        <a class="btn btn-block {{ currStatus == val ? 'btn-default':'btn-primary' }}" href="{{ path('tom_admin_menu', {'status': val}) }}">
                             {{ key }} ({{ statistics[val] }})
                         </a>
                     </div>
@@ -52,11 +52,11 @@
 
                     <div class="col-xs-6 col-md-2 col-lg-2  padding-bottom-15">
                         <div class="form-group pull-right">
-                            <select name="categoryId" class="form-control select2 select-block" style="width: 200px;" placeholder="Kategoria">
-                                <option value="">Wybierz kategorię</option>
-                                <option {{ -1 == queryParams['categoryId'] ? 'selected="selected"':'' }} value="-1">Brak kategorii</option>
-                                {% for category in categoriesList %}
-                                <option {{ category['id'] == queryParams['categoryId'] ? 'selected="selected"':'' }} value="{{ category['id'] }}">{{ category['name'] }}</option>
+                            <select name="typeId" class="form-control select2 select-block" style="width: 200px;" placeholder="Typ menu">
+                                <option value="">Wybierz typ menu</option>
+                                <option {{ -1 == queryParams['typeId'] ? 'selected="selected"':'' }} value="-1">Brak typu</option>
+                                {% for type in typesList %}
+                                <option {{ type['id'] == queryParams['typeId'] ? 'selected="selected"':'' }} value="{{ type['id'] }}">{{ type['name'] }}</option>
                                 {% endfor %}
                             </select>
                         </div>
@@ -77,11 +77,11 @@
                 <table class="table table-hover">
                   <thead>
                       <tr>
-                          <th>{{ knp_pagination_sortable(pagination, 'ID', 's.id') }}</th>
-                          <th>{{ knp_pagination_sortable(pagination, 'Tytuł', 's.title') }}</th>
-                          <th>{{ knp_pagination_sortable(pagination, 'Kategoria', 'c.id') }}</th>
-                          <th>{{ knp_pagination_sortable(pagination, 'Data utworzenia', 's.createDate') }}</th>
-                          <th>{{ knp_pagination_sortable(pagination, 'Data publikacji', 's.publishedDate') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'ID', 'm.id') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Tytuł', 'm.title') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Typ', 't.id') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Data utworzenia', 'm.createDate') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Data publikacji', 'm.publishedDate') }}</th>
                           <th class="actions">Akcje</th>
                       </tr>
                   </thead>
@@ -90,10 +90,10 @@
                           <td>{{ row.id }}</td>
                           <td>{{ row.title }}</td>
                           <td>
-                              {% if row.category is null %}
-                                  Brak kategorii
+                              {% if row.type is null %}
+                                  Brak typu
                               {% else %}
-                                  {{ row.category.name|capitalize }}
+                                  {{ row.type.name|capitalize }}
                               {% endif %}
                           </td>
                           <td>{{ row.createDate|admin_format_date }}</td>
@@ -106,13 +106,13 @@
                           </td>
                           <td>
                               <div class="btn-group">
-                                  <a href="{{ path('tom_admin_slider_form', {'id': row.id}) }}" class="btn btn-primary">
+                                  <a href="{{ path('tom_admin_menu_form', {'id': row.id}) }}" class="btn btn-primary">
                                       <span class="glyphicon glyphicon-edit"></span>
                                   </a>
 
                                   {% if is_granted('ROLE_ADMIN') %}
                                       {% set tokenName = csrfProvider.generateCsrfToken(deleteTokenName|format(row.id)) %}
-                                      {% set deleteUrl = path('tom_admin_slider_delete', {'id': row.id, 'token': tokenName}) %}
+                                      {% set deleteUrl = path('tom_admin_menu_delete', {'id': row.id, 'token': tokenName}) %}
                                       <a href="{{ deleteUrl }}" class="btn btn-danger" data-confirmAction="">
                                           <span class="glyphicon glyphicon-trash"></span>
                                       </a>
@@ -122,7 +122,7 @@
                       </tr>
                     {% else %}
                     <tr>
-                        <td colspan="8" class="text-center"><br />Brak sliderów spełniejących określone warunki.<br /></td>
+                        <td colspan="8" class="text-center"><br />Brak pozycji menu spełniejących określone warunki.<br /></td>
                     </tr>
                   {% endfor %}
                 </table>

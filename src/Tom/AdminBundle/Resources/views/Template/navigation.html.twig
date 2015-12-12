@@ -78,6 +78,26 @@
       </ul>
     </li>
 
+    <li class="header">Nawigacja</li>
+        <li class="treeview">
+      <a href="#">
+        <i class="fa fa-navicon"></i>
+        <span>Menu</span>
+{#        <span class="label label-default pull-right">{{ navigation.slider.count.all }}</span>#}
+      </a>
+      <ul class="treeview-menu">
+        <li class="{% if app.request.get('_route') == 'tom_admin_menu_form' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_form') }}"><i class="fa fa-circle-o"></i> Dodaj pozycję</a></li>
+        <li class="{% if app.request.get('_route') == 'tom_admin_menu' %}active on{% endif %}"><a href="{{ path('tom_admin_menu') }}"><i class="fa fa-circle-o"></i> Lista pozycji</a></li>
+        <li>
+          <a href="#"><i class="fa fa-circle-o"></i> Typy<i class="fa fa-angle-left pull-right"></i></a>
+          <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_menu_type_form' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_type_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
+            <li class="{% if app.request.get('_route') == 'tom_admin_menu_types' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_types') }}"><i class="fa fa-circle-o"></i> Lista typów</a></li>
+          </ul>
+        </li>
+      </ul>
+    </li>
+    
     <li class="header">Ustawienia</li>
     <li class="treeview">
       <a href="#">

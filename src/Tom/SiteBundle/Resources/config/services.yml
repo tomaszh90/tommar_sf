@@ -4,3 +4,14 @@ services:
         arguments: ["@doctrine"]
         tags:
             - { name: twig.extension }
+            
+    tom_site.menu_builder:
+        class: Tom\SiteBundle\Menu\MenuBuilder
+        arguments: ["@knp_menu.factory", "@doctrine"]
+
+    tom_site.main_menu:
+        class: Knp\Menu\MenuItem
+        factory: ["@tom_site.menu_builder", createMainMenu]
+        arguments: ["@request_stack"]
+        tags:
+            - { name: knp_menu.menu, alias: main }

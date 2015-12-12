@@ -8,6 +8,16 @@ tom_admin_pages:
     type: annotation
     prefix: /strony 
     
+tom_admin_menu_types:
+    resource: "@TomAdminBundle/Controller/MenuTypesController.php"
+    type: annotation
+    prefix: /menu/typy
+    
+tom_admin_menu:
+    resource: "@TomAdminBundle/Controller/MenuController.php"
+    type: annotation
+    prefix: /menu
+    
 tom_admin_slider_categories:
     resource: "@TomAdminBundle/Controller/SliderCategoriesController.php"
     type: annotation
