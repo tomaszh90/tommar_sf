@@ -47,3 +47,9 @@ tom_admin_settings:
     resource: "@TomAdminBundle/Controller/SettingsController.php"
     type: annotation
     prefix: /ustawienia
+    
+tom_admin_sugestion:
+    resource: "@TomAdminBundle/Controller/SugestionController.php"
+    type: annotation
+    prefix: /sugestie
+    

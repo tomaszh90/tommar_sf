@@ -110,4 +110,15 @@
         <li class="{% if app.request.get('_route') == 'tom_admin_jacascript' %}active on{% endif %}"><a href="{{ path('tom_admin_javascript') }}"><i class="fa fa-circle-o"></i> Javascript</a></li>
       </ul>
     </li>
+    <li class="header">Sugestie</li>
+    <li class="treeview">
+      <a href="#">
+        <i class="fa fa-sticky-note"></i>
+        <span>Sugestie</span>
+        <span class="label label-default pull-right">0</span>
+      </a>
+      <ul class="treeview-menu">
+        <li class="{% if app.request.get('_route') == 'tom_admin_sugestion' %}active on{% endif %}"><a href="{{ path('tom_admin_sugestion') }}"><i class="fa fa-circle-o"></i> Lista sugestii</a></li>
+      </ul>
+    </li>
   </ul>
