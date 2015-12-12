@@ -19,7 +19,8 @@ class AppKernel extends Kernel
             new Tom\SiteBundle\TomSiteBundle(),
             new Tom\AdminBundle\TomAdminBundle(),
             new Common\UserBundle\CommonUserBundle(),
-	    new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle()
+			new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
+			new Knp\Bundle\MenuBundle\KnpMenuBundle()
         );
 
         if (in_array($this->getEnvironment(), array('dev', 'test'))) {
