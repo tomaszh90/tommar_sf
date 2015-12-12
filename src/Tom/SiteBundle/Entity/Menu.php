@@ -35,6 +35,17 @@ class Menu {
     private $title;
     
     /**
+     * @ORM\OneToMany(targetEntity="Menu", mappedBy="parent")
+     */
+    protected $children;
+
+    /**
+     * @ORM\ManyToOne(targetEntity="Menu", inversedBy="children")
+     * @ORM\JoinColumn(name="parent", referencedColumnName="id")
+     */
+    private $parent;
+    
+    /**
      * @ORM\Column(type="string", length=120)
      * 
      * @Assert\Length(
@@ -274,5 +285,71 @@ class Menu {
     public function getType()
     {
         return $this->type;
+    }
+    /**
+     * Constructor
+     */
+    public function __construct()
+    {
+        $this->children = new \Doctrine\Common\Collections\ArrayCollection();
+    }
+
+    /**
+     * Add child
+     *
+     * @param \Tom\SiteBundle\Entity\Menu $child
+     *
+     * @return Menu
+     */
+    public function addChild(\Tom\SiteBundle\Entity\Menu $child)
+    {
+        $this->children[] = $child;
+        $child->setParent($this);
+        
+        return $this;
+    }
+
+    /**
+     * Remove child
+     *
+     * @param \Tom\SiteBundle\Entity\Menu $child
+     */
+    public function removeChild(\Tom\SiteBundle\Entity\Menu $child)
+    {
+        $this->children->removeElement($child);
+    }
+
+    /**
+     * Get children
+     *
+     * @return \Doctrine\Common\Collections\Collection
+     */
+    public function getChildren()
+    {
+        return $this->children;
+    }
+
+    /**
+     * Set parent
+     *
+     * @param \Tom\SiteBundle\Entity\Menu $parent
+     *
+     * @return Menu
+     */
+    public function setParent(\Tom\SiteBundle\Entity\Menu $parent = null)
+    {
+        $this->parent = $parent;
+
+        return $this;
+    }
+
+    /**
+     * Get parent
+     *
+     * @return \Tom\SiteBundle\Entity\Menu
+     */
+    public function getParent()
+    {
+        return $this->parent;
     }
 }

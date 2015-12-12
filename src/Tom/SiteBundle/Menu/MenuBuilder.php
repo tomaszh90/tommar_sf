@@ -26,8 +26,9 @@ class MenuBuilder
 
     public function createMainMenu(RequestStack $requestStack)
     {
-//        $RepoMenu = $this->doctrine->getRepository('TomSiteBundle:Article');
-        
+        $RepoMenu = $this->doctrine->getRepository('TomSiteBundle:Menu');
+        $Menu = $RepoMenu->findAll();
+//        print_r($Menu);
         $menu = $this->factory->createItem('root');
 
         $menu->addChild('Home', array('route' => 'tom_site_homepage'));

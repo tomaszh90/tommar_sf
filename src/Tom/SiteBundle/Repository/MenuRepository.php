@@ -88,8 +88,8 @@ class MenuRepository extends \Doctrine\ORM\EntityRepository
         );
     }
         
-    public function moveToType($oldTypeId, $newTypeId) {
-        return $this->createQueryBuilder('s')
+    public function moveToMenuType($oldTypeId, $newTypeId) {
+        return $this->createQueryBuilder('m')
                 ->update()
                 ->set('m.type', ':newTypeId')
                 ->where('m.type = :oldTypeId')

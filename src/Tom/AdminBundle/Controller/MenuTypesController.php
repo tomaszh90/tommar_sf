@@ -122,7 +122,7 @@ class MenuTypesController extends Controller {
             
             if($chosen) {
                 $RepoMenu = $this->getDoctrine()->getRepository('TomSiteBundle:Menu');
-                $modifiedMenu = $RepoMenu->moveToCategory($Type>getId(), $newTypeId);
+                $modifiedMenu = $RepoMenu->moveToMenuType($Type->getId(), $newTypeId);
                 
                 $em = $this->getDoctrine()->getManager();
                 $em->remove($Type);

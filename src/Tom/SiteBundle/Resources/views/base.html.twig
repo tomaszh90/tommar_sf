@@ -38,8 +38,21 @@
 
     </head>
     <body>
-	
-        {{ dump(app.request) }}
+        {{ dump(menu) }}
+        <ul>
+            {% for item in menu %}
+                <li>
+                    <span>{{ item.title }}</span>
+                    {% if item.children is defined %}
+                    <ul>
+                        {% for row in item.children %}
+                            <li><span>{{ row.title }}</span></li>
+                        {% endfor %}
+                    </ul>
+                    {% endif %}
+                <li>
+                {% endfor %}
+        </ul>
         <header>
 
             <div class="container">
