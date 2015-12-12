@@ -28,23 +28,41 @@
                     <div class="box-body">
                         {{ menu.id is not null or not form.vars.valid  ? form_row(form.title) : form_row(form.title, {'attr': {'ng-model': 'title'}}) }}
                         {{ form_row(form.route) }}
-                        {{ form_row(form.routeParameters) }}
 
-                        <div class="form-group">
-                            <label class="control-label">Parametry ścieżki</label>
+                        <div id="parameters" class="row offset-top-15">
+                            <label class="col-xs-3 col-sm-offset-2 col-md-offset-2">Parametr</label>
+                            <label class="col-xs-9 col-sm-6">Wartość</label>
+
                             <div id="paramGroups">
-                                <div class="form-inline on" data-id="0">       
-                                    <div class="input-group col-xs-10 pull-left date" id="date">
-                                        <input type="text" name="dates[][name]" class="form-control" data-date-format="DD-MM-YYYY" required />
+                                {% for key, param in menu.routeParameters %}
+                                    <div class="parameter" data-id="{{ loop.index }}">
+                                        <div class="col-xs-3 col-sm-3 col-sm-offset-2 col-md-offset-2 offset-bottom-15 type">
+                                            <input id="paramType" type="text" name="parameters[{{ loop.index }}][type]" value="{{ key }}" class="form-control" placeholder="id, slug, category itp." required />
+                                        </div>
+                                        <div class="col-xs-6 offset-bottom-15 value">
+                                            <input id="paramValue" type="text" name="parameters[{{ loop.index }}][value]" value="{{ param }}" class="form-control" placeholder="wartość parametru" required />
+                                        </div>
+                                        <div class="col-xs-2 col-sm-1 offset-bottom-15">
+                                            <button type="button" onclick="deleteParam(this);" class="btn btn-danger pull-right"><i class="fa fa-minus"></i></button>   
+                                        </div>
                                     </div>
-                                    <div class="form-group col-xs-2 pull-right">
-                                        <button type="button" onclick="deleteParam(this);" class="btn btn-danger"><i class="fa fa-trash-o"></i></button>   
+                                {% else %}
+                                    <div class="parameter" data-id="0">
+                                        <div class="col-xs-3 col-sm-3 col-sm-offset-2 col-md-offset-2 offset-bottom-15 type">
+                                            <input id="paramType" type="text" name="parameters[0][type]" class="form-control" placeholder="id, slug, category itp." required />
+                                        </div>
+                                        <div class="col-xs-6 offset-bottom-15 value">
+                                            <input id="paramValue" type="text" name="parameters[0][value]" class="form-control" placeholder="wartość parametru" required />
+                                        </div>
+                                        <div class="col-xs-2 col-sm-1 offset-bottom-15">
+                                            <button type="button" onclick="deleteParam(this);" class="btn btn-danger pull-right"><i class="fa fa-minus"></i></button>   
+                                        </div>
                                     </div>
-                                    <div class="clearfix"></div>
-                                </div>
+                                {% endfor %}
                             </div>
-                            <button type="button" onclick="addParam();" class="btn btn-default">Dodaj</button>
-
+                            <div class="col-xs-12">
+                                <button type="button" onclick="addParam();" class="btn btn-info pull-right"><i class="fa fa-plus"></i></button>
+                            </div>
                         </div>
                     </div>
 
@@ -77,17 +95,28 @@
 
     <script type="text/javascript">
 
-        function addParam() {
-                row = parseInt($('#paramGroups .form-inline:last').attr('data-id')) + 1;
-                $('#paramGroups .form-inline:last').clone().attr('data-id', row).appendTo("#paramGroups");
-        {#            $('#dateGroups').find("[data-id='" + row + "']").children('.date').find('input').attr('name', 'date['+row+']');#}
-            }
-            ;
+    menuTypeParameter();
+    function menuTypeParameter() {
+        if($('#menu_type_route').val() === 'tom_site_article') {
+            $('#parameters').show();
+        } else {
+            $('#parameters').hide();
+            $('#paramGroups input').val('');
+        }
+    }
 
-            function deleteParam(object) {
-                if ($('#paramGroups .form-inline.on').length > 1) {
-                    $(object).parent().parent().remove();
-                }
-            }
+    function addParam() {
+        row = parseInt($('#paramGroups .parameter:last').attr('data-id')) + 1;
+        $('#paramGroups .parameter:last').clone().attr('data-id', row).appendTo("#paramGroups");
+        $('#paramGroups').find("[data-id='" + row + "']").children('.type').find('input').attr('name', 'parameters[' + row + '][type]').val('');
+        $('#paramGroups').find("[data-id='" + row + "']").children('.value').find('input').attr('name', 'parameters[' + row + '][value]').val('');
+    }
+    ;
+
+    function deleteParam(object) {
+        if ($('#paramGroups .parameter').length > 1) {
+            $(object).parent().parent().remove();
+        }
+    }
     </script>
 {% endblock %}

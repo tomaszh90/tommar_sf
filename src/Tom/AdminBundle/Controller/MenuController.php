@@ -36,17 +36,27 @@ class MenuController extends Controller
         
         $form->handleRequest($Request);
         if($form->isValid()){
-        print_r($Request->get('menu_type'));
-//            $em = $this->getDoctrine()->getManager();
-//            $em->persist($Menu);
-//            $em->flush();
-//
-//            $message = (isset($newMenuForm)) ? 'Poprawnie dodano nową pozycję menu.': 'Pozycja menu została zaktualizowana.';
-//            $this->addFlash('success', $message);
-//
-//            return $this->redirect($this->generateUrl('tom_admin_menu_form', array(
-//                'id' => $Menu->getId()
-//            )));
+        
+            $Params = array();
+            
+            $RoutePrameters = $Request->get('parameters');
+            foreach($RoutePrameters as $param) {
+                if(!empty($param['type']) && !empty($param['value'])) {
+                    $Params[$param['type']] = $param['value'];
+                }
+            }
+            
+            $Menu->setRouteParameters($Params);
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Menu);
+            $em->flush();
+
+            $message = (isset($newMenuForm)) ? 'Poprawnie dodano nową pozycję menu.': 'Pozycja menu została zaktualizowana.';
+            $this->addFlash('success', $message);
+
+            return $this->redirect($this->generateUrl('tom_admin_menu_form', array(
+                'id' => $Menu->getId()
+            )));
         }
         
         return array(

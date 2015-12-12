@@ -59,6 +59,12 @@ body {
 .layout-boxed {
   background: url('../img/boxed-bg.jpg') repeat fixed;
 }
+.offset-top-15 {
+    padding-top: 15px;
+}
+.offset-bottom-15 {
+    padding-bottom: 15px;
+}
 /*
  * Content Wrapper - contains the main content
  * ```.right-side has been deprecated as of v2.0.0 in favor of .content-wrapper  ```
