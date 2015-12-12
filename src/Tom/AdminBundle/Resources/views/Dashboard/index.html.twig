@@ -30,8 +30,8 @@
 
 
     <section class="content">
-        {{ app.user.username }}
-        <img src="{{ asset(app.user.avatar) }}" class="img-circle" alt="User Image">
+      {#  {{ app.user.username }}
+        <img src="{{ asset(app.user.avatar) }}" class="img-circle" alt="User Image">#}
 
         <div class="col-md-6">
             <!-- DIRECT CHAT -->
@@ -133,7 +133,7 @@
                             </div>
                             <!-- /.box-body -->
                             <div class="box-footer">
-                                <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }}>
+                                <form action="{{ path('tom_admin_dashboard') }}" method="post" {{ form_enctype(messengerform) }} id="nazywo">
                                     <div class="input-group">
                                         {{ form_widget(messengerform) }}
                                         <span class="input-group-btn">

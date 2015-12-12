@@ -88,7 +88,7 @@ function messengerForm($form, callback) {
  *  jeżeli formularz został przesłany (nacisnięty enter lub przycisk wyślij) restartuje value inputa oraz odświeża diva o id #spr
  */
 $(document).ready(function () {
-            $('form').submit(function (e) {
+            $('#nazywo').submit(function (e) {
                 e.preventDefault();
                 messengerForm($(this), function (response) {
                     /* $("#sprawdzam").show().delay(3000).fadeOut();*/
@@ -118,6 +118,7 @@ $("#MessengerType_contents").one("click", function () {
                 {
                    $('#spr').load(document.URL + ' #spr');
                    getDataJson();
+                   
                 }  
             });
             
