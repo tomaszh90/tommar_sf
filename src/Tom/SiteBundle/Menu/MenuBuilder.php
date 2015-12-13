@@ -26,7 +26,7 @@ class MenuBuilder {
     public function createMainMenu(RequestStack $requestStack) {
 
         $menu = $this->factory->createItem('root');
-
+        $menu->setChildrenAttribute('class', 'nav navbar-nav');
         $MenuPos = $this->getPositionMenu(2);
 
         foreach ($MenuPos as $item) {
