@@ -38,21 +38,9 @@
 
     </head>
     <body>
-        {{ dump(menu) }}
-        <ul>
-            {% for item in menu %}
-                <li>
-                    <span>{{ item.title }}</span>
-                    {% if item.children is defined %}
-                    <ul>
-                        {% for row in item.children %}
-                            <li><span>{{ row.title }}</span></li>
-                        {% endfor %}
-                    </ul>
-                    {% endif %}
-                <li>
-                {% endfor %}
-        </ul>
+               {{ knp_menu_render('main') }}
+               
+
         <header>
 
             <div class="container">

@@ -79,40 +79,45 @@
                       <tr>
                           <th>{{ knp_pagination_sortable(pagination, 'ID', 'm.id') }}</th>
                           <th>{{ knp_pagination_sortable(pagination, 'Tytuł', 'm.title') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Pozycja macierzysta', 'p.id') }}</th>
                           <th>{{ knp_pagination_sortable(pagination, 'Typ', 't.id') }}</th>
+                          <th class="text-center">{{ knp_pagination_sortable(pagination, 'Ilość pozycji podrzędnych', 'childrenCount') }}</th>
                           <th>{{ knp_pagination_sortable(pagination, 'Data utworzenia', 'm.createDate') }}</th>
                           <th>{{ knp_pagination_sortable(pagination, 'Data publikacji', 'm.publishedDate') }}</th>
                           <th class="actions">Akcje</th>
                       </tr>
                   </thead>
                   {% for row in pagination %}
+                      {% set menu = row[0] %}
                       <tr>
-                          <td>{{ row.id }}</td>
-                          <td>{{ row.title }}</td>
+                          <td>{{ menu.id }}</td>
+                          <td>{{ menu.title }}</td>
+                          <td>{{ menu.parent is null ? 'Brak' : menu.parent.id}}</td>
                           <td>
-                              {% if row.type is null %}
+                              {% if menu.type is null %}
                                   Brak typu
                               {% else %}
-                                  {{ row.type.name|capitalize }}
+                                  {{ menu.type.name|capitalize }}
                               {% endif %}
                           </td>
-                          <td>{{ row.createDate|admin_format_date }}</td>
+                          <td class="text-center">{{ row['childrenCount'] }}</td>
+                          <td>{{ menu.createDate|admin_format_date }}</td>
                           <td>
-                              {% if row.publishedDate is null %}
+                              {% if menu.publishedDate is null %}
                                   <span class="label label-danger">nie opublikowano</span>
                               {% else %}
-                                  {{ row.publishedDate|admin_format_date }}
+                                  {{ menu.publishedDate|admin_format_date }}
                               {% endif %}
                           </td>
                           <td>
                               <div class="btn-group">
-                                  <a href="{{ path('tom_admin_menu_form', {'id': row.id}) }}" class="btn btn-primary">
+                                  <a href="{{ path('tom_admin_menu_form', {'id': menu.id}) }}" class="btn btn-primary">
                                       <span class="glyphicon glyphicon-edit"></span>
                                   </a>
 
                                   {% if is_granted('ROLE_ADMIN') %}
-                                      {% set tokenName = csrfProvider.generateCsrfToken(deleteTokenName|format(row.id)) %}
-                                      {% set deleteUrl = path('tom_admin_menu_delete', {'id': row.id, 'token': tokenName}) %}
+                                      {% set tokenName = csrfProvider.generateCsrfToken(deleteTokenName|format(menu.id)) %}
+                                      {% set deleteUrl = path('tom_admin_menu_delete', {'id': menu.id, 'token': tokenName}) %}
                                       <a href="{{ deleteUrl }}" class="btn btn-danger" data-confirmAction="">
                                           <span class="glyphicon glyphicon-trash"></span>
                                       </a>

@@ -336,7 +336,7 @@ class Menu {
      *
      * @return Menu
      */
-    public function setParent(\Tom\SiteBundle\Entity\Menu $parent = null)
+    public function setParent(\Tom\SiteBundle\Entity\Menu $parent = NULL)
     {
         $this->parent = $parent;
 

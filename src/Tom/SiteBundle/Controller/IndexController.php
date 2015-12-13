@@ -28,15 +28,19 @@ class IndexController extends Controller {
         $em_script = $this->getDoctrine()->getManager();
         $javascript = $em_script->getRepository('TomSiteBundle:Javascript')->find($id);
 
-
         $RepoMenu = $this->getDoctrine()->getRepository('TomSiteBundle:Menu');
-        $Menu = $RepoMenu->findAll();
+        
+        $params = array(
+            'parentId' => NULL
+        );
+
+        $MenuPos = $RepoMenu->getMenuBuilder($params);
        
 
         return array(
             'seo' => $seo,
             'javascript' => $javascript,
-            'menu' => $Menu
+            'menu' => $MenuPos
         );
 
         //return array();

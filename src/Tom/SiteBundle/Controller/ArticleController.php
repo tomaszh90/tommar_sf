@@ -14,6 +14,19 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ArticleController extends Controller
 {
     
+    /**
+    * @Route(
+    *       "/artykuly",
+    *       name="tom_site_articles"
+    * )
+    * 
+    * @Template()
+    */
+    public function listAction()
+    {
+       return array();
+    }
+    
    /**
     * @Route(
     *       "/{id}-{slug}",
@@ -36,4 +49,5 @@ class ArticleController extends Controller
            'article' => $Article
        );
     }
+
 }
