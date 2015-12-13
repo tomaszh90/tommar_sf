@@ -20,15 +20,14 @@ class SugestionRepository extends \Doctrine\ORM\EntityRepository
 
     public function getQueryBuilder(array $params = array()){
         
-        $qb = $this->createQueryBuilder('s')
-                        ->select('s, c');
+        $qb = $this->createQueryBuilder('s');
         
         if(!empty($params['status'])){
             if('read' == $params['status']){
-                $qb->where('s.publishedDate <= :currDate AND s.publishedDate IS NOT NULL')
+                $qb->where('s.updateDate <= :currDate AND s.updateDate IS NOT NULL')
                         ->setParameter('currDate', new \DateTime());
-            }else if('unpublished' == $params['status']){
-                $qb->where('s.publishedDate > :currDate OR s.publishedDate IS NULL')
+            }else if('removed' == $params['status']){
+                $qb->where('s.updateDate > :currDate OR s.updateDate IS NULL')
                         ->setParameter('currDate', new \DateTime());
             }
         }
@@ -62,15 +61,15 @@ class SugestionRepository extends \Doctrine\ORM\EntityRepository
         
         $all = (int)$qb->getQuery()->getSingleScalarResult();
         
-        $published = (int)$qb->andWhere('s.publishedDate <= :currDate AND s.publishedDate IS NOT NULL')
+        $published = (int)$qb->andWhere('s.updateDate <= :currDate AND s.updateDate IS NOT NULL')
                             ->setParameter('currDate', new \DateTime())
                             ->getQuery()
                             ->getSingleScalarResult();
         
         return array(
             'all' => $all,
-            'published' => $published,
-            'unpublished' => ($all - $published)
+            'read' => $published,
+            'removed' => ($all - $published)
         );
     }
     
