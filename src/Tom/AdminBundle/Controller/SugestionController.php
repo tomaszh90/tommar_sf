@@ -11,10 +11,12 @@ use Tom\SiteBundle\Entity\Sugestion;
 use Tom\AdminBundle\Form\Type\SugestionType;
 
 class SugestionController extends Controller {
+    
+    private $deleteTokenName = 'delete-sugestion-%d';
 
     /**
      * @Route(
-     *       "/",
+     *       "/{status}",
      *       name="tom_admin_sugestion",
      *       requirements={"page"="\d+"},
      *       defaults={"status"="all", "page"=1}
@@ -23,10 +25,10 @@ class SugestionController extends Controller {
      *    
      * @Template()
      */
-    public function indexAction(Request $Request,$status , $page) {
+    public function indexAction(Request $Request, $status , $page) {
         
         $queryParams = array(
-            'sugestionLike' => $Request->query->get('sugestionLike'),
+            'nameSugestionLike' => $Request->query->get('nameSugestionLike'),
             'status' => $status
         );
         $RepoSugestion = $this->getDoctrine()->getRepository('TomSiteBundle:Sugestion');
@@ -46,7 +48,7 @@ class SugestionController extends Controller {
         $statusesList = array(
             'Odczytane' => 'read',
             'Zatwierdzone' => 'approved',
-            'Usunięte' => 'removed',
+            'Niezatwierdzone' => 'notapproved',
             'Wszystkie' => 'all'
         );
         

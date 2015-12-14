@@ -52,6 +52,30 @@ class Sugestion {
      * @ORM\Column(type="datetime", nullable = true)
      */
     private $updateDate;
+    
+    /**
+     * @ORM\Column(name="read_date", type="datetime", nullable=true)
+     * 
+     * @Assert\DateTime
+     */
+    private $readDate = null;    
+
+    /**
+     * @ORM\Column(name="approved_date", type="datetime", nullable=true)
+     * 
+     * @Assert\DateTime
+     */
+    private $approvedDate = null;    
+    
+    /**
+     * @ORM\Column(name="notapproved_date", type="datetime", nullable=true)
+     * 
+     * @Assert\DateTime
+     */
+    private $notapprovedDate = null; 
+    
+   
+    
 
     /**
      * Get id
@@ -181,6 +205,78 @@ class Sugestion {
     public function getUpdateDate()
     {
         return $this->updateDate;
+    }
+
+    /**
+     * Set readDate
+     *
+     * @param \DateTime $readDate
+     *
+     * @return Sugestion
+     */
+    public function setReadDate($readDate)
+    {
+        $this->readDate = $readDate;
+
+        return $this;
+    }
+
+    /**
+     * Get readDate
+     *
+     * @return \DateTime
+     */
+    public function getReadDate()
+    {
+        return $this->readDate;
+    }
+
+    /**
+     * Set approvedDate
+     *
+     * @param \DateTime $approvedDate
+     *
+     * @return Sugestion
+     */
+    public function setApprovedDate($approvedDate)
+    {
+        $this->approvedDate = $approvedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get approvedDate
+     *
+     * @return \DateTime
+     */
+    public function getApprovedDate()
+    {
+        return $this->approvedDate;
+    }
+
+    /**
+     * Set notapprovedDate
+     *
+     * @param \DateTime $notapprovedDate
+     *
+     * @return Sugestion
+     */
+    public function setNotapprovedDate($notapprovedDate)
+    {
+        $this->notapprovedDate = $notapprovedDate;
+
+        return $this;
+    }
+
+    /**
+     * Get notapprovedDate
+     *
+     * @return \DateTime
+     */
+    public function getNotapprovedDate()
+    {
+        return $this->notapprovedDate;
     }
     
 }

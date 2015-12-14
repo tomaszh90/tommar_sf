@@ -27,7 +27,13 @@
 
                 <form action="{{ path('tom_admin_sugestion') }}" method="get" class="form-inline filter-search padding-top-15 padding-bottom-15" role="form">
                     
-                    
+                    {% for key,val in statusesList %}
+                    <div class="col-xs-12 col-md-2 col-lg-2 padding-bottom-15">
+                        <a class="btn btn-block {{ currStatus == val ? 'btn-default':'btn-primary' }}" href="{{ path('tom_admin_sugestion', {'status': val}) }}">
+                            {{ key }} ({{ statistics[val] }})
+                        </a>
+                    </div>
+                    {% endfor %}
 
                     <div class="col-xs-6 col-md-2 col-lg-1 padding-bottom-15">
                         <div class="form-group limit">
@@ -44,7 +50,7 @@
 
                     <div class="col-xs-12 col-md-2 col-lg-3 padding-bottom-15">
                         <div class="input-group" style="width: 100%;">
-                          <input type="text" name="titleLike" class="form-control input-md" placeholder="Wyszukaj po tytule" value="{{ queryParams['sugestionLike'] }}">
+                          <input type="text" name="nameSugestion" class="form-control input-md" placeholder="Wyszukaj po tytule" value="{{ queryParams['nameSugestionLike'] }}">
                           <div class="input-group-btn">
                             <button class="btn btn-md btn-block btn-default"><i class="fa fa-search"></i></button>
                           </div>
@@ -58,12 +64,25 @@
                   <thead>
                       <tr>
                           <th>{{ knp_pagination_sortable(pagination, 'ID', 's.id') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Tytuł', 's.nameSugestion') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Status', 's.readDate') }}</th>
+                          <th>{{ knp_pagination_sortable(pagination, 'Data dodania', 's.updateDate') }}</th>
                           <th class="actions">Akcje</th>
                       </tr>
                   </thead>
                   {% for row in pagination %}
                       <tr>
                           <td>{{ row.id }}</td>
+                          <td><a href="#" data-toggle="modal" data-target="#{{ row.nameSugestion }}">{{ row.nameSugestion }}</a></td>
+                          <td>
+                              {% if row.approvedDate is null and row.notapprovedDate is null%}
+                                  <span class="label label-warning">Odczytane</span>
+                              {% elseif row.readDate is null and row.notapprovedDate is null %}
+                                  <span class="label label-success">Zatwierdzone</span>
+                              {% elseif row.readDate is null and row.approvedDate is null %}
+                                  <span class="label label-danger">Niezatwierdzone</span>
+                              {% endif %}
+                          </td>
                           <td>{{ row.updateDate|admin_format_date }}</td>
                          
                           <td>
@@ -76,6 +95,25 @@
                               </div>
                           </td>
                       </tr>
+                      <!-- Modal -->
+                        <div class="modal fade" id="{{ row.nameSugestion }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
+                          <div class="modal-dialog" role="document">
+                            <div class="modal-content">
+                              <div class="modal-header">
+                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
+                                <h4 class="modal-title" id="myModalLabel">{{ row.nameSugestion }}</h4>
+                              </div>
+                              <div class="modal-body">
+                                {{ row.descriptionSugestion }}
+                              </div>
+                              <div class="modal-footer">
+                                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
+                                <button type="button" class="btn btn-primary">...</button>
+                              </div>
+                            </div>
+                          </div>
+                        </div>
+                      <!-- end Modal -->
                     {% else %}
                     <tr>
                         <td colspan="8" class="text-center"><br />Brak sugestii spełniejących określone warunki.<br /></td>
