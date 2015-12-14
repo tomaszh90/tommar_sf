@@ -75,7 +75,7 @@
                           <td>{{ row.id }}</td>
                           <td><a href="#" data-toggle="modal" data-target="#{{ row.nameSugestion }}">{{ row.nameSugestion }}</a></td>
                           <td>
-                              {% if row.approvedDate is null and row.notapprovedDate is null%}
+                              {% if row.approvedDate is null and row.notapprovedDate is null %}
                                   <span class="label label-warning">Odczytane</span>
                               {% elseif row.readDate is null and row.notapprovedDate is null %}
                                   <span class="label label-success">Zatwierdzone</span>
