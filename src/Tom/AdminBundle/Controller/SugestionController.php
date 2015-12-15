@@ -69,4 +69,46 @@ class SugestionController extends Controller {
        
     }
     
+    /**
+     * @Route(
+     *      "/form/{id}", 
+     *      name="tom_admin_sugestion_form",
+     *      requirements={"id"="\d+"},
+     *      defaults={"id"=NULL}
+     * )
+     * 
+     * @Template()
+     */
+    public function formAction(Request $Request, Sugestion $Sugestion = NULL) {
+
+        if(null == $Sugestion){
+            $Sugestion = new Sugestion();
+            $newSugestionForm = TRUE;
+        }
+        
+        $form = $this->createForm(new SugestionType(), $Sugestion);
+        
+        $form->handleRequest($Request);
+        if($form->isValid()){
+
+            $em = $this->getDoctrine()->getManager();
+            $em->persist($Sugestion);
+            $em->flush();
+
+            $message = (isset($newSugestionForm)) ? 'Poprawnie dodano nowy sugestię.': 'Sugestia została zaktualizowana.';
+            $this->addFlash('success', $message);
+
+            return $this->redirect($this->generateUrl('tom_admin_sugestion_form', array(
+                'id' => $Sugestion->getId()
+            )));
+        }
+        
+        return array(
+            'pageTitle' => (isset($newSugestionForm) ? 'Sugestia <small>utwórz nowy</small>' : 'Sugestia <small>edycja</small>'),
+            'currPage' => 'sugestions',
+            'form' => $form->createView(),
+            'sugestion' => $Sugestion,
+        );
+    }
+    
 }

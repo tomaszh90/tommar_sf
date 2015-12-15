@@ -73,7 +73,7 @@
                   {% for row in pagination %}
                       <tr>
                           <td>{{ row.id }}</td>
-                          <td><a href="#" data-toggle="modal" data-target="#{{ row.nameSugestion }}">{{ row.nameSugestion }}</a></td>
+                          <td><a href="{{ path('tom_admin_sugestion_form', {'id': row.id}) }}">{{ row.nameSugestion }}</a></td>
                           <td>
                               {% if row.approvedDate is null and row.notapprovedDate is null %}
                                   <span class="label label-warning">Odczytane</span>
@@ -95,25 +95,6 @@
                               </div>
                           </td>
                       </tr>
-                      <!-- Modal -->
-                        <div class="modal fade" id="{{ row.nameSugestion }}" tabindex="-1" role="dialog" aria-labelledby="myModalLabel">
-                          <div class="modal-dialog" role="document">
-                            <div class="modal-content">
-                              <div class="modal-header">
-                                <button type="button" class="close" data-dismiss="modal" aria-label="Close"><span aria-hidden="true">&times;</span></button>
-                                <h4 class="modal-title" id="myModalLabel">{{ row.nameSugestion }}</h4>
-                              </div>
-                              <div class="modal-body">
-                                {{ row.descriptionSugestion }}
-                              </div>
-                              <div class="modal-footer">
-                                <button type="button" class="btn btn-default" data-dismiss="modal">Zamknij</button>
-                                <button type="button" class="btn btn-primary">...</button>
-                              </div>
-                            </div>
-                          </div>
-                        </div>
-                      <!-- end Modal -->
                     {% else %}
                     <tr>
                         <td colspan="8" class="text-center"><br />Brak sugestii spełniejących określone warunki.<br /></td>
