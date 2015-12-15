@@ -92,5 +92,11 @@
             
         }
 });
+$(document).ready(function () {
+          if ($("#sugestion_approvedDate_date").val() === $("#sugestion_notapprovedDate_date").val()) { 
+              document.getElementById('status').value = 'niezatwierdzone';
+        }
+        document.getElementById('status').value = 'zatwierdzone';
+});
 </script>
 {% endblock %}
