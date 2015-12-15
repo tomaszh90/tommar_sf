@@ -33,7 +33,7 @@ class MenuBuilder {
             $level = $menu->addChild($item->getTitle(), array(
                 'route' => $item->getRoute(),
                 'routeParameters' => $item->getRouteParameters()
-            ));
+            ))->setAttribute('class', 'yamm-fw');
 
             $this->builSubMenu($level, $item);
         }
@@ -44,7 +44,7 @@ class MenuBuilder {
     protected function builSubMenu($menu, $item) {
 
         if (count($item->getChildren()) > 0) {
-
+            $menu->setAttribute('dropdown', true);
             foreach ($item->getChildren() as $subItem) {
 
                 $level = $menu->addChild($subItem->getTitle(), array(
