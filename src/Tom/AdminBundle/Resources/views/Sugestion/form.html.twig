@@ -40,14 +40,16 @@
         <div class="col-xs-12 col-md-6 col-lg-5">
             <div class="box box-danger">
               <div class="box-header with-border">
-                  <h3 class="box-title"><strong>Publikacja</strong></h3>
+                  <h3 class="box-title"><strong>Ustawienia</strong></h3>
               </div>
                 <div class="box-body">
                     {{ form_row(form.updateDate) }}
-                    {{ form_row(form.readDate) }}
-                    {{ form_row(form.approvedDate) }}
-                    {{ form_row(form.notapprovedDate) }}
-                    <select id="status">
+                    <div class="hidden">
+                        {{ form_row(form.readDate) }}
+                        {{ form_row(form.approvedDate) }}
+                        {{ form_row(form.notapprovedDate) }}
+                    </div>
+                    <select class="form-control" id="status">
                         <option id="odczytane" value="odczytane">Odczytane</option>
                         <option id="zatwierdzone" value="zatwierdzone">Zatwierdzone</option>
                         <option id="niezatwierdzone" value="niezatwierdzone">Niezatwierdzone</option>
@@ -57,6 +59,12 @@
         </div>
     </div>
 {{ form_end(form) }}
+<form action="{{ path('tom_admin_sugestion_form') }}" method="POST" >
+    <input type="text" name="Subject">
+    <input type="text" name="email">
+    <textarea name="message"></textarea>
+    <input type="submit" value="Send"/>
+</form>
 </section>
 {% endblock %}
 {#{{ "now"|date("m-d-Y") }} 00:00:00   sugestion_readDate#}
@@ -94,9 +102,15 @@
 });
 $(document).ready(function () {
           if ($("#sugestion_approvedDate_date").val() === $("#sugestion_notapprovedDate_date").val()) { 
+              document.getElementById('status').value = 'odczytane';
+        }
+        else if ($("#sugestion_readDate_date").val() === $("#sugestion_notapprovedDate_date").val()) { 
+              document.getElementById('status').value = 'zatwierdzone';
+        }
+        else if ($("#sugestion_readDate_date").val() === $("#sugestion_approvedDate_date").val()) { 
               document.getElementById('status').value = 'niezatwierdzone';
         }
-        document.getElementById('status').value = 'zatwierdzone';
+        //document.getElementById('status').value = 'zatwierdzone';
 });
 </script>
 {% endblock %}

@@ -102,7 +102,26 @@ class SugestionController extends Controller {
                 'id' => $Sugestion->getId()
             )));
         }
-        
+        //emailllll test
+        if ($Request->getMethod() == "POST") {
+            $Subject = $Request->get("Subject");
+            $email = $Request->get("email");
+            $message = $Request->get("message");
+            
+            $mailer = $this->container->get('mailer');
+            $transport = \Swift_SmtpTransport::newInstance('mail.timeto.kylos.pl', 465, 'ssl')
+                    ->setUsername('redakcja@timeto.pl')
+                    ->setPassword('*****');
+            $mailer = \Swift_Mailer::newInstance($transport);
+            $message = \Swift_Message::newInstance('Test')
+                    ->setSubject($Subject)
+                    ->setFrom('redakcja@timeto.pl')
+                    ->setTo($email)
+                    ->setContentType("text/html")
+                    ->setBody($message);
+            $this->get('mailer')->send($message);
+        }
+        // koniec email test
         return array(
             'pageTitle' => (isset($newSugestionForm) ? 'Sugestia <small>utwórz nowy</small>' : 'Sugestia <small>edycja</small>'),
             'currPage' => 'sugestions',

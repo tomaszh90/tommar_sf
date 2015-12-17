@@ -17,11 +17,14 @@ class SugestionType extends AbstractType
     public function buildForm(FormBuilderInterface $builder, array $options)
     {
         $builder
-            ->add('nameSugestion', 'textarea', array(
+            ->add('nameSugestion', 'text', array(
                 'label' => 'Nazwa',
             ))
             ->add('descriptionSugestion', 'textarea', array(
                 'label' => 'Sugestia',
+            ))
+            ->add('emailSugestion', 'text', array(
+                'label' => 'email',
             ))
             ->add('updateDate', 'datetime', array(
                 'label' => 'Data dodania',

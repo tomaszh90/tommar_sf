@@ -75,7 +75,10 @@ class SugestionRepository extends \Doctrine\ORM\EntityRepository
                             ->getQuery()
                             ->getSingleScalarResult();
         
-        $notapproved = (int)$qb_ap->andWhere('s.notapprovedDate IS NOT NULL AND s.readDate IS NULL AND s.approvedDate IS NULL')
+        $qb_aps = $this->createQueryBuilder('s')
+                        ->select('COUNT(s)');
+        
+        $notapproved = (int)$qb_aps->andWhere('s.notapprovedDate IS NOT NULL AND s.readDate IS NULL AND s.approvedDate IS NULL')
                             ->getQuery()
                             ->getSingleScalarResult();
         
