@@ -26,15 +26,18 @@ class MenuBuilder {
     public function createMainMenu(RequestStack $requestStack) {
 
         $menu = $this->factory->createItem('root');
-        $menu->setChildrenAttribute('class', 'nav navbar-nav');
+        $menu->setChildrenAttribute('class', 'mainMenu');
         $MenuPos = $this->getPositionMenu(2);
 
         foreach ($MenuPos as $item) {
-            $level = $menu->addChild($item->getTitle(), array(
-                'route' => $item->getRoute(),
-                'routeParameters' => $item->getRouteParameters()
-            ))->setAttribute('class', 'yamm-fw');
-
+            if ($item->getRoute() == 'seperator') {
+                $level = $menu->addChild($item->getTitle())->setAttribute('class', 'yamm-fw');
+            } else {
+                $level = $menu->addChild($item->getTitle(), array(
+                            'route' => $item->getRoute(),
+                            'routeParameters' => $item->getRouteParameters()
+                        ))->setAttribute('class', 'yamm-fw');
+            }
             $this->builSubMenu($level, $item);
         }
 
@@ -46,11 +49,14 @@ class MenuBuilder {
         if (count($item->getChildren()) > 0) {
             $menu->setAttribute('dropdown', true);
             foreach ($item->getChildren() as $subItem) {
-
-                $level = $menu->addChild($subItem->getTitle(), array(
-                    'route' => $subItem->getRoute(),
-                    'routeParameters' => $subItem->getRouteParameters()
-                ));
+                if($subItem->getRoute() == 'seperator') {
+                    $level = $menu->addChild($subItem->getTitle())->setAttribute('subitem', true);
+                } else {
+                    $level = $menu->addChild($subItem->getTitle(), array(
+                                'route' => $subItem->getRoute(),
+                                'routeParameters' => $subItem->getRouteParameters()
+                            ))->setAttribute('subitem', true);
+                }
 
                 $this->builSubMenu($level, $subItem);
             }
@@ -63,7 +69,9 @@ class MenuBuilder {
         $params = array(
             'parentId' => $parentId,
             'typeId' => $typeId,
-            'status' => 'published'
+            'status' => 'published',
+            'orderBy' => 'm.sort',
+            'orderDir' => 'ASC'
         );
 
         $menu = $RepoMenu->getMenuBuilder($params);

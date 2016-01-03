@@ -5,120 +5,120 @@
             <i class="fa fa-dashboard"></i>
             <span>Dashboard</span>
         </a>
-     </li>
-    <li class="treeview">
-      <a href="#">
-        <i class="fa fa-newspaper-o"></i>
-        <span>Artykuły</span>
-        <span class="label label-primary pull-right">{{ navigation.article.count.all }}</span>
-{#        <i class="fa fa-angle-left pull-right"></i>#}
-      </a>
-      <ul class="treeview-menu">
-        <li class="{% if app.request.get('_route') == 'tom_admin_article_form' %}active on{% endif %}"><a href="{{ path('tom_admin_article_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
-        <li class="{% if app.request.get('_route') == 'tom_admin_articles' %}active on{% endif %}"><a href="{{ path('tom_admin_articles') }}"><i class="fa fa-circle-o"></i> Lista artykułów</a></li>
-        <li>
-          <a href="#"><i class="fa fa-circle-o"></i> Tagi<i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="{% if app.request.get('_route') == 'tom_admin_tag_form' %}active on{% endif %}"><a href="{{ path('tom_admin_tag_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
-            <li class="{% if app.request.get('_route') == 'tom_admin_tags' %}active on{% endif %}"><a href="{{ path('tom_admin_tags') }}"><i class="fa fa-circle-o"></i> Lista tagów</a></li>
-          </ul>
-        </li>
-        <li>
-          <a href="#"><i class="fa fa-circle-o"></i> Kategorie<i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="{% if app.request.get('_route') == 'tom_admin_article_category_form' %}active on{% endif %}"><a href="{{ path('tom_admin_article_category_form') }}"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
-            <li class="{% if app.request.get('_route') == 'tom_admin_article_categories' %}active on{% endif %}"><a href="{{ path('tom_admin_article_categories') }}"><i class="fa fa-circle-o"></i> Lista kategorii</a></li>
-          </ul>
-        </li>
-      </ul>
     </li>
-    
     <li class="treeview">
-      <a href="#">
-        <i class="fa fa-files-o"></i>
-        <span>Strony statyczne</span>
-        <span class="label label-warning pull-right">{{ navigation.page.count.all }}</span>
-{#        <i class="fa fa-angle-left pull-right"></i>#}
-      </a>
-      <ul class="treeview-menu">
-        <li class="{% if app.request.get('_route') == 'tom_admin_page_form' %}active on{% endif %}"><a href="{{ path('tom_admin_page_form') }}"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
-        <li class="{% if app.request.get('_route') == 'tom_admin_pages' %}active on{% endif %}"><a href="{{ path('tom_admin_pages') }}"><i class="fa fa-circle-o"></i> Lista stron</a></li>
-      </ul>
+        <a href="#">
+            <i class="fa fa-newspaper-o"></i>
+            <span>Artykuły</span>
+            <span class="label label-primary pull-right">{{ navigation.article.count.all }}</span>
+            {#        <i class="fa fa-angle-left pull-right"></i>#}
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_article_form' %}active on{% endif %}"><a href="{{ path('tom_admin_article_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
+            <li class="{% if app.request.get('_route') == 'tom_admin_articles' %}active on{% endif %}"><a href="{{ path('tom_admin_articles') }}"><i class="fa fa-circle-o"></i> Lista artykułów</a></li>
+            <li>
+                <a href="#"><i class="fa fa-circle-o"></i> Tagi<i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li class="{% if app.request.get('_route') == 'tom_admin_tag_form' %}active on{% endif %}"><a href="{{ path('tom_admin_tag_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
+                    <li class="{% if app.request.get('_route') == 'tom_admin_tags' %}active on{% endif %}"><a href="{{ path('tom_admin_tags') }}"><i class="fa fa-circle-o"></i> Lista tagów</a></li>
+                </ul>
+            </li>
+            <li>
+                <a href="#"><i class="fa fa-circle-o"></i> Kategorie<i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li class="{% if app.request.get('_route') == 'tom_admin_article_category_form' %}active on{% endif %}"><a href="{{ path('tom_admin_article_category_form') }}"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
+                    <li class="{% if app.request.get('_route') == 'tom_admin_article_categories' %}active on{% endif %}"><a href="{{ path('tom_admin_article_categories') }}"><i class="fa fa-circle-o"></i> Lista kategorii</a></li>
+                </ul>
+            </li>
+        </ul>
     </li>
-    
+
     <li class="treeview">
-      <a href="#">
-        <i class="fa fa-sliders"></i>
-        <span>Slider</span>
-        <span class="label label-default pull-right">{{ navigation.slider.count.all }}</span>
-      </a>
-      <ul class="treeview-menu">
-        <li class="{% if app.request.get('_route') == 'tom_admin_slider_form' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
-        <li class="{% if app.request.get('_route') == 'tom_admin_slider' %}active on{% endif %}"><a href="{{ path('tom_admin_slider') }}"><i class="fa fa-circle-o"></i> Lista sliderów</a></li>
-        <li>
-          <a href="#"><i class="fa fa-circle-o"></i> Kategorie<i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="{% if app.request.get('_route') == 'tom_admin_slider_category_form' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_category_form') }}"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
-            <li class="{% if app.request.get('_route') == 'tom_admin_slider_categories' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_categories') }}"><i class="fa fa-circle-o"></i> Lista kategorii</a></li>
-          </ul>
-        </li>
-      </ul>
+        <a href="#">
+            <i class="fa fa-files-o"></i>
+            <span>Strony statyczne</span>
+            <span class="label label-warning pull-right">{{ navigation.page.count.all }}</span>
+            {#        <i class="fa fa-angle-left pull-right"></i>#}
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_page_form' %}active on{% endif %}"><a href="{{ path('tom_admin_page_form') }}"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
+            <li class="{% if app.request.get('_route') == 'tom_admin_pages' %}active on{% endif %}"><a href="{{ path('tom_admin_pages') }}"><i class="fa fa-circle-o"></i> Lista stron</a></li>
+        </ul>
+    </li>
+
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-sliders"></i>
+            <span>Slider</span>
+            <span class="label label-default pull-right">{{ navigation.slider.count.all }}</span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_slider_form' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
+            <li class="{% if app.request.get('_route') == 'tom_admin_slider' %}active on{% endif %}"><a href="{{ path('tom_admin_slider') }}"><i class="fa fa-circle-o"></i> Lista sliderów</a></li>
+            <li>
+                <a href="#"><i class="fa fa-circle-o"></i> Kategorie<i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li class="{% if app.request.get('_route') == 'tom_admin_slider_category_form' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_category_form') }}"><i class="fa fa-circle-o"></i> Dodaj nową</a></li>
+                    <li class="{% if app.request.get('_route') == 'tom_admin_slider_categories' %}active on{% endif %}"><a href="{{ path('tom_admin_slider_categories') }}"><i class="fa fa-circle-o"></i> Lista kategorii</a></li>
+                </ul>
+            </li>
+        </ul>
     </li>
 
     <li class="header">Użytkownicy</li>
     <li class="treeview">
-      <a href="#">
-        <i class="fa fa-users"></i>
-        <span>Zarządzaj użytkownikami</span>
-        <i class="fa fa-angle-left pull-right"></i>
-      </a>
-      <ul class="treeview-menu">
-        <li class="{% if app.request.get('_route') == 'common_user_admin_user_form' %}active on{% endif %}"><a href="{{ path('common_user_admin_user_form') }}"><i class="fa fa-circle-o"></i> Dodaj użytkownika</a></li>
-        <li class="{% if app.request.get('_route') == 'common_user_admin_users' %}active on{% endif %}"><a href="{{ path('common_user_admin_users') }}"><i class="fa fa-circle-o"></i> Lista użytkowników</a></li>
-      </ul>
+        <a href="#">
+            <i class="fa fa-users"></i>
+            <span>Zarządzaj użytkownikami</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'common_user_admin_user_form' %}active on{% endif %}"><a href="{{ path('common_user_admin_user_form') }}"><i class="fa fa-circle-o"></i> Dodaj użytkownika</a></li>
+            <li class="{% if app.request.get('_route') == 'common_user_admin_users' %}active on{% endif %}"><a href="{{ path('common_user_admin_users') }}"><i class="fa fa-circle-o"></i> Lista użytkowników</a></li>
+        </ul>
     </li>
 
     <li class="header">Nawigacja</li>
-        <li class="treeview">
-      <a href="#">
-        <i class="fa fa-navicon"></i>
-        <span>Menu</span>
-{#        <span class="label label-default pull-right">{{ navigation.slider.count.all }}</span>#}
-      </a>
-      <ul class="treeview-menu">
-        <li class="{% if app.request.get('_route') == 'tom_admin_menu_form' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_form') }}"><i class="fa fa-circle-o"></i> Dodaj pozycję</a></li>
-        <li class="{% if app.request.get('_route') == 'tom_admin_menu' %}active on{% endif %}"><a href="{{ path('tom_admin_menu') }}"><i class="fa fa-circle-o"></i> Lista pozycji</a></li>
-        <li>
-          <a href="#"><i class="fa fa-circle-o"></i> Typy<i class="fa fa-angle-left pull-right"></i></a>
-          <ul class="treeview-menu">
-            <li class="{% if app.request.get('_route') == 'tom_admin_menu_type_form' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_type_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
-            <li class="{% if app.request.get('_route') == 'tom_admin_menu_types' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_types') }}"><i class="fa fa-circle-o"></i> Lista typów</a></li>
-          </ul>
-        </li>
-      </ul>
+    <li class="treeview">
+        <a href="#">
+            <i class="fa fa-navicon"></i>
+            <span>Menu</span>
+            {#        <span class="label label-default pull-right">{{ navigation.slider.count.all }}</span>#}
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_menu_form' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_form') }}"><i class="fa fa-circle-o"></i> Dodaj pozycję</a></li>
+            <li class="{% if app.request.get('_route') == 'tom_admin_menu' %}active on{% endif %}"><a href="{{ path('tom_admin_menu') }}"><i class="fa fa-circle-o"></i> Lista pozycji</a></li>
+            <li>
+                <a href="#"><i class="fa fa-circle-o"></i> Typy<i class="fa fa-angle-left pull-right"></i></a>
+                <ul class="treeview-menu">
+                    <li class="{% if app.request.get('_route') == 'tom_admin_menu_type_form' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_type_form') }}"><i class="fa fa-circle-o"></i> Dodaj nowy</a></li>
+                    <li class="{% if app.request.get('_route') == 'tom_admin_menu_types' %}active on{% endif %}"><a href="{{ path('tom_admin_menu_types') }}"><i class="fa fa-circle-o"></i> Lista typów</a></li>
+                </ul>
+            </li>
+        </ul>
     </li>
-    
+
     <li class="header">Ustawienia</li>
     <li class="treeview">
-      <a href="#">
-        <i class="fa fa-laptop"></i>
-        <span>Konfiguracja witryny</span>
-        <i class="fa fa-angle-left pull-right"></i>
-      </a>
-      <ul class="treeview-menu">
-        <li class="{% if app.request.get('_route') == 'tom_admin_seo' %}active on{% endif %}"><a href="{{ path('tom_admin_seo') }}"><i class="fa fa-circle-o"></i> Seo</a></li>
-        <li class="{% if app.request.get('_route') == 'tom_admin_jacascript' %}active on{% endif %}"><a href="{{ path('tom_admin_javascript') }}"><i class="fa fa-circle-o"></i> Javascript</a></li>
-      </ul>
+        <a href="#">
+            <i class="fa fa-laptop"></i>
+            <span>Konfiguracja witryny</span>
+            <i class="fa fa-angle-left pull-right"></i>
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_seo' %}active on{% endif %}"><a href="{{ path('tom_admin_seo') }}"><i class="fa fa-circle-o"></i> Seo</a></li>
+            <li class="{% if app.request.get('_route') == 'tom_admin_jacascript' %}active on{% endif %}"><a href="{{ path('tom_admin_javascript') }}"><i class="fa fa-circle-o"></i> Javascript</a></li>
+        </ul>
     </li>
     <li class="header">Sugestie</li>
     <li class="treeview">
-      <a href="#">
-        <i class="fa fa-sticky-note"></i>
-        <span>Sugestie</span>
-        <span class="label label-default pull-right">{{ navigation.sugestion.count.all }}</span>
-      </a>
-      <ul class="treeview-menu">
-        <li class="{% if app.request.get('_route') == 'tom_admin_sugestion' %}active on{% endif %}"><a href="{{ path('tom_admin_sugestion') }}"><i class="fa fa-circle-o"></i> Lista sugestii</a></li>
-      </ul>
+        <a href="#">
+            <i class="fa fa-sticky-note"></i>
+            <span>Sugestie</span>
+            <span class="label label-default pull-right">{{ navigation.sugestion.count.all }}</span>
+        </a>
+        <ul class="treeview-menu">
+            <li class="{% if app.request.get('_route') == 'tom_admin_sugestion' %}active on{% endif %}"><a href="{{ path('tom_admin_sugestion') }}"><i class="fa fa-circle-o"></i> Lista sugestii</a></li>
+        </ul>
     </li>
-  </ul>
+</ul>
