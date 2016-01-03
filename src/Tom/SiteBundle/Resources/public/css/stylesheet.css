@@ -8,11 +8,118 @@ body {
     font-weight: 400;
     color: #27242f;
 }
+
+#header {
+    padding: 15px 0;
+}
 /* ----------------------------------------------------------------------------- MAIN NAVIGATION & DROPDOWN MENU STARTS ----- */
 
 #date {
     font-size: 14px;
 }
+
+#navigation {
+    left:0;
+    right:0;
+    z-index: 99999;
+}
+.nav-header {
+    background-color: #0075CC;
+    position: relative;
+    z-index: 9999;
+}
+.mainMenu {
+    list-style: none;
+    padding-left: 0;
+    margin-bottom:0;
+    float: left;
+}
+.mainMenu li {
+    display: inline-block;
+}
+.mainMenu li a {
+    display: block;
+    padding: 14px 10px;
+    color: #FFFFFF;
+    font-size: 18px;
+    text-transform: uppercase;
+}
+.mainMenu li ul li {
+    display: block;
+}
+.mainMenu ul {
+    display: none;
+    padding-left: 0;
+}
+
+.menu-links {
+    position: relative;
+    z-index: 2;
+    text-align: right;
+    padding: 0;
+    margin: 0;
+}
+.menu-links li {
+    display: inline-block;
+    font-size: 18px;
+    color: #FFFFFF;
+    padding: 14px 15px;
+}
+.menu-links li.search {
+    cursor: pointer;
+    transition: all 0.5s;
+}
+.menu-links li.search.active {
+    color: #000;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+
+.menu-search {
+    position: absolute;
+    top: 0;
+    z-index: 1;
+    right: 0;
+    width: 0%;
+    margin-top: 1px;
+    padding: 0 15px;
+    -webkit-transition: all .3s linear;
+    transition: all .3s linear;
+}
+.menu-search.active {
+    width: 100%;
+}
+.menu-search .menu-search-container {
+    width: 100%;
+    background: #fff;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.menu-search.active .menu-search-container {
+    padding-right: 50px;
+}
+.menu-search .menu-search-container input {
+    width: 100%;
+    border: none;
+    background: #fff;
+    font-size: 18px;
+    color: #999;
+    padding: 13px 0;
+    margin: 0;
+    text-transform: uppercase;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.menu-search.active .menu-search-container input {
+    border-right: 1px solid #0075CC;
+    padding: 13px 15px;
+    -webkit-transition: all .3s ease-in-out;
+    transition: all .3s ease-in-out;
+}
+.menu-search .menu-search-container input:focus {
+    outline: 0;
+}
+
 
 /* ----------------------------------------------------------------------------- MOBILE HEADER STARTS ----- */
 
@@ -56,18 +163,6 @@ body {
     background-size: cover;
     background-repeat: no-repeat;
 }
-.slider .kafelkaWysoka {
-    height: 530px;
-}
-.slider .kafelkaSrednia {
-    height: 340px;
-}
-.slider .kafelkaNiska {
-    height: 250px;
-}
-.slider .kafelkaNajnizsza {
-    height: 160px;
-}
 .slider .kafelkaWysoka .naglowek {
     padding: 60px 25px 35px;
 }
@@ -103,6 +198,36 @@ body {
     margin: 0;
     color: #fff;
     letter-spacing: .003em;
+}
+@media(min-width:1px) {
+    .slider .kafelkaWysoka,
+    .slider .kafelkaSrednia,
+    .slider .kafelkaNiska,
+    .slider .kafelkaNajnizsza {
+        height: 200px;
+    }
+}
+@media(min-width:768px) {
+    .slider .kafelkaWysoka,
+    .slider .kafelkaSrednia,
+    .slider .kafelkaNiska,
+    .slider .kafelkaNajnizsza {
+        height: 300px;
+    }
+}
+@media(min-width:992px) {
+    .slider .kafelkaWysoka {
+        height: 530px;
+    }
+    .slider .kafelkaSrednia {
+        height: 340px;
+    }
+    .slider .kafelkaNiska {
+        height: 250px;
+    }
+    .slider .kafelkaNajnizsza {
+        height: 160px;
+    }
 }
 @media(max-width:992px) {
     .slider .kafelka {
@@ -1597,18 +1722,6 @@ ul.contactus li i {
     }
 }
 @media (max-width:767px) {
-    #mobile-header {
-        display: block;
-    }
-    .sidr-class-hidden-sm {
-        display: none!important
-    }
-    .sidr-class-hidden-xs {
-        display: none!important
-    }
-    .sidr-class-navbar-toggle, .navbar-toggle {
-        display: none!important
-    }
     .logo {
         padding-top: 10px;
         padding-bottom: 0px;
@@ -1622,29 +1735,11 @@ ul.contactus li i {
         max-width: 150px;
         max-height: 57px;
     }
-    #navigation-sticky-wrapper {
-        display: none!important
-    }
     #date {
         text-align: center;
     }
     .top-nav ul.small-nav {
         text-align: center;
-    }
-    .nav-icon {
-        padding-top: 8px;
-    }
-    .navbar-toggle {
-        position: relative;
-        float: right;
-        padding: 6px;
-        margin-top: 8px;
-        margin-right: 8px;
-        margin-bottom: 8px;
-        background-color: transparent;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px
     }
     .pic-with-overlay .category {
         font-size: 12px;
@@ -1736,21 +1831,6 @@ ul.contactus li i {
     }
     .top-nav ul.small-nav {
         text-align: center;
-    }
-    .nav-icon {
-        padding-top: 8px;
-    }
-    .navbar-toggle {
-        position: relative;
-        float: right;
-        padding: 6px;
-        margin-top: 8px;
-        margin-right: 0px;
-        margin-bottom: 8px;
-        background-color: transparent;
-        background-image: none;
-        border: 1px solid transparent;
-        border-radius: 4px
     }
     .pic-with-overlay .category {
         font-size: 12px;

@@ -149,8 +149,9 @@ $(document).ready(function(){
 /************************************************************************************ SWITCHER CSS ENDS */
 
 
-    $('#search label').on('click', function() {
-            $(this).parent().toggleClass('show');
+    $('.menu-links .search').on('click', function() {
+        $(this).toggleClass('active');
+       $('.menu-search').toggleClass('active');
     });
     
 
