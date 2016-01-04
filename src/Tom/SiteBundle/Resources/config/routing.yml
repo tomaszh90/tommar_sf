@@ -7,3 +7,8 @@ tom_site_article:
     resource: "@TomSiteBundle/Controller/ArticlesController.php"
     type: annotation
     prefix: /
+    
+tom_site_sugestion:
+    resource: "@TomSiteBundle/Controller/SugestionController.php"
+    type: annotation
+    prefix: /sugestion

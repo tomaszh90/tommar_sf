@@ -1,0 +1,205 @@
+{% extends "TomSiteBundle::base.html.twig" %}
+
+{% block pageTitle %}{{ parent() }}{% endblock %}
+{% block ogTitle %}{{ parent() }}{% endblock %}
+{% block ogImage %}{% endblock %}
+{% block metaDescription %}{% endblock %}
+{% block ogDescription %}{% endblock %}
+{% block metaKeywords %}{% endblock %}
+
+{% block stylesheets %}
+    {{parent()}}
+{% endblock %}
+
+
+{% block mainSidebarRight %}
+    {{ parent() }}
+    <!-- TABS STARTS -->
+    <div class="tabs">
+        <div role="tabpanel">
+            <!-- Nav tabs -->
+            <ul class="nav nav-tabs nav-justified" role="tablist">
+                <li role="presentation" class="active"><a href="#categories" aria-controls="popular" role="tab" data-toggle="tab">KATEGORIE</a></li>
+                <li role="presentation"><a href="#popular" aria-controls="popular" role="tab" data-toggle="tab">POPULARNE</a></li>
+                <li role="presentation"><a href="#comments" aria-controls="comments" role="tab" data-toggle="tab">KOMENTOWANE</a></li>
+            </ul>
+            <!-- Tab panes -->
+            <div class="tab-content">
+                <!-- Categories Starts -->
+                <div role="tabpanel" class="tab-pane active" id="categories">
+                    <div class="categories">
+
+                    </div>
+                </div>
+                <!-- Categories Ends -->
+                <!-- Popular Starts -->
+                <div role="tabpanel" class="tab-pane" id="popular">
+                    <ul class="tabs-posts">
+                        <li>
+                            <div class="pic"><img src="../../images/footer/recent-posts/1.jpg" class="img-responsive" alt="" ></div>
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
+                        </li>
+                        <li>
+                            <div class="pic"><img src="../../images/footer/recent-posts/2.jpg" class="img-responsive" alt="" ></div>
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
+                        </li>
+                        <li>
+                            <div class="pic"><img src="../../images/footer/recent-posts/3.jpg" class="img-responsive" alt="" ></div>
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Popular Ends -->
+                <!-- Comments Starts -->
+                <div role="tabpanel" class="tab-pane" id="comments">
+                    <ul class="tabs-posts">
+                        <li>
+                            <div class="pic"><img src="../../images/footer/recent-posts/4.jpg" class="img-responsive" alt="" ></div>
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="caption"><a href="#">Aenean ultricies mi vitae est. Mauris placerat eleifend leosit amet est.</a></div>
+                        </li>
+                        <li>
+                            <div class="pic"><img src="../../images/footer/recent-posts/5.jpg" class="img-responsive" alt="" ></div>
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
+                        </li>
+                        <li>
+                            <div class="pic"><img src="../../images/footer/recent-posts/6.jpg" class="img-responsive" alt="" ></div>
+                            <div class="info">
+                                <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                                <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                            </div>
+                            <div class="caption"><a href="#">Quisque sit amet est et sapien ullamcorper pharetra.</a></div>
+                        </li>
+                    </ul>
+                </div>
+                <!-- Comments Ends -->
+            </div>
+        </div>
+    </div>
+    <!-- TABS ENDS -->
+    <!-- FEATURED VIDEOS STARTS -->
+    <div class="featured-video">
+        <div class="row category-caption">
+            <div class="col-lg-12">
+                <h2 class="pull-left">FEATURED VIDEOS</h2>
+            </div>
+        </div>
+        <div class="featured-video-carousel">
+            <!-- SLIDE 1 STARTS -->
+            <div>
+                <div class="picture">
+                    <div class="category-image">
+                        <img src="../../images/featured-videos/1.jpg" class="img-responsive" alt="" >
+                        <div class="bg">&nbsp;</div>
+                        <h2 class="overlay-category">FASHION</h2>
+                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
+                    </div>
+                </div>
+                <div class="detail">
+                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
+                    <div class="info">
+                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                    </div>
+                </div>
+            </div>
+            <!-- SLIDE 1 ENDS -->
+            <!-- SLIDE 2 STARTS -->
+            <div>
+                <div class="picture">
+                    <div class="category-image">
+                        <img src="../../images/featured-videos/2.jpg" class="img-responsive" alt="" >
+                        <div class="bg">&nbsp;</div>
+                        <h2 class="overlay-category">FASHION</h2>
+                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
+                    </div>
+                </div>
+                <div class="detail">
+                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
+                    <div class="info">
+                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                    </div>
+                </div>
+            </div>
+            <!-- SLIDE 2 ENDS -->
+            <!-- SLIDE 3 STARTS -->
+            <div>
+                <div class="picture">
+                    <div class="category-image">
+                        <img src="../../images/featured-videos/3.jpg" class="img-responsive" alt="" >
+                        <div class="bg">&nbsp;</div>
+                        <h2 class="overlay-category">FASHION</h2>
+                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
+                    </div>
+                </div>
+                <div class="detail">
+                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
+                    <div class="info">
+                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
+                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                    </div>
+                </div>
+            </div>
+            <!-- SLIDE 3 ENDS -->
+        </div>
+    </div>
+    <!-- FEATURED VIDEOS ENDS -->
+    <!-- FEATURED AUTHORS STARTS -->
+    <div class="featured-authors">
+        <div class="row category-caption">
+            <div class="col-lg-12">
+                <h2 class="pull-left">FEATURED AUTHORS</h2>
+                <span class="pull-right"><a href="authors.html"><i class="fa fa-plus"></i></a></span>
+            </div>
+        </div>
+        <ul>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/2.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/5.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/6.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/7.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
+            <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
+        </ul>
+        <div class="clearfix"></div>
+    </div>
+    <!-- FEATURED AUTHORS ENDS -->
+
+
+{% endblock %}
+
+{% block javascripts %}
+    {{parent()}}
+{% endblock %}
