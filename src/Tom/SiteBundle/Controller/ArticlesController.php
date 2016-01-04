@@ -15,6 +15,29 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 class ArticlesController extends Controller {
 
     protected $itemsLimit = 7;
+
+    /**
+     * @Route(
+     *       "/{id}-{slug}",
+     *       name="tom_site_article",
+     *       requirements = {"id" = "\d+"}
+     * )
+     * 
+     * @Template()
+     */
+    public function articleAction($id) {
+        $RepoArticle = $this->getDoctrine()->getRepository('TomSiteBundle:Article');
+        $Article = $RepoArticle->getPublishedArticle($id);
+
+        if (NULL == $Article) {
+            throw $this->createNotFoundException('Nie znaleziono takiego artykułu.');
+        }
+
+        return array(
+            'item' => $Article,
+            'pageTitle' => 'Artykuły'
+        );
+    }
     
     /**
      * @Route(
@@ -38,35 +61,23 @@ class ArticlesController extends Controller {
         );
         $pagination = $this->getPaginatedArticles($queryParams, $page);
 
+        $listTitle = 'Artykuły';
+        
+        if(NULL !== $category) {
+            $RepoCategory = $this->getDoctrine()->getRepository('TomSiteBundle:ArticleCategory');
+            $CategoryFind = $RepoCategory->findOneBySlug($category);
+            if (NULL == $CategoryFind) {
+                return $this->redirect($this->generateUrl('tom_site_articles'));
+            }
+            $listTitle = $CategoryFind->getName();
+        }
        
 
         return array(
             'pagination' => $pagination,
             'queryParams' => $queryParams,
-            'pageTitle' => 'Aktualności'
-        );
-    }
-
-    /**
-     * @Route(
-     *       "/{id}-{slug}",
-     *       name="tom_site_article",
-     *       requirements = {"id" = "\d+"}
-     * )
-     * 
-     * @Template()
-     */
-    public function articleAction($id) {
-        $RepoArticle = $this->getDoctrine()->getRepository('TomSiteBundle:Article');
-        $Article = $RepoArticle->getPublishedArticle($id);
-
-        if (NULL == $Article) {
-            throw $this->createNotFoundException('Nie znaleziono takiego artykułu.');
-        }
-
-        return array(
-            'item' => $Article,
-            'pageTitle' => 'Aktualności'
+            'pageTitle' => 'Aktualności',
+            'listTitle' => $listTitle
         );
     }
     

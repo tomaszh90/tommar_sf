@@ -18,36 +18,36 @@
         <section>
             <div class="row category-caption">
                 <div class="col-lg-12">
-                    <h2 class="pull-left main-caption"><a href="#">{{ article.category.name|upper }}</a></h2>
+                    <h2 class="pull-left main-caption"><a href="#">{{ item.category.name|upper }}</a></h2>
                         {#                    <h2 class="pull-left sub-cat">FOOD 2014</h2>#}
                 </div>
             </div>
             <div class="row">
                 <article class="col-lg-12 col-md-12" itemscope itemType="http://schema.org/BlogPosting">
-                    {% if article.image is not empty %}
+                    {% if item.image is not empty %}
                         <div class="picture">
                             <div class="category-image">
-                                <img itemprop="image" src="{{ asset('uploads/article/sm_') }}{{ article.image }}" class="img-responsive" alt="" >
-                                <h2 class="overlay-category">{{ article.category.name|upper }}</h2>
+                                <img itemprop="image" src="{{ asset('uploads/article/sm_') }}{{ item.image }}" class="img-responsive" alt="" >
+                                <h2 class="overlay-category">{{ item.category.name|upper }}</h2>
                             </div>
                         </div>
                     {% endif %}
                     <div class="detail">
                         <div class="info">
-                            <span class="date" itemprop="datePublished"><i class="fa fa-calendar-o"></i> {{ article.publishedDate|site_format_date }}</span>                        
+                            <span class="date" itemprop="datePublished"><i class="fa fa-calendar-o"></i> {{ item.publishedDate|site_format_date }}</span>                        
                             <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
                             <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
                         </div>
-                        <h1 class="title" itemprop="headline"><strong>{{ article.title }}</strong></h1>
+                        <h1 class="title" itemprop="headline"><strong>{{ item.title }}</strong></h1>
                         <div class="author">
                             <div class="pic">
-                                <img src="{{ asset(article.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
-                                <span class="name"><a href="#">{{ article.author.name }}</a></span> 												
+                                <img src="{{ asset(item.author.avatar) }}" class="img-circle avatar-sm" alt="" > 
+                                <span class="name"><a href="#">{{ item.author.name }}</a></span> 												
                             </div>
                         </div>
                     </div>
                     <div class="description" itemprop="articleBody">
-                        {{ article.content|raw }}
+                        {{ item.content|raw }}
                     </div>
                     <div class="clearfix"></div>
                     <hr>
@@ -58,20 +58,20 @@
                             <li><a href="#"><div  itemprop="author">
                              <span itemscope itemtype="http://schema.org/Person">
                                   Posted by 
-                                <span itemprop="name">{{ article.author.name }}</span>
+                                <span itemprop="name">{{ item.author.name }}</span>
                                     </span></div></a></li>
                         </ul>
-                        {% if article.source is not null %}
+                        {% if item.source is not null %}
                         <div class="clearfix"></div>
                         <ul class="via">
                             <li>ŹRÓDŁO</li>
-                            <li>{{ article.source|raw }}</li>
+                            <li>{{ item.source|raw }}</li>
                         </ul>
                         {% endif %}
                         <div class="clearfix"></div>
                         <ul class="via">
                             <li>TAGI</li>
-                                {% for tag in article.tags %}
+                                {% for tag in item.tags %}
                                 <li><a href="#">{{ tag.name }}</a></li>
                                 {% endfor %}
                         </ul>
