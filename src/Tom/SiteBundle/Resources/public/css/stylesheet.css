@@ -17,7 +17,9 @@ body {
 #date {
     font-size: 14px;
 }
-
+.pagination li i {
+    font-size: 12px;
+}
 #navigation {
     left:0;
     right:0;
@@ -302,8 +304,8 @@ body {
     padding-bottom: 20px;
 }
 .page-contents hr {
-    margin-top: 0px;
-    margin-bottom: 50px;
+    margin-top: 25px;
+    margin-bottom: 25px;
 }
 .inner-page-contents {
     padding-top: 0px;

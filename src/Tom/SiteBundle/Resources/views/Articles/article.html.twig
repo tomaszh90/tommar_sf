@@ -18,8 +18,7 @@
         <section>
             <div class="row category-caption">
                 <div class="col-lg-12">
-                    <h2 class="pull-left main-caption"><a href="#">{{ item.category.name|upper }}</a></h2>
-                        {#                    <h2 class="pull-left sub-cat">FOOD 2014</h2>#}
+                    <h2 class="pull-left main-caption"><a href="{{ path('tom_site_articles_category', {'category': item.category.slug}) }}">{{ item.category.name|upper }}</a></h2>
                 </div>
             </div>
             <div class="row">
@@ -55,24 +54,31 @@
                     <div>
                         <ul class="via">
                             <li>AUTOR</li>
-                            <li><a href="#"><div  itemprop="author">
-                             <span itemscope itemtype="http://schema.org/Person">
-                                  Posted by 
-                                <span itemprop="name">{{ item.author.name }}</span>
-                                    </span></div></a></li>
+                            <li itemprop="author">
+                                <span itemscope itemtype="http://schema.org/Person">
+                                    <span itemprop="name">{{ item.author.name }}</span>
+                                </span>
+                            </li>
                         </ul>
                         {% if item.source is not null %}
-                        <div class="clearfix"></div>
-                        <ul class="via">
-                            <li>ŹRÓDŁO</li>
-                            <li>{{ item.source|raw }}</li>
-                        </ul>
+                            <div class="clearfix"></div>
+                            <ul class="via">
+                                <li>ŹRÓDŁO</li>
+                                <li>{{ item.source|raw }}</li>
+                            </ul>
+                        {% endif %}
+                        {% if item.category is not null %}
+                            <div class="clearfix"></div>
+                            <ul class="via">
+                                <li>KATEGORIA</li>
+                                <li><a href="{{ path('tom_site_articles_category', {'category': item.category.slug}) }}">{{ item.category.name }}</a></li>
+                            </ul>
                         {% endif %}
                         <div class="clearfix"></div>
                         <ul class="via">
                             <li>TAGI</li>
                                 {% for tag in item.tags %}
-                                <li><a href="#">{{ tag.name }}</a></li>
+                                <li><a href="{{ path('tom_site_articles') }}?tagSlug={{ tag.slug }}">{{ tag.name }}</a></li>
                                 {% endfor %}
                         </ul>
                         <div class="clearfix"></div>
@@ -109,78 +115,54 @@
                     </div>
                     <!-- Share this post ends -->
                     <hr>
-                    <!-- Next & Prev. Starts -->             
+
                     <div class="row next-n-prev">
-                        <article class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="detail">
-                                <div class="info">
-                                    <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                                    <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                                    <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
-                                </div>
-                                <h2 class="caption">Pellentesque habitant morbi tristique senectus</h2>
-                                <div class="author">
-                                    <div class="pic">
-                                        <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
-                                        <span class="name"><a href="#">JOHN DOE</a></span> 
-                                        <span class="read-article pull-right"><a href="#">READ ARTICLE <i class="fa fa-angle-right"></i></a></span>
+
+                        {% if prevnextArticle.prev is not null %}
+                            <article class="col-lg-6 col-md-6 col-sm-6 article">
+                                <div class="picture">
+                                    <div class="category-image">
+                                        <a href="{{ path('tom_site_article', {'id': prevnextArticle.prev.id, 'slug': prevnextArticle.prev.slug}) }}">
+                                            <img src="{{ asset('uploads/article/sm_') }}{{ prevnextArticle.prev.image }}" class="img-responsive" alt="{{ prevnextArticle.prev.title }}" />
+                                        </a>
+                                        <h2 class="overlay-category">{{ prevnextArticle.prev.category.name|upper }}</h2>
                                     </div>
                                 </div>
-                                <div class="btns"><a href="#"><i class="fa fa-angle-double-left"></i> PREVIOUS ARTICLE</a></div>
-                            </div>
-                        </article>
-                        <!-- ARTICLE ENDS -->
-                        <!-- ARTICLE STARTS -->
-                        <article class="col-lg-6 col-md-6 col-sm-6">
-                            <div class="detail">
-                                <div class="info">
-                                    <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                                    <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                                    <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                                <div class="detail">
+                                    <div class="info">
+                                        <span class="date"><i class="fa fa-calendar-o"></i> {{ prevnextArticle.prev.publishedDate|site_format_date }}</span>
+                                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                                    </div>
+                                    <a class="caption" href="{{ path('tom_site_article', {'id': prevnextArticle.prev.id, 'slug': prevnextArticle.prev.slug}) }}">{{ prevnextArticle.prev.title }}</a>
+                                    <div class="btns"><a href="{{ path('tom_site_article', {'id': prevnextArticle.prev.id, 'slug': prevnextArticle.prev.slug}) }}">POPRZEDNI ARTYKUŁ</a></div>
                                 </div>
-                                <h2 class="caption">Et netus et malesuada fames ac turpis egestas</h2>
-                                <div class="author">
-                                    <div class="pic">
-                                        <img src="../../images/author/small/1.jpg" class="img-circle" alt="" > 
-                                        <span class="name"><a href="#">JOHN DOE</a></span> 
-                                        <span class="read-article pull-right"><a href="#">READ ARTICLE <i class="fa fa-angle-right"></i></a></span>
+                            </article>
+                        {% endif %}
+
+                        {% if prevnextArticle.next is not null %}
+                            <article class="col-lg-6 col-md-6 col-sm-6 article pull-right">
+                                <div class="picture">
+                                    <div class="category-image">
+                                        <a href="{{ path('tom_site_article', {'id': prevnextArticle.next.id, 'slug': prevnextArticle.next.slug}) }}">
+                                            <img src="{{ asset('uploads/article/sm_') }}{{ prevnextArticle.next.image }}" class="img-responsive" alt="{{ prevnextArticle.next.title }}" />
+                                        </a>
+                                        <h2 class="overlay-category">{{ prevnextArticle.next.category.name|upper }}</h2>
                                     </div>
                                 </div>
-                                <div class="btns"><a href="#">NEXT ARTICLE <i class="fa fa-angle-double-right"></i></a></div>
-                            </div>
-                        </article>
+                                <div class="detail">
+                                    <div class="info">
+                                        <span class="date"><i class="fa fa-calendar-o"></i> {{ prevnextArticle.next.publishedDate|site_format_date }}</span>
+                                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
+                                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
+                                    </div>
+                                    <a class="caption" href="{{ path('tom_site_article', {'id': prevnextArticle.next.id, 'slug': prevnextArticle.next.slug}) }}">{{ prevnextArticle.next.title }}</a>
+                                    <div class="btns"><a href="{{ path('tom_site_article', {'id': prevnextArticle.next.id, 'slug': prevnextArticle.next.slug}) }}">NASTĘPNY ARTYKUŁ</a></div>
+                                </div>
+                            </article>
+                        {% endif %}
                     </div>
-                    <!-- Next & Prev. Ends -->               
-                    <hr>
-                    <!-- About Author Starts -->
-                    <div class="about-author">
-                        <div class="row category-caption">
-                            <div class="col-lg-6">
-                                <h2 class="pull-left">ABOUT AUTHOR</h2>
-                            </div>
-                            <div class="col-lg-6">
-                                <ul class="s-author pull-right">
-                                    <li class="facebook">
-                                        <div class="icon"><a href="#"><i class="fa fa-facebook"></i></a></div>
-                                    </li>
-                                    <li class="twitter">
-                                        <div class="icon"><a href="#"><i class="fa fa-twitter"></i></a></div>
-                                    </li>
-                                    <li class="linkedin">
-                                        <div class="icon"><a href="#"><i class="fa fa-linkedin"></i></a></div>
-                                    </li>
-                                </ul>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-lg-12">
-                                <img src="../../images/author/1.jpg" class="img-circle pull-left" alt="" >
-                                <div class="name">John Doe</div>
-                                <div class="intro">Pellentesque habitant morbi tristique senectus et netus et malesuada fames ac turpis egestas. Vestibulum tortor quam, feugiat vitae, ultricies eget, tempor sit amet, ante. Donec eu libero sit amet quam egestas semper. Aenean ultricies mi vitae est. Mauris placerat eleifend leo. Quisque sit amet est et sapien ullamcorper pharetra. Vestibulum erat wisi, condimentum.</div>
-                            </div>
-                        </div>
-                    </div>
-                    <!-- About Author Ends -->               
+                    <!-- Next & Prev. Ends -->
                     <hr>
                     <!-- Related Articles Starts -->
                     <div class="related-articles">
@@ -339,13 +321,13 @@
                 <div role="tabpanel" class="tab-pane active" id="categories">
                     <div class="categories">
                         <ul class="cats">
-                        {% for row in categoryListModule() %}
-                            {% for item in row %}
-                                {% set category = item[0] %}
-                                <li><a href="#"><img class="img-circle avatar-sm" src="{{ asset('uploads/article/category/th_') }}{{ category.image }}" /> {{ category.name }} <span class="pull-right">{{ item.articlesCount }}</span></a></li>
-                            {% endfor %}
-                        {% endfor %}
-                            
+                            {% for row in categoryListModule() %}
+                                {% for item in row %}
+                                    {% set category = item[0] %}
+                                    <li><a href="{{ path('tom_site_articles_category', {'category': category.slug}) }}"><img class="img-circle avatar-sm" src="{{ asset('uploads/article/category/th_') }}{{ category.image }}" /> {{ category.name }} <span class="pull-right">{{ item.articlesCount }}</span></a></li>
+                                        {% endfor %}
+                                    {% endfor %}
+
                         </ul>
                     </div>
                 </div>
@@ -420,100 +402,29 @@
         </div>
     </div>
     <!-- TABS ENDS -->
-    <!-- FEATURED VIDEOS STARTS -->
-    <div class="featured-video">
-        <div class="row category-caption">
-            <div class="col-lg-12">
-                <h2 class="pull-left">FEATURED VIDEOS</h2>
+    {#    <!-- FEATURED AUTHORS STARTS -->
+        <div class="featured-authors">
+            <div class="row category-caption">
+                <div class="col-lg-12">
+                    <h2 class="pull-left">FEATURED AUTHORS</h2>
+                    <span class="pull-right"><a href="authors.html"><i class="fa fa-plus"></i></a></span>
+                </div>
             </div>
+            <ul>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/2.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/5.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/6.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/7.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
+                <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
+            </ul>
+            <div class="clearfix"></div>
         </div>
-        <div class="featured-video-carousel">
-            <!-- SLIDE 1 STARTS -->
-            <div>
-                <div class="picture">
-                    <div class="category-image">
-                        <img src="../../images/featured-videos/1.jpg" class="img-responsive" alt="" >
-                        <div class="bg">&nbsp;</div>
-                        <h2 class="overlay-category">FASHION</h2>
-                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
-                    <div class="info">
-                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
-                    </div>
-                </div>
-            </div>
-            <!-- SLIDE 1 ENDS -->
-            <!-- SLIDE 2 STARTS -->
-            <div>
-                <div class="picture">
-                    <div class="category-image">
-                        <img src="../../images/featured-videos/2.jpg" class="img-responsive" alt="" >
-                        <div class="bg">&nbsp;</div>
-                        <h2 class="overlay-category">FASHION</h2>
-                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
-                    <div class="info">
-                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
-                    </div>
-                </div>
-            </div>
-            <!-- SLIDE 2 ENDS -->
-            <!-- SLIDE 3 STARTS -->
-            <div>
-                <div class="picture">
-                    <div class="category-image">
-                        <img src="../../images/featured-videos/3.jpg" class="img-responsive" alt="" >
-                        <div class="bg">&nbsp;</div>
-                        <h2 class="overlay-category">FASHION</h2>
-                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
-                    <div class="info">
-                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
-                    </div>
-                </div>
-            </div>
-            <!-- SLIDE 3 ENDS -->
-        </div>
-    </div>
-    <!-- FEATURED VIDEOS ENDS -->
-    <!-- FEATURED AUTHORS STARTS -->
-    <div class="featured-authors">
-        <div class="row category-caption">
-            <div class="col-lg-12">
-                <h2 class="pull-left">FEATURED AUTHORS</h2>
-                <span class="pull-right"><a href="authors.html"><i class="fa fa-plus"></i></a></span>
-            </div>
-        </div>
-        <ul>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/2.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/5.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/6.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/7.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
-        </ul>
-        <div class="clearfix"></div>
-    </div>
-    <!-- FEATURED AUTHORS ENDS -->
+        <!-- FEATURED AUTHORS ENDS -->#}
 
 
 {% endblock %}

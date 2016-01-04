@@ -14,7 +14,7 @@ use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
  */
 class ArticlesController extends Controller {
 
-    protected $itemsLimit = 7;
+    protected $itemsLimit = 10;
 
     /**
      * @Route(
@@ -32,24 +32,43 @@ class ArticlesController extends Controller {
         if (NULL == $Article) {
             throw $this->createNotFoundException('Nie znaleziono takiego artykułu.');
         }
+        
+        $ArticleNext = $RepoArticle->getNextPrevArticle(array(
+            'articleId' => $Article->getId(),
+            'categoryId' => $Article->getCategory()->getId(),
+            'orderBy' => 'a.id',
+            'orderDir' => 'DESC',
+            'sort' => 'next'
+        ));
+        $ArticlePrev = $RepoArticle->getNextPrevArticle(array(
+            'articleId' => $Article->getId(),
+            'categoryId' => $Article->getCategory()->getId(),
+            'orderBy' => 'a.id',
+            'orderDir' => 'DESC',
+            'sort' => 'prev'
+        ));
 
         return array(
             'item' => $Article,
+            'prevnextArticle' => array(
+                'prev' => $ArticlePrev,
+                'next' => $ArticleNext
+            ),
             'pageTitle' => 'Artykuły'
         );
     }
     
     /**
      * @Route(
-     *       "/{category}/{page}",
-     *      defaults = {"page" = 1, "category" = NULL},
-     *       name="tom_site_articles",
+     *      "/{category}/{page}",
+     *      defaults = {"page" = 1},
+     *      name="tom_site_articles_category",
      *      requirements = {"page" = "\d+"}
      * )
      * 
-     * @Template()
+     * @Template("TomSiteBundle:Articles:index.html.twig")
      */
-    public function indexAction(Request $Request, $category, $page) {
+    public function categoryAction(Request $Request, $category, $page) {
         
         $queryParams = array(
             'search' => $Request->query->get('search'),
@@ -72,6 +91,37 @@ class ArticlesController extends Controller {
             $listTitle = $CategoryFind->getName();
         }
        
+
+        return array(
+            'pagination' => $pagination,
+            'queryParams' => $queryParams,
+            'pageTitle' => 'Aktualności',
+            'listTitle' => $listTitle
+        );
+    }
+    
+    /**
+     * @Route(
+     *      "/{page}",
+     *      defaults = {"page" = 1},
+     *      name="tom_site_articles",
+     *      requirements = {"page" = "\d+"}
+     * )
+     * 
+     * @Template()
+     */
+    public function indexAction(Request $Request, $page) {
+        
+        $queryParams = array(
+            'search' => $Request->query->get('search'),
+            'tagSlug' => $Request->query->get('tagSlug'),
+            'status' => 'published',
+            'orderBy' => 'a.publishedDate',
+            'orderDir' => 'DESC'
+        );
+        $pagination = $this->getPaginatedArticles($queryParams, $page);
+
+        $listTitle = 'Artykuły';
 
         return array(
             'pagination' => $pagination,

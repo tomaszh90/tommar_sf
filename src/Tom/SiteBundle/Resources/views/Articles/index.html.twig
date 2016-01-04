@@ -15,6 +15,7 @@
     <div class="col-lg-8">
         {% import 'TomSiteBundle:Macros:articlesList.html.twig' as articleList %}
         {{ articleList.tilesTwoColumn(listTitle, pagination) }}
+        {{ knp_pagination_render(pagination, 'TomSiteBundle:Pagination:pagination.html.twig') }}
     </div>
 {% endblock %}
 
@@ -116,101 +117,6 @@
         </div>
     </div>
     <!-- TABS ENDS -->
-    <!-- FEATURED VIDEOS STARTS -->
-    <div class="featured-video">
-        <div class="row category-caption">
-            <div class="col-lg-12">
-                <h2 class="pull-left">FEATURED VIDEOS</h2>
-            </div>
-        </div>
-        <div class="featured-video-carousel">
-            <!-- SLIDE 1 STARTS -->
-            <div>
-                <div class="picture">
-                    <div class="category-image">
-                        <img src="../../images/featured-videos/1.jpg" class="img-responsive" alt="" >
-                        <div class="bg">&nbsp;</div>
-                        <h2 class="overlay-category">FASHION</h2>
-                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
-                    <div class="info">
-                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
-                    </div>
-                </div>
-            </div>
-            <!-- SLIDE 1 ENDS -->
-            <!-- SLIDE 2 STARTS -->
-            <div>
-                <div class="picture">
-                    <div class="category-image">
-                        <img src="../../images/featured-videos/2.jpg" class="img-responsive" alt="" >
-                        <div class="bg">&nbsp;</div>
-                        <h2 class="overlay-category">FASHION</h2>
-                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
-                    <div class="info">
-                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
-                    </div>
-                </div>
-            </div>
-            <!-- SLIDE 2 ENDS -->
-            <!-- SLIDE 3 STARTS -->
-            <div>
-                <div class="picture">
-                    <div class="category-image">
-                        <img src="../../images/featured-videos/3.jpg" class="img-responsive" alt="" >
-                        <div class="bg">&nbsp;</div>
-                        <h2 class="overlay-category">FASHION</h2>
-                        <div class="play-button"><a href="#"><img src="../../images/icons/video-icon.png" width="40" height="40" alt="" ></a></div>
-                    </div>
-                </div>
-                <div class="detail">
-                    <div class="caption"><a href="#">Pellentesque habitant morbi</a></div>
-                    <div class="info">
-                        <span class="date"><i class="fa fa-calendar-o"></i> 01/01/2015</span>                        
-                        <span class="comments pull-right"><i class="fa fa-comment-o"></i> 750</span>
-                        <span class="likes pull-right"><i class="fa fa-heart-o"></i> 500</span>
-                    </div>
-                </div>
-            </div>
-            <!-- SLIDE 3 ENDS -->
-        </div>
-    </div>
-    <!-- FEATURED VIDEOS ENDS -->
-    <!-- FEATURED AUTHORS STARTS -->
-    <div class="featured-authors">
-        <div class="row category-caption">
-            <div class="col-lg-12">
-                <h2 class="pull-left">FEATURED AUTHORS</h2>
-                <span class="pull-right"><a href="authors.html"><i class="fa fa-plus"></i></a></span>
-            </div>
-        </div>
-        <ul>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/2.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/5.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/6.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/7.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/3.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/1.jpg" width="70" height="70" alt="" ></a></li>
-            <li><a href="author-page.html"><img src="../../images/featured-authors/4.jpg" width="70" height="70" alt="" ></a></li>
-        </ul>
-        <div class="clearfix"></div>
-    </div>
-    <!-- FEATURED AUTHORS ENDS -->
-
 
 {% endblock %}
 
