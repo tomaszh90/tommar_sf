@@ -2,42 +2,43 @@
 
 namespace Tom\SiteBundle\Controller;
 
-use Tom\SiteBundle\Entity\Seo;
 use Symfony\Bundle\FrameworkBundle\Controller\Controller;
 use Symfony\Component\HttpFoundation\Request;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Template;
 use Sensio\Bundle\FrameworkExtraBundle\Configuration\Route;
 
 /**
- * @Route("/")
+ * @Route(
+ *       "/artykuly"
+ * )
  */
-class ArticleController extends Controller {
+class ArticlesController extends Controller {
 
     protected $itemsLimit = 7;
-
+    
     /**
      * @Route(
      *       "/{category}/{page}",
      *      defaults = {"page" = 1, "category" = NULL},
      *       name="tom_site_articles",
-     *      requirements = {"page" = "\d+", "category" = "\w+"}
+     *      requirements = {"page" = "\d+"}
      * )
      * 
      * @Template()
      */
     public function indexAction(Request $Request, $category, $page) {
-
+        
         $queryParams = array(
             'search' => $Request->query->get('search'),
             'tagSlug' => $Request->query->get('tagSlug'),
             'categorySlug' => $category,
             'status' => 'published',
-            'orderBy' => 'g.publishedDate',
+            'orderBy' => 'a.publishedDate',
             'orderDir' => 'DESC'
         );
         $pagination = $this->getPaginatedArticles($queryParams, $page);
 
-
+       
 
         return array(
             'pagination' => $pagination,
@@ -64,23 +65,23 @@ class ArticleController extends Controller {
         }
 
         return array(
-            'article' => $Article,
+            'item' => $Article,
             'pageTitle' => 'Aktualności'
         );
     }
-
+    
     protected function getPaginatedArticles(array $params = array(), $page) {
         $RepoArticle = $this->getDoctrine()->getRepository('TomSiteBundle:Article');
-
-        $qb = $RepoArticle->getArticlesList($params);
-
-        if (NULL == $qb) {
+        
+        $qb = $RepoArticle->getQueryBuilder($params);
+        
+        if(NULL == $qb) {
             $qb = array();
         }
-
+        
         $paginator = $this->get('knp_paginator');
         $pagination = $paginator->paginate($qb, $page, $this->itemsLimit);
-
+        
         return $pagination;
     }
 

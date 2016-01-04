@@ -32,10 +32,18 @@ body {
   overflow-x: hidden;
   overflow-y: auto;
 }
-.table .btn-group {
-    min-width: 90px;
-}
 /* Layout */
+.photo .action {
+    text-align: center;
+}
+.photo .action ul {
+    padding-left: 0;
+    list-style: none;
+}
+.photo .action li {
+    display: inline-block;
+    font-size: 18px;
+}
 .wrapper {
   min-height: 100%;
   position: static;
@@ -59,11 +67,18 @@ body {
 .layout-boxed {
   background: url('../img/boxed-bg.jpg') repeat fixed;
 }
-.offset-top-15 {
-    padding-top: 15px;
+.table .btn-group {
+    min-width: 90px;
 }
-.offset-bottom-15 {
-    padding-bottom: 15px;
+.btn-fixed {
+    position: fixed;
+    bottom: 80px;
+    right: 50px;
+    z-index: 9999;
+    font-size: 20px;
+  -moz-box-shadow:    0px 0px 15px 0px rgba(0, 0, 0, 0.25) !important;
+  -webkit-box-shadow: 0px 0px 15px 0px rgba(0, 0, 0, 0.25) !important;
+  box-shadow:         0px 0px 15px 0px rgba(0, 0, 0, 0.25) !important;
 }
 /*
  * Content Wrapper - contains the main content
@@ -1271,10 +1286,10 @@ a:focus {
   appearance: none;
 }
 .form-group.has-success label {
-  color: #00a65a;
+  color: #99C317;
 }
 .form-group.has-success .form-control {
-  border-color: #00a65a;
+  border-color: #99C317;
   box-shadow: none;
 }
 .form-group.has-warning label {
@@ -1412,7 +1427,7 @@ a:focus {
 }
 .progress-bar-green,
 .progress-bar-success {
-  background-color: #00a65a;
+  background-color: #99C317;
 }
 .progress-striped .progress-bar-green,
 .progress-striped .progress-bar-success {
@@ -1554,7 +1569,7 @@ a:focus {
   border-top-color: #f39c12;
 }
 .box.box-success {
-  border-top-color: #00a65a;
+  border-top-color: #99C317;
 }
 .box.box-default {
   border-top-color: #d2d6de;
@@ -1651,12 +1666,12 @@ a:focus {
   color: #ffffff;
 }
 .box.box-solid.box-success {
-  border: 1px solid #00a65a;
+  border: 1px solid #99C317;
 }
 .box.box-solid.box-success > .box-header {
   color: #ffffff;
-  background: #00a65a;
-  background-color: #00a65a;
+  background: #99C317;
+  background-color: #99C317;
 }
 .box.box-solid.box-success > .box-header a,
 .box.box-solid.box-success > .box-header .btn {
@@ -1928,7 +1943,7 @@ a:focus {
   border-left-color: #00c0ef;
 }
 .todo-list .success {
-  border-left-color: #00a65a;
+  border-left-color: #99C317;
 }
 .todo-list .primary {
   border-left-color: #3c8dbc;
@@ -1960,7 +1975,7 @@ a:focus {
   border-radius: 50%;
 }
 .chat .item > .online {
-  border: 2px solid #00a65a;
+  border: 2px solid #99C317;
 }
 .chat .item > .offline {
   border: 2px solid #dd4b39;
@@ -2242,13 +2257,13 @@ a:focus {
   background-color: #367fa9;
 }
 .btn-success {
-  background-color: #00a65a;
-  border-color: #008d4c;
+  background-color: #99C317;
+  border-color: #88B304;
 }
 .btn-success:hover,
 .btn-success:active,
 .btn-success.hover {
-  background-color: #008d4c;
+  background-color: #88B304;
 }
 .btn-info {
   background-color: #00c0ef;
@@ -2400,7 +2415,7 @@ a:focus {
   text-decoration: underline;
 }
 .alert-success {
-  border-color: #008d4c;
+  border-color: #88B304;
 }
 .alert-danger,
 .alert-error {
@@ -2883,13 +2898,13 @@ table.text-center th {
   border-left-color: #00c0ef;
 }
 .direct-chat-success .right > .direct-chat-text {
-  background: #00a65a;
-  border-color: #00a65a;
+  background: #99C317;
+  border-color: #99C317;
   color: #ffffff;
 }
 .direct-chat-success .right > .direct-chat-text:after,
 .direct-chat-success .right > .direct-chat-text:before {
-  border-left-color: #00a65a;
+  border-left-color: #99C317;
 }
 /*
  * Component: Users List
@@ -3195,11 +3210,11 @@ table.text-center th {
 }
 .login-logo a,
 .register-logo a {
-  color: #444;
+  color: #FFFFFF;
 }
 .login-page,
 .register-page {
-  background: #d2d6de;
+  background: #99C317;
 }
 .login-box,
 .register-box {
@@ -4255,7 +4270,7 @@ table.text-center th {
 .alert-success,
 .label-success,
 .modal-success .modal-body {
-  background-color: #00a65a !important;
+  background-color: #99C317 !important;
 }
 .bg-navy {
   background-color: #001f3f !important;
@@ -4314,7 +4329,7 @@ table.text-center th {
 .bg-green-active,
 .modal-success .modal-header,
 .modal-success .modal-footer {
-  background-color: #008d4c !important;
+  background-color: #88B304 !important;
 }
 .bg-navy-active {
   background-color: #001a35 !important;
@@ -4363,7 +4378,7 @@ table.text-center th {
   color: #3c8dbc !important;
 }
 .text-green {
-  color: #00a65a !important;
+  color: #99C317 !important;
 }
 .text-gray {
   color: #d2d6de !important;
@@ -4514,12 +4529,12 @@ table.text-center th {
   color: #fff;
 }
 .bg-green-gradient {
-  background: #00a65a !important;
-  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #00a65a), color-stop(1, #00ca6d)) !important;
-  background: -ms-linear-gradient(bottom, #00a65a, #00ca6d) !important;
-  background: -moz-linear-gradient(center bottom, #00a65a 0%, #00ca6d 100%) !important;
-  background: -o-linear-gradient(#00ca6d, #00a65a) !important;
-  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ca6d', endColorstr='#00a65a', GradientType=0) !important;
+  background: #99C317 !important;
+  background: -webkit-gradient(linear, left bottom, left top, color-stop(0, #99C317), color-stop(1, #00ca6d)) !important;
+  background: -ms-linear-gradient(bottom, #99C317, #00ca6d) !important;
+  background: -moz-linear-gradient(center bottom, #99C317 0%, #00ca6d 100%) !important;
+  background: -o-linear-gradient(#00ca6d, #99C317) !important;
+  filter: progid:DXImageTransform.Microsoft.gradient(startColorstr='#00ca6d', endColorstr='#99C317', GradientType=0) !important;
   color: #fff;
 }
 .bg-red-gradient {

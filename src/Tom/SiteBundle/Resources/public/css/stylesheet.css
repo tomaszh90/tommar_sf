@@ -879,6 +879,7 @@ article.article {
     padding-right: 2px;
 }
 .caption {
+    display: block;
     font-size: 20px;
     font-weight: 600;
     padding-top: 10px;
@@ -886,6 +887,7 @@ article.article {
     color: #2c2c2c;
 }
 .small-caption {
+    display: block;
     font-size: 20px;
     font-weight: 600;
     padding-top: 10px;

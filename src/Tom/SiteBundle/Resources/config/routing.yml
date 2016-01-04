@@ -4,6 +4,6 @@ tom_site_index:
     prefix: /
     
 tom_site_article:
-    resource: "@TomSiteBundle/Controller/ArticleController.php"
+    resource: "@TomSiteBundle/Controller/ArticlesController.php"
     type: annotation
     prefix: /

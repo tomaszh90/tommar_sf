@@ -31,8 +31,19 @@ class MenuType extends AbstractType {
                     'label' => 'Typ pozycji',
                     'choices' => array(
                         'tom_site_page' => 'Strona statyczna',
-                        'tom_site_articles' => 'Przegląd artykułów',
+                        
+                        'tom_site_articles' => 'Przegląd artykułów (wszystkich lub kategorii)',
                         'tom_site_article' => 'Pojedynczy artykuł',
+                        
+                        'tom_site_galleries' => 'Przegląd galerii zdjęć',
+                        'tom_site_gallery' => 'Pojedyncza galeria zdjęć',
+                        
+                        'tom_site_events' => 'Przegląd nadchodzących wydarzeń',
+                        'tom_site_event' => 'Pojedyncze wydarzenie',
+                        
+                        'user_accountSettings' => 'Panel użytkownika',
+                        
+                        'seperator' => 'Seperator',
                     ),
                     'attr' => array(
                         'onchange' => 'menuTypeParameter()'
@@ -47,9 +58,15 @@ class MenuType extends AbstractType {
                                 ->where('p.id != :id')
                                 ->setParameter('id', $MenuId);
                     },
-                    'empty_value' => '-- Brak --',
+                    'empty_value' => '-- Pozycja główna --',
                     'empty_data' => NULL,
                     'label' => 'Pozycja macierzysta'
+                ))
+                ->add('sort', 'integer', array(
+                    'label' => 'Kolejnosć',
+                    'attr' => array(
+                        'min' => '0',
+                    )
                 ))
                 ->add('publishedDate', 'datetime', array(
                     'label' => 'Data publikacji',
@@ -69,7 +86,7 @@ class MenuType extends AbstractType {
                 ->add('save', 'submit', array(
                     'label' => 'Zapisz',
                     'attr' => array(
-                        'class' => 'btn btn-success'
+                        'class' => 'btn btn-success btn-fixed'
         )));
     }
 

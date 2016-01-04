@@ -44,7 +44,7 @@ class MenuTypeDeleteType extends AbstractType {
             ->add('submit', 'submit', array(
                     'label' => 'Usuń',
                     'attr' => array(
-                        'class' => 'btn btn-danger'
+                        'class' => 'btn btn-danger btn-fixed'
                     ),
             ));
     }

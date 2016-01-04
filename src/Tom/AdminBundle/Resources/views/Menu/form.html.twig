@@ -16,6 +16,7 @@
     </section>
 
     <section class="content" ng-controller="menuController">
+        {% form_theme form 'bootstrap_3_layout.html.twig' %}
         {{ form_start(form, {'attr': {'novalidate': 'true'}}) }}
         <div class="row">
             <!-- left column -->
@@ -30,8 +31,6 @@
                         {{ form_row(form.route) }}
 
                         <div id="parameters" class="row">
-             {#               <label class="col-xs-3 col-sm-offset-2 col-md-offset-2">Parametr</label>
-                            <label class="col-xs-9 col-sm-6">Wartość</label>#}
 
                             <div id="paramGroups">
                                 {% for key, param in menu.routeParameters %}
@@ -84,6 +83,7 @@
                         {{ form_row(form.publishedDate) }}
                         {{ form_row(form.type) }}
                         {{ form_row(form.parent) }}
+                        {{ form_row(form.sort) }}
                     </div>
                 </div>
             </div>
@@ -100,7 +100,7 @@
 
     menuTypeParameter();
     function menuTypeParameter() {
-        if($('#menu_type_route').val() === 'tom_site_article' || $('#menu_type_route').val() === 'tom_site_page') {
+        if($('#menu_type_route').val() === 'tom_site_articles' || $('#menu_type_route').val() === 'tom_site_article' || $('#menu_type_route').val() === 'tom_site_page') {
             $('#parameters').show();
         } else {
             $('#parameters').hide();

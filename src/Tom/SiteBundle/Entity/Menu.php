@@ -74,6 +74,11 @@ class Menu {
     private $type;
     
     /**
+     * @ORM\Column(type="integer")
+     */
+    private $sort = 0;
+    
+    /**
      * @ORM\Column(name="create_date", type="datetime")
      */
     private $createDate;
@@ -351,5 +356,29 @@ class Menu {
     public function getParent()
     {
         return $this->parent;
+    }
+
+    /**
+     * Set sort
+     *
+     * @param integer $sort
+     *
+     * @return Menu
+     */
+    public function setSort($sort)
+    {
+        $this->sort = $sort;
+
+        return $this;
+    }
+
+    /**
+     * Get sort
+     *
+     * @return integer
+     */
+    public function getSort()
+    {
+        return $this->sort;
     }
 }
