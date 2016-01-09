@@ -18,6 +18,7 @@ class AppKernel extends Kernel
             new Sensio\Bundle\FrameworkExtraBundle\SensioFrameworkExtraBundle(),
             new Tom\SiteBundle\TomSiteBundle(),
             new Tom\AdminBundle\TomAdminBundle(),
+            new EWZ\Bundle\RecaptchaBundle\EWZRecaptchaBundle(),
             new Common\UserBundle\CommonUserBundle(),
 			new Knp\Bundle\PaginatorBundle\KnpPaginatorBundle(),
 			new Knp\Bundle\MenuBundle\KnpMenuBundle()

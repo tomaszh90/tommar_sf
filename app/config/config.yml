@@ -96,3 +96,9 @@ knp_menu:
     templating: false
     # the renderer to use, list is also available by default
     default_renderer: twig
+    
+    # klucze pod daną domene
+ewz_recaptcha:
+    public_key:   here_is_your_public_key
+    private_key:  here_is_your_private_key
+    locale_key:   kernel.default_locale

@@ -11,7 +11,16 @@
     {{parent()}}
 {% endblock %}
 
-
+{% block mainContent %}
+    <div class="col-lg-8">
+    {{ form_start(form, {'attr': {'novalidate': 'true'}}) }}
+                    {{ form_row(form.descriptionSugestion) }}
+                    {{ form_row(form.nameSugestion) }}
+                    {{ form_row(form.emailSugestion) }}
+                    {{ form_row(form.save) }}
+    {{ form_end(form) }}
+    </div>
+{% endblock %}
 {% block mainSidebarRight %}
     {{ parent() }}
     <!-- TABS STARTS -->
