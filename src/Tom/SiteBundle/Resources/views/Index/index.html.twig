@@ -687,5 +687,10 @@
 {% endblock %}
 
 {% block javascripts %}
+  <!--  <script>
+        $(window).scroll(function(){
+    $("#newsletter-block").css("top",Math.max(100,1850-$(this).scrollTop()));
+});
+        </script> -->
     {{parent()}}
 {% endblock %}
